@@ -97,7 +97,7 @@
       "title": "Milky Way Calendar",
       "summary": "A 12-month calendar of good Milky Way core nights for any location (moon phase + core altitude).",
       "theme": "Sky",
-      "stack": "web",
+      "stack": "ios",
       "reuses": [
         "AstroScout"
       ],

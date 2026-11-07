@@ -59,6 +59,20 @@ async function gh(path, opts = {}) {
   }
   return res.json();
 }
+// repo.permissions reflects the *account*, not the token, so a read-only token passes it.
+// Probe with a PUT whose sha can never match: a token that may write gets 409/422 (nothing is written),
+// a token that may not gets 403/404.
+async function tokenCanWrite() {
+  try {
+    await gh(`/repos/${REPO}/contents/${CONFIG}`, {
+      method: "PUT",
+      body: JSON.stringify({ message: "write check", sha: "0".repeat(40), branch: "main", content: b64encode("{}\n") }),
+    });
+    return true;
+  } catch (e) { return !(e.status === 403 || e.status === 404); }
+}
+const TOKEN_HELP = "This token can read the repo but not save to it. Create a new fine-grained token with Repository access → Only select repositories → ship100, and Permissions → Contents → Read and write.";
+
 async function readFile(path) {
   const r = await gh(`/repos/${REPO}/contents/${path}?ref=main&t=${Date.now()}`, { cache: "no-store" });
   return { sha: r.sha, json: JSON.parse(b64decode(r.content)) };
@@ -77,7 +91,8 @@ async function load() {
     try {
       const me = await gh("/user");
       const repo = await gh(`/repos/${REPO}`);
-      S.login = me.login; S.canEdit = !!repo.permissions?.push;
+      S.login = me.login; S.canEdit = !!repo.permissions?.push && (await tokenCanWrite());
+      if (!S.canEdit) toast(TOKEN_HELP, 12000);
       [projects, config] = await Promise.all([readFile(PROJECTS), readFile(CONFIG)]);
       projects = projects.json; config = config.json;
     } catch (e) {
@@ -145,7 +160,8 @@ async function save() {
     S.dirty.clear(); S.deleted.clear(); S.configDirty = false; saveDraft();
     toast("Saved. The public page updates in about a minute.");
   } catch (e) {
-    toast(`Save failed: ${e.message}`);
+    const help = e.status === 403 || e.status === 404 ? TOKEN_HELP : e.status === 401 ? "Your token expired or was revoked. Sign out and sign in again." : e.message;
+    toast(`Save failed. ${help} Your changes are kept in this browser.`, 12000);
   } finally { btn.disabled = false; render(); }
 }
 async function saveOnce() {
@@ -379,6 +395,7 @@ async function signIn(e) {
   try {
     const me = await gh("/user"); const repo = await gh(`/repos/${REPO}`);
     if (!repo.permissions?.push) throw new Error(`${me.login} doesn't have write access to ${REPO}.`);
+    if (!(await tokenCanWrite())) throw new Error(TOKEN_HELP);
     store.set(LS_TOKEN, token); $("#authDlg").close(); $("#authForm").reset();
     toast(`Signed in as ${me.login}.`); await load();
   } catch (ex) {
@@ -393,7 +410,7 @@ function signOut() {
 
 // ---------- Misc ----------
 let toastTimer;
-function toast(msg) { const t = $("#toast"); t.textContent = msg; t.hidden = false; clearTimeout(toastTimer); toastTimer = setTimeout(() => (t.hidden = true), 4000); }
+function toast(msg, ms = 4000) { const t = $("#toast"); t.textContent = msg; t.hidden = false; clearTimeout(toastTimer); toastTimer = setTimeout(() => (t.hidden = true), ms); }
 function exportJson() {
   const blob = new Blob([JSON.stringify({ version: 1, items: S.items.slice().sort((a, b) => a.order - b.order) }, null, 2)], { type: "application/json" });
   const a = Object.assign(document.createElement("a"), { href: URL.createObjectURL(blob), download: "ship100-projects.json" });

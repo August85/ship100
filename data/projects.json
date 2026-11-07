@@ -23,8 +23,31 @@
       "createdAt": "2026-11-06"
     },
     {
-      "id": "p001",
+      "id": "p004",
       "order": 2,
+      "title": "Milky Way Calendar",
+      "summary": "A 12-month calendar of good Milky Way core nights for any location (moon phase + core altitude).",
+      "theme": "Sky",
+      "stack": "ios",
+      "reuses": [
+        "AstroScout"
+      ],
+      "status": "idea",
+      "effort": "M",
+      "notes": "",
+      "slug": "milky-way-calendar",
+      "links": {
+        "live": "",
+        "code": "",
+        "post": ""
+      },
+      "day": null,
+      "shippedAt": null,
+      "createdAt": "2026-11-06"
+    },
+    {
+      "id": "p001",
+      "order": 3,
       "title": "ISS Tonight",
       "summary": "A web page that shows the next visible ISS pass for your location, with a \"remind me\" .ics file. SGP4 code comes from SatellitePaglu.",
       "theme": "Sky",
@@ -47,7 +70,7 @@
     },
     {
       "id": "p002",
-      "order": 3,
+      "order": 4,
       "title": "Starlink Train Alert",
       "summary": "Enter a ZIP code and get an email the evening a fresh Starlink train is visible.",
       "theme": "Sky",
@@ -70,7 +93,7 @@
     },
     {
       "id": "p003",
-      "order": 4,
+      "order": 5,
       "title": "Dark Sky Finder",
       "summary": "A light-pollution map with the nearest Bortle 1–3 sites within an hour's drive. Uses the AstroScout grid.",
       "theme": "Sky",
@@ -82,29 +105,6 @@
       "effort": "M",
       "notes": "",
       "slug": "dark-sky-finder",
-      "links": {
-        "live": "",
-        "code": "",
-        "post": ""
-      },
-      "day": null,
-      "shippedAt": null,
-      "createdAt": "2026-11-06"
-    },
-    {
-      "id": "p004",
-      "order": 5,
-      "title": "Milky Way Calendar",
-      "summary": "A 12-month calendar of good Milky Way core nights for any location (moon phase + core altitude).",
-      "theme": "Sky",
-      "stack": "ios",
-      "reuses": [
-        "AstroScout"
-      ],
-      "status": "idea",
-      "effort": "M",
-      "notes": "",
-      "slug": "milky-way-calendar",
       "links": {
         "live": "",
         "code": "",

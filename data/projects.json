@@ -78,7 +78,7 @@
       "reuses": [
         "SatellitePaglu"
       ],
-      "status": "idea",
+      "status": "approved",
       "effort": "M",
       "notes": "",
       "slug": "starlink-train-alert",
@@ -101,7 +101,7 @@
       "reuses": [
         "AstroScout"
       ],
-      "status": "idea",
+      "status": "approved",
       "effort": "M",
       "notes": "",
       "slug": "dark-sky-finder",
@@ -1084,7 +1084,7 @@
       "reuses": [
         "WealthPilot"
       ],
-      "status": "idea",
+      "status": "skipped",
       "effort": "M",
       "notes": "",
       "slug": "rent-vs-buy-bay-area-vs-pune",

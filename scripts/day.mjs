@@ -102,6 +102,36 @@ function scaffold(i) {
   return dirFor(i);
 }
 
+// Every native app needs its own icon before it ships: iOS shows a blank tile without one,
+// and Garmin would show the template's placeholder.
+function pngInfo(file) {
+  const b = fs.readFileSync(file);
+  if (b.length < 26 || b.toString("ascii", 1, 4) !== "PNG") return null;
+  return { width: b.readUInt32BE(16), height: b.readUInt32BE(20), alpha: b[25] === 4 || b[25] === 6 };
+}
+function checkIcon(i, dir) {
+  const app = path.join(ROOT, dir, "app");
+  if (i.stack !== "web" && !fs.existsSync(path.join(ROOT, dir, "icon.png"))) return `landing page icon missing (${dir}/icon.png)`;
+  if (i.stack === "ios") {
+    const set = path.join(app, "App/Assets.xcassets/AppIcon.appiconset");
+    const png = path.join(set, "icon-1024.png");
+    if (!fs.existsSync(png) || !fs.existsSync(path.join(set, "Contents.json"))) return `iOS app icon missing (${path.relative(ROOT, png)})`;
+    const info = pngInfo(png);
+    if (!info || info.width !== 1024 || info.height !== 1024) return "iOS app icon must be a 1024×1024 PNG";
+    if (info.alpha) return "iOS app icon must not have transparency";
+    const yml = path.join(app, "project.yml");
+    if (fs.existsSync(yml) && !/ASSETCATALOG_COMPILER_APPICON_NAME:\s*AppIcon/.test(fs.readFileSync(yml, "utf8")))
+      return "project.yml does not set ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon";
+  }
+  if (i.stack === "garmin") {
+    const icon = path.join(app, "resources/drawables/launcher_icon.png");
+    const tpl = path.join(ROOT, "templates/garmin/resources/drawables/launcher_icon.png");
+    if (!fs.existsSync(icon)) return "Garmin launcher icon missing";
+    if (fs.readFileSync(icon).equals(fs.readFileSync(tpl))) return "Garmin launcher icon is still the template placeholder";
+  }
+  return null;
+}
+
 // ---------- Commands ----------
 const [cmd, id, ...rest] = process.argv.slice(2);
 if (cmd === "status" || !cmd) out(status());
@@ -120,6 +150,8 @@ else if (cmd === "start") {
   if (i.status !== "building") die(`item is ${i.status}, not building`);
   const dir = dirFor(i);
   if (!fs.existsSync(path.join(ROOT, dir, "index.html"))) die(`${dir}/index.html is missing`);
+  const iconProblem = checkIcon(i, dir);
+  if (iconProblem) die(`${iconProblem}. Make one with scripts/make-icon.swift (RUNNER.md, step 3).`);
   i.status = "shipped"; i.shippedAt = new Date().toISOString();
   i.links = { ...i.links, live: `${PAGES}${dir}/`, code: `${CODE}${dir}` };
   writeJson(P, db);

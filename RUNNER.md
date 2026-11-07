@@ -47,6 +47,15 @@ Rules for every product:
 - Mobile-first, works at 375px wide, light and dark mode, keyboard accessible, no console errors.
 - Keep the template's header (back link to Ship 100 + "Day N / 100") and footer.
 - iOS: bundle id `com.ak.ship100.<id>` (already in the template). Build for the simulator with `CODE_SIGNING_ALLOWED=NO`.
+- **Every native app gets its own icon. No blank or placeholder icons.** `day.mjs ship` refuses without one.
+  Design it for the product: background colours that suit it, and an SF Symbol (or the built-in `--stars` /
+  `--meteors` art) that says what it does. Look at the PNG before using it.
+  - iOS (1024×1024, no transparency; `project.yml` already sets `ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon`):
+    `swift scripts/make-icon.swift --out days/NNN-slug/app/App/Assets.xcassets/AppIcon.appiconset --symbol <name> --from <hex> --to <hex>`
+  - Garmin (70×70, replaces the template's placeholder):
+    `swift scripts/make-icon.swift --out days/NNN-slug/app/resources/drawables/launcher_icon.png --size 70 --round --symbol <name> --from <hex> --to <hex>`
+  - Show the same icon at the top of the landing page and use it as the favicon:
+    `swift scripts/make-icon.swift --out days/NNN-slug/icon.png --size 256 --round ...` (same options).
 - Garmin: build with the SDK in `~/Library/Application Support/Garmin/ConnectIQ/Sdks/` and the key at
   `/Users/august/code/StarterFace/developer_key` (pass it with `-y`; **never copy the key into this repo**).
   Put the built `.prg` in `days/NNN-slug/download/` so the landing page can link to it.

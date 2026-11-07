@@ -40,5 +40,4 @@ Run on any iPhone simulator or device. Tests: `xcodebuild test -scheme MeteorSho
 ## Next
 - Year-specific peak times from the IMO calendar instead of typical dates.
 - Home-screen widget with the countdown.
-- An app icon (it uses the blank placeholder for now).
 - Pull in AstroScout's light-pollution grid to adjust the rate for your actual sky.

@@ -9,7 +9,7 @@
       "theme": "Sky",
       "stack": "ios",
       "reuses": [],
-      "status": "approved",
+      "status": "building",
       "effort": "M",
       "notes": "",
       "slug": "meteor-shower-countdown",
@@ -18,7 +18,7 @@
         "code": "",
         "post": ""
       },
-      "day": null,
+      "day": 1,
       "shippedAt": null,
       "createdAt": "2026-11-06"
     },

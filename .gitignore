@@ -1,0 +1,16 @@
+.DS_Store
+# Native build output (built .prg files for download go in days/*/download/)
+days/*/app/bin/
+days/*/app/*.xcodeproj/
+days/*/app/build/
+DerivedData/
+__pycache__/
+*.pyc
+# Signing material: never commit
+developer_key
+*.der
+*.pem
+*.p8
+*.p12
+.env*
+.claude/settings.local.json

@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<iq:manifest version="3" xmlns:iq="http://www.garmin.com/xml/connectiq">
+    <iq:application id="{{APP_ID}}" type="watchface" name="@Strings.AppName" entry="Ship100App" launcherIcon="@Drawables.LauncherIcon" minApiLevel="4.2.0">
+        <iq:products>
+            <!-- AMOLED 43mm (416x416) -->
+            <iq:product id="fenix843mm"/>
+            <!-- AMOLED 47mm and 51mm (454x454) -->
+            <iq:product id="fenix847mm"/>
+            <!-- Solar MIP 47mm (260x260) and 51mm (280x280) -->
+            <iq:product id="fenix8solar47mm"/>
+            <iq:product id="fenix8solar51mm"/>
+        </iq:products>
+        <iq:permissions/>
+        <iq:languages>
+            <iq:language>eng</iq:language>
+        </iq:languages>
+        <iq:barrels/>
+    </iq:application>
+</iq:manifest>

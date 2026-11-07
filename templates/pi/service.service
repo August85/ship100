@@ -1,0 +1,12 @@
+[Unit]
+Description={{TITLE}} (Ship 100 day {{DAY}})
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+ExecStart=/usr/bin/python3 /home/pi/ship100/{{DIR}}/main.py
+Restart=on-failure
+User=pi
+
+[Install]
+WantedBy=multi-user.target

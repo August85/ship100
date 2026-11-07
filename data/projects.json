@@ -1,0 +1,2186 @@
+{
+  "version": 1,
+  "items": [
+    {
+      "id": "p001",
+      "order": 1,
+      "title": "ISS Tonight",
+      "summary": "A web page that shows the next visible ISS pass for your location, with a \"remind me\" .ics file. SGP4 code comes from SatellitePaglu.",
+      "theme": "Sky",
+      "stack": "web",
+      "reuses": [
+        "SatellitePaglu"
+      ],
+      "status": "idea",
+      "effort": "M",
+      "notes": "",
+      "slug": "iss-tonight",
+      "links": {
+        "live": "",
+        "code": "",
+        "post": ""
+      },
+      "day": null,
+      "shippedAt": null,
+      "createdAt": "2026-11-06"
+    },
+    {
+      "id": "p002",
+      "order": 2,
+      "title": "Starlink Train Alert",
+      "summary": "Enter a ZIP code and get an email the evening a fresh Starlink train is visible.",
+      "theme": "Sky",
+      "stack": "web",
+      "reuses": [
+        "SatellitePaglu"
+      ],
+      "status": "idea",
+      "effort": "M",
+      "notes": "",
+      "slug": "starlink-train-alert",
+      "links": {
+        "live": "",
+        "code": "",
+        "post": ""
+      },
+      "day": null,
+      "shippedAt": null,
+      "createdAt": "2026-11-06"
+    },
+    {
+      "id": "p003",
+      "order": 3,
+      "title": "Dark Sky Finder",
+      "summary": "A light-pollution map with the nearest Bortle 1–3 sites within an hour's drive. Uses the AstroScout grid.",
+      "theme": "Sky",
+      "stack": "web",
+      "reuses": [
+        "AstroScout"
+      ],
+      "status": "idea",
+      "effort": "M",
+      "notes": "",
+      "slug": "dark-sky-finder",
+      "links": {
+        "live": "",
+        "code": "",
+        "post": ""
+      },
+      "day": null,
+      "shippedAt": null,
+      "createdAt": "2026-11-06"
+    },
+    {
+      "id": "p004",
+      "order": 4,
+      "title": "Milky Way Calendar",
+      "summary": "A 12-month calendar of good Milky Way core nights for any location (moon phase + core altitude).",
+      "theme": "Sky",
+      "stack": "web",
+      "reuses": [
+        "AstroScout"
+      ],
+      "status": "idea",
+      "effort": "M",
+      "notes": "",
+      "slug": "milky-way-calendar",
+      "links": {
+        "live": "",
+        "code": "",
+        "post": ""
+      },
+      "day": null,
+      "shippedAt": null,
+      "createdAt": "2026-11-06"
+    },
+    {
+      "id": "p005",
+      "order": 5,
+      "title": "Moon Shot Planner",
+      "summary": "Pick a landmark, and it tells you when the moon rises behind it (date, time, where to stand).",
+      "theme": "Sky",
+      "stack": "web",
+      "reuses": [],
+      "status": "idea",
+      "effort": "M",
+      "notes": "",
+      "slug": "moon-shot-planner",
+      "links": {
+        "live": "",
+        "code": "",
+        "post": ""
+      },
+      "day": null,
+      "shippedAt": null,
+      "createdAt": "2026-11-06"
+    },
+    {
+      "id": "p006",
+      "order": 6,
+      "title": "Aurora Odds",
+      "summary": "Kp forecast + cloud cover combined into a single \"go / don't go\" for tonight.",
+      "theme": "Sky",
+      "stack": "web",
+      "reuses": [],
+      "status": "idea",
+      "effort": "M",
+      "notes": "",
+      "slug": "aurora-odds",
+      "links": {
+        "live": "",
+        "code": "",
+        "post": ""
+      },
+      "day": null,
+      "shippedAt": null,
+      "createdAt": "2026-11-06"
+    },
+    {
+      "id": "p007",
+      "order": 7,
+      "title": "Meteor Shower Countdown",
+      "summary": "The next shower, its peak hour and the radiant direction for your sky.",
+      "theme": "Sky",
+      "stack": "web",
+      "reuses": [],
+      "status": "idea",
+      "effort": "M",
+      "notes": "",
+      "slug": "meteor-shower-countdown",
+      "links": {
+        "live": "",
+        "code": "",
+        "post": ""
+      },
+      "day": null,
+      "shippedAt": null,
+      "createdAt": "2026-11-06"
+    },
+    {
+      "id": "p008",
+      "order": 8,
+      "title": "CW Daily Word",
+      "summary": "One Morse word a day as audio, a Wordle-style guessing game you can share.",
+      "theme": "Sky",
+      "stack": "web",
+      "reuses": [
+        "MorseCode"
+      ],
+      "status": "idea",
+      "effort": "M",
+      "notes": "",
+      "slug": "cw-daily-word",
+      "links": {
+        "live": "",
+        "code": "",
+        "post": ""
+      },
+      "day": null,
+      "shippedAt": null,
+      "createdAt": "2026-11-06"
+    },
+    {
+      "id": "p009",
+      "order": 9,
+      "title": "Morse Keyboard Extension",
+      "summary": "An iOS keyboard where you type in dots and dashes.",
+      "theme": "Sky",
+      "stack": "ios",
+      "reuses": [
+        "MorseCode"
+      ],
+      "status": "idea",
+      "effort": "L",
+      "notes": "",
+      "slug": "morse-keyboard-extension",
+      "links": {
+        "live": "",
+        "code": "",
+        "post": ""
+      },
+      "day": null,
+      "shippedAt": null,
+      "createdAt": "2026-11-06"
+    },
+    {
+      "id": "p010",
+      "order": 10,
+      "title": "Callsign Lookup Card",
+      "summary": "Enter a ham callsign and get a shareable QSL-style card.",
+      "theme": "Sky",
+      "stack": "web",
+      "reuses": [],
+      "status": "idea",
+      "effort": "M",
+      "notes": "",
+      "slug": "callsign-lookup-card",
+      "links": {
+        "live": "",
+        "code": "",
+        "post": ""
+      },
+      "day": null,
+      "shippedAt": null,
+      "createdAt": "2026-11-06"
+    },
+    {
+      "id": "p011",
+      "order": 11,
+      "title": "Sat Pass Widget",
+      "summary": "An iOS home-screen widget showing the next bright satellite overhead.",
+      "theme": "Sky",
+      "stack": "ios",
+      "reuses": [
+        "SatellitePaglu"
+      ],
+      "status": "idea",
+      "effort": "L",
+      "notes": "",
+      "slug": "sat-pass-widget",
+      "links": {
+        "live": "",
+        "code": "",
+        "post": ""
+      },
+      "day": null,
+      "shippedAt": null,
+      "createdAt": "2026-11-06"
+    },
+    {
+      "id": "p012",
+      "order": 12,
+      "title": "Rocket Launch Feed",
+      "summary": "Upcoming launches you can see from California, with viewing spots.",
+      "theme": "Sky",
+      "stack": "web",
+      "reuses": [],
+      "status": "idea",
+      "effort": "M",
+      "notes": "",
+      "slug": "rocket-launch-feed",
+      "links": {
+        "live": "",
+        "code": "",
+        "post": ""
+      },
+      "day": null,
+      "shippedAt": null,
+      "createdAt": "2026-11-06"
+    },
+    {
+      "id": "p013",
+      "order": 13,
+      "title": "Glucose Share Page",
+      "summary": "A private web link that shows Ma's live glucose to family, built on the Ma Sugar feed.",
+      "theme": "Health and family",
+      "stack": "web",
+      "reuses": [
+        "Ma Sugar"
+      ],
+      "status": "idea",
+      "effort": "M",
+      "notes": "Health data: never publish real readings. Ship with demo data; real feed stays local/private.",
+      "slug": "glucose-share-page",
+      "links": {
+        "live": "",
+        "code": "",
+        "post": ""
+      },
+      "day": null,
+      "shippedAt": null,
+      "createdAt": "2026-11-06"
+    },
+    {
+      "id": "p014",
+      "order": 14,
+      "title": "Glucose → Garmin",
+      "summary": "A watch-face field that shows the latest Libre reading (merges Ma Sugar and StarterFace).",
+      "theme": "Health and family",
+      "stack": "garmin",
+      "reuses": [
+        "Ma Sugar",
+        "StarterFace"
+      ],
+      "status": "idea",
+      "effort": "L",
+      "notes": "",
+      "slug": "glucose-garmin",
+      "links": {
+        "live": "",
+        "code": "",
+        "post": ""
+      },
+      "day": null,
+      "shippedAt": null,
+      "createdAt": "2026-11-06"
+    },
+    {
+      "id": "p015",
+      "order": 15,
+      "title": "Food Spike Log",
+      "summary": "Snap a meal photo, and 2 hours later it records the glucose rise next to it.",
+      "theme": "Health and family",
+      "stack": "web",
+      "reuses": [
+        "Ma Sugar"
+      ],
+      "status": "idea",
+      "effort": "M",
+      "notes": "Health data: never publish real readings. Ship with demo data; real feed stays local/private.",
+      "slug": "food-spike-log",
+      "links": {
+        "live": "",
+        "code": "",
+        "post": ""
+      },
+      "day": null,
+      "shippedAt": null,
+      "createdAt": "2026-11-06"
+    },
+    {
+      "id": "p016",
+      "order": 16,
+      "title": "Indian Food Glycemic Guide",
+      "summary": "A searchable list of glycemic load for 300 Indian dishes (roti, poha, idli…).",
+      "theme": "Health and family",
+      "stack": "web",
+      "reuses": [],
+      "status": "idea",
+      "effort": "M",
+      "notes": "",
+      "slug": "indian-food-glycemic-guide",
+      "links": {
+        "live": "",
+        "code": "",
+        "post": ""
+      },
+      "day": null,
+      "shippedAt": null,
+      "createdAt": "2026-11-06"
+    },
+    {
+      "id": "p017",
+      "order": 17,
+      "title": "Medicine Reminder for Parents",
+      "summary": "A big-text, Hindi-first pill reminder that caregivers can see too.",
+      "theme": "Health and family",
+      "stack": "web",
+      "reuses": [],
+      "status": "idea",
+      "effort": "M",
+      "notes": "",
+      "slug": "medicine-reminder-for-parents",
+      "links": {
+        "live": "",
+        "code": "",
+        "post": ""
+      },
+      "day": null,
+      "shippedAt": null,
+      "createdAt": "2026-11-06"
+    },
+    {
+      "id": "p018",
+      "order": 18,
+      "title": "Parent Check-in",
+      "summary": "One tap \"I'm OK\" each day; family gets alerted if it's missed.",
+      "theme": "Health and family",
+      "stack": "web",
+      "reuses": [],
+      "status": "idea",
+      "effort": "M",
+      "notes": "",
+      "slug": "parent-check-in",
+      "links": {
+        "live": "",
+        "code": "",
+        "post": ""
+      },
+      "day": null,
+      "shippedAt": null,
+      "createdAt": "2026-11-06"
+    },
+    {
+      "id": "p019",
+      "order": 19,
+      "title": "Walk Streak",
+      "summary": "A walk counter tied to your YouTube walk playlists, with a weekly summary.",
+      "theme": "Health and family",
+      "stack": "web",
+      "reuses": [
+        "YoutubeAutoPlaylist"
+      ],
+      "status": "idea",
+      "effort": "M",
+      "notes": "",
+      "slug": "walk-streak",
+      "links": {
+        "live": "",
+        "code": "",
+        "post": ""
+      },
+      "day": null,
+      "shippedAt": null,
+      "createdAt": "2026-11-06"
+    },
+    {
+      "id": "p020",
+      "order": 20,
+      "title": "Breathing Pacer for Garmin",
+      "summary": "A simple pranayama / box-breathing timer data field.",
+      "theme": "Health and family",
+      "stack": "garmin",
+      "reuses": [
+        "StarterFace"
+      ],
+      "status": "idea",
+      "effort": "L",
+      "notes": "",
+      "slug": "breathing-pacer-for-garmin",
+      "links": {
+        "live": "",
+        "code": "",
+        "post": ""
+      },
+      "day": null,
+      "shippedAt": null,
+      "createdAt": "2026-11-06"
+    },
+    {
+      "id": "p021",
+      "order": 21,
+      "title": "Sleep vs. Screen Time",
+      "summary": "A one-page chart joining Apple Health sleep with Screen Time.",
+      "theme": "Health and family",
+      "stack": "web",
+      "reuses": [],
+      "status": "idea",
+      "effort": "M",
+      "notes": "",
+      "slug": "sleep-vs-screen-time",
+      "links": {
+        "live": "",
+        "code": "",
+        "post": ""
+      },
+      "day": null,
+      "shippedAt": null,
+      "createdAt": "2026-11-06"
+    },
+    {
+      "id": "p022",
+      "order": 22,
+      "title": "Yoga Nidra Player",
+      "summary": "Guided sessions in Hindi with a sleep timer.",
+      "theme": "Health and family",
+      "stack": "web",
+      "reuses": [],
+      "status": "idea",
+      "effort": "M",
+      "notes": "",
+      "slug": "yoga-nidra-player",
+      "links": {
+        "live": "",
+        "code": "",
+        "post": ""
+      },
+      "day": null,
+      "shippedAt": null,
+      "createdAt": "2026-11-06"
+    },
+    {
+      "id": "p023",
+      "order": 23,
+      "title": "Gita Verse of the Day",
+      "summary": "A web page + RSS + email from your 121-verse bank (Hindi + English).",
+      "theme": "Dharma",
+      "stack": "web",
+      "reuses": [
+        "Instagram-Philosophy"
+      ],
+      "status": "idea",
+      "effort": "M",
+      "notes": "",
+      "slug": "gita-verse-of-the-day",
+      "links": {
+        "live": "",
+        "code": "",
+        "post": ""
+      },
+      "day": null,
+      "shippedAt": null,
+      "createdAt": "2026-11-06"
+    },
+    {
+      "id": "p024",
+      "order": 24,
+      "title": "Gita Widget",
+      "summary": "An iOS widget with today's verse.",
+      "theme": "Dharma",
+      "stack": "ios",
+      "reuses": [
+        "Instagram-Philosophy"
+      ],
+      "status": "idea",
+      "effort": "L",
+      "notes": "",
+      "slug": "gita-widget",
+      "links": {
+        "live": "",
+        "code": "",
+        "post": ""
+      },
+      "day": null,
+      "shippedAt": null,
+      "createdAt": "2026-11-06"
+    },
+    {
+      "id": "p025",
+      "order": 25,
+      "title": "Gita for Garmin",
+      "summary": "Today's verse on your watch face, in the style of the Gayatri face.",
+      "theme": "Dharma",
+      "stack": "garmin",
+      "reuses": [
+        "Instagram-Philosophy",
+        "StarterFace"
+      ],
+      "status": "idea",
+      "effort": "L",
+      "notes": "",
+      "slug": "gita-for-garmin",
+      "links": {
+        "live": "",
+        "code": "",
+        "post": ""
+      },
+      "day": null,
+      "shippedAt": null,
+      "createdAt": "2026-11-06"
+    },
+    {
+      "id": "p026",
+      "order": 26,
+      "title": "Ask the Gita",
+      "summary": "Ask a life question, get answered with relevant verses (RAG over the Gita, verse citations only).",
+      "theme": "Dharma",
+      "stack": "web",
+      "reuses": [],
+      "status": "idea",
+      "effort": "M",
+      "notes": "",
+      "slug": "ask-the-gita",
+      "links": {
+        "live": "",
+        "code": "",
+        "post": ""
+      },
+      "day": null,
+      "shippedAt": null,
+      "createdAt": "2026-11-06"
+    },
+    {
+      "id": "p027",
+      "order": 27,
+      "title": "Panchang Today",
+      "summary": "Tithi, nakshatra, rahu kaal and sunrise for your city, clean and ad-free.",
+      "theme": "Dharma",
+      "stack": "web",
+      "reuses": [],
+      "status": "idea",
+      "effort": "M",
+      "notes": "",
+      "slug": "panchang-today",
+      "links": {
+        "live": "",
+        "code": "",
+        "post": ""
+      },
+      "day": null,
+      "shippedAt": null,
+      "createdAt": "2026-11-06"
+    },
+    {
+      "id": "p028",
+      "order": 28,
+      "title": "Festival Calendar for NRIs",
+      "summary": "Indian festivals in Pacific Time, with dates exportable to Google Calendar.",
+      "theme": "Dharma",
+      "stack": "web",
+      "reuses": [],
+      "status": "idea",
+      "effort": "M",
+      "notes": "",
+      "slug": "festival-calendar-for-nris",
+      "links": {
+        "live": "",
+        "code": "",
+        "post": ""
+      },
+      "day": null,
+      "shippedAt": null,
+      "createdAt": "2026-11-06"
+    },
+    {
+      "id": "p029",
+      "order": 29,
+      "title": "Bal Dharma Story Cards",
+      "summary": "Printable story cards for kids from BalDharmaForKids.",
+      "theme": "Dharma",
+      "stack": "web",
+      "reuses": [
+        "BalDharmaForKids"
+      ],
+      "status": "idea",
+      "effort": "M",
+      "notes": "",
+      "slug": "bal-dharma-story-cards",
+      "links": {
+        "live": "",
+        "code": "",
+        "post": ""
+      },
+      "day": null,
+      "shippedAt": null,
+      "createdAt": "2026-11-06"
+    },
+    {
+      "id": "p030",
+      "order": 30,
+      "title": "Shloka Memorizer",
+      "summary": "One line at a time with audio and spaced repetition, for kids.",
+      "theme": "Dharma",
+      "stack": "web",
+      "reuses": [],
+      "status": "idea",
+      "effort": "M",
+      "notes": "",
+      "slug": "shloka-memorizer",
+      "links": {
+        "live": "",
+        "code": "",
+        "post": ""
+      },
+      "day": null,
+      "shippedAt": null,
+      "createdAt": "2026-11-06"
+    },
+    {
+      "id": "p031",
+      "order": 31,
+      "title": "Hindi Reading for Kids",
+      "summary": "Tap a word to hear it; simple stories at levels 1–5.",
+      "theme": "Dharma",
+      "stack": "web",
+      "reuses": [],
+      "status": "idea",
+      "effort": "M",
+      "notes": "",
+      "slug": "hindi-reading-for-kids",
+      "links": {
+        "live": "",
+        "code": "",
+        "post": ""
+      },
+      "day": null,
+      "shippedAt": null,
+      "createdAt": "2026-11-06"
+    },
+    {
+      "id": "p032",
+      "order": 32,
+      "title": "Mantra Counter",
+      "summary": "A digital japa mala with haptics and daily count history (iPhone + Garmin).",
+      "theme": "Dharma",
+      "stack": "garmin",
+      "reuses": [],
+      "status": "idea",
+      "effort": "L",
+      "notes": "",
+      "slug": "mantra-counter",
+      "links": {
+        "live": "",
+        "code": "",
+        "post": ""
+      },
+      "day": null,
+      "shippedAt": null,
+      "createdAt": "2026-11-06"
+    },
+    {
+      "id": "p033",
+      "order": 33,
+      "title": "Sanskrit Name Finder",
+      "summary": "Search baby names by meaning, with the source text.",
+      "theme": "Dharma",
+      "stack": "web",
+      "reuses": [],
+      "status": "idea",
+      "effort": "M",
+      "notes": "",
+      "slug": "sanskrit-name-finder",
+      "links": {
+        "live": "",
+        "code": "",
+        "post": ""
+      },
+      "day": null,
+      "shippedAt": null,
+      "createdAt": "2026-11-06"
+    },
+    {
+      "id": "p034",
+      "order": 34,
+      "title": "Reel Recipe Maker",
+      "summary": "Open your Instagram-Philosophy reel generator as a web tool anyone can use.",
+      "theme": "Dharma",
+      "stack": "web",
+      "reuses": [
+        "Instagram-Philosophy"
+      ],
+      "status": "idea",
+      "effort": "M",
+      "notes": "",
+      "slug": "reel-recipe-maker",
+      "links": {
+        "live": "",
+        "code": "",
+        "post": ""
+      },
+      "day": null,
+      "shippedAt": null,
+      "createdAt": "2026-11-06"
+    },
+    {
+      "id": "p035",
+      "order": 35,
+      "title": "Star Chart for Kids",
+      "summary": "A chore + reward star chart parents can print.",
+      "theme": "Kids and learning",
+      "stack": "web",
+      "reuses": [
+        "TinyStarClub.com"
+      ],
+      "status": "idea",
+      "effort": "M",
+      "notes": "",
+      "slug": "star-chart-for-kids",
+      "links": {
+        "live": "",
+        "code": "",
+        "post": ""
+      },
+      "day": null,
+      "shippedAt": null,
+      "createdAt": "2026-11-06"
+    },
+    {
+      "id": "p036",
+      "order": 36,
+      "title": "Bedtime Constellation Story",
+      "summary": "Tonight's visible constellation with a short myth to read aloud.",
+      "theme": "Kids and learning",
+      "stack": "web",
+      "reuses": [],
+      "status": "idea",
+      "effort": "M",
+      "notes": "",
+      "slug": "bedtime-constellation-story",
+      "links": {
+        "live": "",
+        "code": "",
+        "post": ""
+      },
+      "day": null,
+      "shippedAt": null,
+      "createdAt": "2026-11-06"
+    },
+    {
+      "id": "p037",
+      "order": 37,
+      "title": "Times Table Race",
+      "summary": "A 60-second arcade game for multiplication practice.",
+      "theme": "Kids and learning",
+      "stack": "web",
+      "reuses": [],
+      "status": "idea",
+      "effort": "M",
+      "notes": "",
+      "slug": "times-table-race",
+      "links": {
+        "live": "",
+        "code": "",
+        "post": ""
+      },
+      "day": null,
+      "shippedAt": null,
+      "createdAt": "2026-11-06"
+    },
+    {
+      "id": "p038",
+      "order": 38,
+      "title": "Spelling Bee Coach",
+      "summary": "Say a word, the kid spells it by voice, and it gets scored.",
+      "theme": "Kids and learning",
+      "stack": "web",
+      "reuses": [],
+      "status": "idea",
+      "effort": "M",
+      "notes": "",
+      "slug": "spelling-bee-coach",
+      "links": {
+        "live": "",
+        "code": "",
+        "post": ""
+      },
+      "day": null,
+      "shippedAt": null,
+      "createdAt": "2026-11-06"
+    },
+    {
+      "id": "p039",
+      "order": 39,
+      "title": "Kid-safe YouTube Playlist Builder",
+      "summary": "The walk-playlist engine pointed at curated kids' topics.",
+      "theme": "Kids and learning",
+      "stack": "web",
+      "reuses": [
+        "YoutubeAutoPlaylist"
+      ],
+      "status": "idea",
+      "effort": "M",
+      "notes": "",
+      "slug": "kid-safe-youtube-playlist-builder",
+      "links": {
+        "live": "",
+        "code": "",
+        "post": ""
+      },
+      "day": null,
+      "shippedAt": null,
+      "createdAt": "2026-11-06"
+    },
+    {
+      "id": "p040",
+      "order": 40,
+      "title": "Planet Weight Calculator",
+      "summary": "\"you'd weigh X on Mars\", made for sharing.",
+      "theme": "Kids and learning",
+      "stack": "web",
+      "reuses": [],
+      "status": "idea",
+      "effort": "M",
+      "notes": "",
+      "slug": "planet-weight-calculator",
+      "links": {
+        "live": "",
+        "code": "",
+        "post": ""
+      },
+      "day": null,
+      "shippedAt": null,
+      "createdAt": "2026-11-06"
+    },
+    {
+      "id": "p041",
+      "order": 41,
+      "title": "Science Fair Idea Generator",
+      "summary": "Pick grade + interest, get three doable projects with materials lists.",
+      "theme": "Kids and learning",
+      "stack": "web",
+      "reuses": [],
+      "status": "idea",
+      "effort": "M",
+      "notes": "",
+      "slug": "science-fair-idea-generator",
+      "links": {
+        "live": "",
+        "code": "",
+        "post": ""
+      },
+      "day": null,
+      "shippedAt": null,
+      "createdAt": "2026-11-06"
+    },
+    {
+      "id": "p042",
+      "order": 42,
+      "title": "Reading Log",
+      "summary": "Kids log books, earn badges, parents see streaks.",
+      "theme": "Kids and learning",
+      "stack": "web",
+      "reuses": [],
+      "status": "idea",
+      "effort": "M",
+      "notes": "",
+      "slug": "reading-log",
+      "links": {
+        "live": "",
+        "code": "",
+        "post": ""
+      },
+      "day": null,
+      "shippedAt": null,
+      "createdAt": "2026-11-06"
+    },
+    {
+      "id": "p043",
+      "order": 43,
+      "title": "Flashcards from a Photo",
+      "summary": "Photograph a textbook page and get a flashcard deck.",
+      "theme": "Kids and learning",
+      "stack": "web",
+      "reuses": [],
+      "status": "idea",
+      "effort": "M",
+      "notes": "",
+      "slug": "flashcards-from-a-photo",
+      "links": {
+        "live": "",
+        "code": "",
+        "post": ""
+      },
+      "day": null,
+      "shippedAt": null,
+      "createdAt": "2026-11-06"
+    },
+    {
+      "id": "p044",
+      "order": 44,
+      "title": "Typing Tutor (Hindi + English)",
+      "summary": "Home-row drills with a fun theme.",
+      "theme": "Kids and learning",
+      "stack": "web",
+      "reuses": [],
+      "status": "idea",
+      "effort": "M",
+      "notes": "",
+      "slug": "typing-tutor-hindi-english",
+      "links": {
+        "live": "",
+        "code": "",
+        "post": ""
+      },
+      "day": null,
+      "shippedAt": null,
+      "createdAt": "2026-11-06"
+    },
+    {
+      "id": "p045",
+      "order": 45,
+      "title": "USD→INR Remit Compare",
+      "summary": "Compare today's real rate across Wise, Remitly and bank wires.",
+      "theme": "Money",
+      "stack": "web",
+      "reuses": [],
+      "status": "idea",
+      "effort": "M",
+      "notes": "",
+      "slug": "usd-inr-remit-compare",
+      "links": {
+        "live": "",
+        "code": "",
+        "post": ""
+      },
+      "day": null,
+      "shippedAt": null,
+      "createdAt": "2026-11-06"
+    },
+    {
+      "id": "p046",
+      "order": 46,
+      "title": "RSU Vest Calculator",
+      "summary": "Vest schedule → net shares after tax, using the WealthPilot engine.",
+      "theme": "Money",
+      "stack": "web",
+      "reuses": [
+        "WealthPilot"
+      ],
+      "status": "idea",
+      "effort": "M",
+      "notes": "",
+      "slug": "rsu-vest-calculator",
+      "links": {
+        "live": "",
+        "code": "",
+        "post": ""
+      },
+      "day": null,
+      "shippedAt": null,
+      "createdAt": "2026-11-06"
+    },
+    {
+      "id": "p047",
+      "order": 47,
+      "title": "NRI Tax Residency Checker",
+      "summary": "Count days in India and see the likely residency status (with a \"not tax advice\" note).",
+      "theme": "Money",
+      "stack": "web",
+      "reuses": [],
+      "status": "idea",
+      "effort": "M",
+      "notes": "",
+      "slug": "nri-tax-residency-checker",
+      "links": {
+        "live": "",
+        "code": "",
+        "post": ""
+      },
+      "day": null,
+      "shippedAt": null,
+      "createdAt": "2026-11-06"
+    },
+    {
+      "id": "p048",
+      "order": 48,
+      "title": "FBAR / FATCA Threshold Check",
+      "summary": "Enter Indian account balances and see if you cross the reporting limits.",
+      "theme": "Money",
+      "stack": "web",
+      "reuses": [],
+      "status": "idea",
+      "effort": "M",
+      "notes": "",
+      "slug": "fbar-fatca-threshold-check",
+      "links": {
+        "live": "",
+        "code": "",
+        "post": ""
+      },
+      "day": null,
+      "shippedAt": null,
+      "createdAt": "2026-11-06"
+    },
+    {
+      "id": "p049",
+      "order": 49,
+      "title": "EPF Withdrawal Estimator",
+      "summary": "What you'd get and when, for NRIs.",
+      "theme": "Money",
+      "stack": "web",
+      "reuses": [
+        "WealthPilot"
+      ],
+      "status": "idea",
+      "effort": "M",
+      "notes": "",
+      "slug": "epf-withdrawal-estimator",
+      "links": {
+        "live": "",
+        "code": "",
+        "post": ""
+      },
+      "day": null,
+      "shippedAt": null,
+      "createdAt": "2026-11-06"
+    },
+    {
+      "id": "p050",
+      "order": 50,
+      "title": "Rent vs. Buy: Bay Area vs. Pune",
+      "summary": "One page, side-by-side numbers.",
+      "theme": "Money",
+      "stack": "web",
+      "reuses": [
+        "WealthPilot"
+      ],
+      "status": "idea",
+      "effort": "M",
+      "notes": "",
+      "slug": "rent-vs-buy-bay-area-vs-pune",
+      "links": {
+        "live": "",
+        "code": "",
+        "post": ""
+      },
+      "day": null,
+      "shippedAt": null,
+      "createdAt": "2026-11-06"
+    },
+    {
+      "id": "p051",
+      "order": 51,
+      "title": "Return-to-India Readiness Score",
+      "summary": "A 20-question checklist that scores you.",
+      "theme": "Money",
+      "stack": "web",
+      "reuses": [],
+      "status": "idea",
+      "effort": "M",
+      "notes": "",
+      "slug": "return-to-india-readiness-score",
+      "links": {
+        "live": "",
+        "code": "",
+        "post": ""
+      },
+      "day": null,
+      "shippedAt": null,
+      "createdAt": "2026-11-06"
+    },
+    {
+      "id": "p052",
+      "order": 52,
+      "title": "ESPP Lookback Calculator",
+      "summary": "Gain with the 15% discount, and when to sell.",
+      "theme": "Money",
+      "stack": "web",
+      "reuses": [],
+      "status": "idea",
+      "effort": "M",
+      "notes": "",
+      "slug": "espp-lookback-calculator",
+      "links": {
+        "live": "",
+        "code": "",
+        "post": ""
+      },
+      "day": null,
+      "shippedAt": null,
+      "createdAt": "2026-11-06"
+    },
+    {
+      "id": "p053",
+      "order": 53,
+      "title": "Subscription Killer",
+      "summary": "Upload a card statement CSV and see every recurring charge.",
+      "theme": "Money",
+      "stack": "web",
+      "reuses": [],
+      "status": "idea",
+      "effort": "M",
+      "notes": "",
+      "slug": "subscription-killer",
+      "links": {
+        "live": "",
+        "code": "",
+        "post": ""
+      },
+      "day": null,
+      "shippedAt": null,
+      "createdAt": "2026-11-06"
+    },
+    {
+      "id": "p054",
+      "order": 54,
+      "title": "FD Ladder Builder",
+      "summary": "Plan Indian fixed-deposit maturities month by month.",
+      "theme": "Money",
+      "stack": "web",
+      "reuses": [],
+      "status": "idea",
+      "effort": "M",
+      "notes": "",
+      "slug": "fd-ladder-builder",
+      "links": {
+        "live": "",
+        "code": "",
+        "post": ""
+      },
+      "day": null,
+      "shippedAt": null,
+      "createdAt": "2026-11-06"
+    },
+    {
+      "id": "p055",
+      "order": 55,
+      "title": "Gold Price in Grams",
+      "summary": "22K/24K in INR and USD per gram, updated daily.",
+      "theme": "Money",
+      "stack": "web",
+      "reuses": [],
+      "status": "idea",
+      "effort": "M",
+      "notes": "",
+      "slug": "gold-price-in-grams",
+      "links": {
+        "live": "",
+        "code": "",
+        "post": ""
+      },
+      "day": null,
+      "shippedAt": null,
+      "createdAt": "2026-11-06"
+    },
+    {
+      "id": "p056",
+      "order": 56,
+      "title": "Net Worth Snapshot",
+      "summary": "A one-page, multi-currency net-worth tracker (lite WealthPilot).",
+      "theme": "Money",
+      "stack": "web",
+      "reuses": [
+        "WealthPilot"
+      ],
+      "status": "idea",
+      "effort": "M",
+      "notes": "",
+      "slug": "net-worth-snapshot",
+      "links": {
+        "live": "",
+        "code": "",
+        "post": ""
+      },
+      "day": null,
+      "shippedAt": null,
+      "createdAt": "2026-11-06"
+    },
+    {
+      "id": "p057",
+      "order": 57,
+      "title": "Watch Wrist-time Tracker",
+      "summary": "Log which watch you wore; see cost per wear (from WristVault).",
+      "theme": "Watches and gear",
+      "stack": "web",
+      "reuses": [
+        "wristvault"
+      ],
+      "status": "idea",
+      "effort": "M",
+      "notes": "",
+      "slug": "watch-wrist-time-tracker",
+      "links": {
+        "live": "",
+        "code": "",
+        "post": ""
+      },
+      "day": null,
+      "shippedAt": null,
+      "createdAt": "2026-11-06"
+    },
+    {
+      "id": "p058",
+      "order": 58,
+      "title": "Watch Accuracy Tester",
+      "summary": "Snap a photo of the dial and get seconds-per-day drift.",
+      "theme": "Watches and gear",
+      "stack": "web",
+      "reuses": [],
+      "status": "idea",
+      "effort": "M",
+      "notes": "",
+      "slug": "watch-accuracy-tester",
+      "links": {
+        "live": "",
+        "code": "",
+        "post": ""
+      },
+      "day": null,
+      "shippedAt": null,
+      "createdAt": "2026-11-06"
+    },
+    {
+      "id": "p059",
+      "order": 59,
+      "title": "Lug-to-Lug Fit Checker",
+      "summary": "Wrist size → which watch sizes will fit.",
+      "theme": "Watches and gear",
+      "stack": "web",
+      "reuses": [],
+      "status": "idea",
+      "effort": "M",
+      "notes": "",
+      "slug": "lug-to-lug-fit-checker",
+      "links": {
+        "live": "",
+        "code": "",
+        "post": ""
+      },
+      "day": null,
+      "shippedAt": null,
+      "createdAt": "2026-11-06"
+    },
+    {
+      "id": "p060",
+      "order": 60,
+      "title": "Service Reminder",
+      "summary": "Reminders every 5 years for each watch, with nearby service centers.",
+      "theme": "Watches and gear",
+      "stack": "web",
+      "reuses": [
+        "wristvault"
+      ],
+      "status": "idea",
+      "effort": "M",
+      "notes": "",
+      "slug": "service-reminder",
+      "links": {
+        "live": "",
+        "code": "",
+        "post": ""
+      },
+      "day": null,
+      "shippedAt": null,
+      "createdAt": "2026-11-06"
+    },
+    {
+      "id": "p061",
+      "order": 61,
+      "title": "Garmin Face Generator",
+      "summary": "Pick colors and fields on a web page, download a Connect IQ face.",
+      "theme": "Watches and gear",
+      "stack": "garmin",
+      "reuses": [
+        "StarterFace"
+      ],
+      "status": "idea",
+      "effort": "L",
+      "notes": "",
+      "slug": "garmin-face-generator",
+      "links": {
+        "live": "",
+        "code": "",
+        "post": ""
+      },
+      "day": null,
+      "shippedAt": null,
+      "createdAt": "2026-11-06"
+    },
+    {
+      "id": "p062",
+      "order": 62,
+      "title": "Garmin Face: Panchang",
+      "summary": "Tithi + sunrise on your fenix.",
+      "theme": "Watches and gear",
+      "stack": "garmin",
+      "reuses": [
+        "StarterFace"
+      ],
+      "status": "idea",
+      "effort": "L",
+      "notes": "",
+      "slug": "garmin-face-panchang",
+      "links": {
+        "live": "",
+        "code": "",
+        "post": ""
+      },
+      "day": null,
+      "shippedAt": null,
+      "createdAt": "2026-11-06"
+    },
+    {
+      "id": "p063",
+      "order": 63,
+      "title": "Garmin Face: Sky",
+      "summary": "Moon phase, next ISS pass and sunset.",
+      "theme": "Watches and gear",
+      "stack": "garmin",
+      "reuses": [
+        "SatellitePaglu",
+        "StarterFace"
+      ],
+      "status": "idea",
+      "effort": "L",
+      "notes": "",
+      "slug": "garmin-face-sky",
+      "links": {
+        "live": "",
+        "code": "",
+        "post": ""
+      },
+      "day": null,
+      "shippedAt": null,
+      "createdAt": "2026-11-06"
+    },
+    {
+      "id": "p064",
+      "order": 64,
+      "title": "Camera Gear Packing List",
+      "summary": "AstroScout gear profiles → a printable checklist per shoot.",
+      "theme": "Watches and gear",
+      "stack": "web",
+      "reuses": [
+        "AstroScout"
+      ],
+      "status": "idea",
+      "effort": "M",
+      "notes": "",
+      "slug": "camera-gear-packing-list",
+      "links": {
+        "live": "",
+        "code": "",
+        "post": ""
+      },
+      "day": null,
+      "shippedAt": null,
+      "createdAt": "2026-11-06"
+    },
+    {
+      "id": "p065",
+      "order": 65,
+      "title": "SpeedRead Web",
+      "summary": "Paste text and read it with RSVP in the browser.",
+      "theme": "Reading and productivity",
+      "stack": "web",
+      "reuses": [
+        "SpeedRead"
+      ],
+      "status": "idea",
+      "effort": "M",
+      "notes": "",
+      "slug": "speedread-web",
+      "links": {
+        "live": "",
+        "code": "",
+        "post": ""
+      },
+      "day": null,
+      "shippedAt": null,
+      "createdAt": "2026-11-06"
+    },
+    {
+      "id": "p066",
+      "order": 66,
+      "title": "SpeedRead for PDFs",
+      "summary": "Upload a PDF and speed-read it.",
+      "theme": "Reading and productivity",
+      "stack": "web",
+      "reuses": [
+        "SpeedRead"
+      ],
+      "status": "idea",
+      "effort": "M",
+      "notes": "",
+      "slug": "speedread-for-pdfs",
+      "links": {
+        "live": "",
+        "code": "",
+        "post": ""
+      },
+      "day": null,
+      "shippedAt": null,
+      "createdAt": "2026-11-06"
+    },
+    {
+      "id": "p067",
+      "order": 67,
+      "title": "Read Later → Kindle",
+      "summary": "LevelUP's Read Later list sent to Kindle as a weekly digest.",
+      "theme": "Reading and productivity",
+      "stack": "web",
+      "reuses": [
+        "levelup"
+      ],
+      "status": "idea",
+      "effort": "M",
+      "notes": "",
+      "slug": "read-later-kindle",
+      "links": {
+        "live": "",
+        "code": "",
+        "post": ""
+      },
+      "day": null,
+      "shippedAt": null,
+      "createdAt": "2026-11-06"
+    },
+    {
+      "id": "p068",
+      "order": 68,
+      "title": "AI Paper of the Day",
+      "summary": "One arXiv paper a day, summarized in 5 bullets.",
+      "theme": "Reading and productivity",
+      "stack": "web",
+      "reuses": [],
+      "status": "idea",
+      "effort": "M",
+      "notes": "",
+      "slug": "ai-paper-of-the-day",
+      "links": {
+        "live": "",
+        "code": "",
+        "post": ""
+      },
+      "day": null,
+      "shippedAt": null,
+      "createdAt": "2026-11-06"
+    },
+    {
+      "id": "p069",
+      "order": 69,
+      "title": "Hacker News for AI",
+      "summary": "LevelUP's HN filter as a standalone page + email.",
+      "theme": "Reading and productivity",
+      "stack": "web",
+      "reuses": [
+        "levelup"
+      ],
+      "status": "idea",
+      "effort": "M",
+      "notes": "",
+      "slug": "hacker-news-for-ai",
+      "links": {
+        "live": "",
+        "code": "",
+        "post": ""
+      },
+      "day": null,
+      "shippedAt": null,
+      "createdAt": "2026-11-06"
+    },
+    {
+      "id": "p070",
+      "order": 70,
+      "title": "Meeting Cost Timer",
+      "summary": "Shows dollars burned live while a meeting runs.",
+      "theme": "Reading and productivity",
+      "stack": "web",
+      "reuses": [],
+      "status": "idea",
+      "effort": "M",
+      "notes": "",
+      "slug": "meeting-cost-timer",
+      "links": {
+        "live": "",
+        "code": "",
+        "post": ""
+      },
+      "day": null,
+      "shippedAt": null,
+      "createdAt": "2026-11-06"
+    },
+    {
+      "id": "p071",
+      "order": 71,
+      "title": "One-Thing Today",
+      "summary": "A single-task focus page with a Pomodoro timer.",
+      "theme": "Reading and productivity",
+      "stack": "web",
+      "reuses": [],
+      "status": "idea",
+      "effort": "M",
+      "notes": "",
+      "slug": "one-thing-today",
+      "links": {
+        "live": "",
+        "code": "",
+        "post": ""
+      },
+      "day": null,
+      "shippedAt": null,
+      "createdAt": "2026-11-06"
+    },
+    {
+      "id": "p072",
+      "order": 72,
+      "title": "Weekly Review Template",
+      "summary": "A guided 15-minute GTD review that saves to Markdown.",
+      "theme": "Reading and productivity",
+      "stack": "web",
+      "reuses": [],
+      "status": "idea",
+      "effort": "M",
+      "notes": "",
+      "slug": "weekly-review-template",
+      "links": {
+        "live": "",
+        "code": "",
+        "post": ""
+      },
+      "day": null,
+      "shippedAt": null,
+      "createdAt": "2026-11-06"
+    },
+    {
+      "id": "p073",
+      "order": 73,
+      "title": "Book Notes → Anki",
+      "summary": "Paste highlights and get an Anki deck.",
+      "theme": "Reading and productivity",
+      "stack": "web",
+      "reuses": [],
+      "status": "idea",
+      "effort": "M",
+      "notes": "",
+      "slug": "book-notes-anki",
+      "links": {
+        "live": "",
+        "code": "",
+        "post": ""
+      },
+      "day": null,
+      "shippedAt": null,
+      "createdAt": "2026-11-06"
+    },
+    {
+      "id": "p074",
+      "order": 74,
+      "title": "Distraction-free Writer",
+      "summary": "Full-screen, typewriter mode, word goal.",
+      "theme": "Reading and productivity",
+      "stack": "web",
+      "reuses": [],
+      "status": "idea",
+      "effort": "M",
+      "notes": "",
+      "slug": "distraction-free-writer",
+      "links": {
+        "live": "",
+        "code": "",
+        "post": ""
+      },
+      "day": null,
+      "shippedAt": null,
+      "createdAt": "2026-11-06"
+    },
+    {
+      "id": "p075",
+      "order": 75,
+      "title": "Design Review Checklist",
+      "summary": "The LevelUP review checklists as an interactive tool.",
+      "theme": "AI and engineering tools",
+      "stack": "web",
+      "reuses": [
+        "levelup"
+      ],
+      "status": "idea",
+      "effort": "M",
+      "notes": "",
+      "slug": "design-review-checklist",
+      "links": {
+        "live": "",
+        "code": "",
+        "post": ""
+      },
+      "day": null,
+      "shippedAt": null,
+      "createdAt": "2026-11-06"
+    },
+    {
+      "id": "p076",
+      "order": 76,
+      "title": "System Design Flashcards",
+      "summary": "Spaced repetition built from your 22 DE volumes.",
+      "theme": "AI and engineering tools",
+      "stack": "web",
+      "reuses": [
+        "levelup"
+      ],
+      "status": "idea",
+      "effort": "M",
+      "notes": "",
+      "slug": "system-design-flashcards",
+      "links": {
+        "live": "",
+        "code": "",
+        "post": ""
+      },
+      "day": null,
+      "shippedAt": null,
+      "createdAt": "2026-11-06"
+    },
+    {
+      "id": "p077",
+      "order": 77,
+      "title": "Prompt Diff",
+      "summary": "Run two prompts side by side on the same inputs and compare the outputs.",
+      "theme": "AI and engineering tools",
+      "stack": "web",
+      "reuses": [],
+      "status": "idea",
+      "effort": "M",
+      "notes": "",
+      "slug": "prompt-diff",
+      "links": {
+        "live": "",
+        "code": "",
+        "post": ""
+      },
+      "day": null,
+      "shippedAt": null,
+      "createdAt": "2026-11-06"
+    },
+    {
+      "id": "p078",
+      "order": 78,
+      "title": "LLM Cost Calculator",
+      "summary": "Tokens × model × traffic → monthly bill, all major providers.",
+      "theme": "AI and engineering tools",
+      "stack": "web",
+      "reuses": [],
+      "status": "idea",
+      "effort": "M",
+      "notes": "",
+      "slug": "llm-cost-calculator",
+      "links": {
+        "live": "",
+        "code": "",
+        "post": ""
+      },
+      "day": null,
+      "shippedAt": null,
+      "createdAt": "2026-11-06"
+    },
+    {
+      "id": "p079",
+      "order": 79,
+      "title": "RAG in a Box",
+      "summary": "Drop in PDFs and get a chat page with citations, one shareable link.",
+      "theme": "AI and engineering tools",
+      "stack": "web",
+      "reuses": [],
+      "status": "idea",
+      "effort": "M",
+      "notes": "",
+      "slug": "rag-in-a-box",
+      "links": {
+        "live": "",
+        "code": "",
+        "post": ""
+      },
+      "day": null,
+      "shippedAt": null,
+      "createdAt": "2026-11-06"
+    },
+    {
+      "id": "p080",
+      "order": 80,
+      "title": "Agent Memory Viewer",
+      "summary": "Browse and edit Autonomy \"soul\" files in a web UI.",
+      "theme": "AI and engineering tools",
+      "stack": "web",
+      "reuses": [
+        "Autonomy"
+      ],
+      "status": "idea",
+      "effort": "M",
+      "notes": "",
+      "slug": "agent-memory-viewer",
+      "links": {
+        "live": "",
+        "code": "",
+        "post": ""
+      },
+      "day": null,
+      "shippedAt": null,
+      "createdAt": "2026-11-06"
+    },
+    {
+      "id": "p081",
+      "order": 81,
+      "title": "Ad Copy A/B Generator",
+      "summary": "Product + audience → 10 ad variants with a predicted CTR rank (from your Ads background).",
+      "theme": "AI and engineering tools",
+      "stack": "web",
+      "reuses": [],
+      "status": "idea",
+      "effort": "M",
+      "notes": "",
+      "slug": "ad-copy-a-b-generator",
+      "links": {
+        "live": "",
+        "code": "",
+        "post": ""
+      },
+      "day": null,
+      "shippedAt": null,
+      "createdAt": "2026-11-06"
+    },
+    {
+      "id": "p082",
+      "order": 82,
+      "title": "Retail Search Relevance Tester",
+      "summary": "Paste a query + results, get LLM-graded relevance (NDCG).",
+      "theme": "AI and engineering tools",
+      "stack": "web",
+      "reuses": [],
+      "status": "idea",
+      "effort": "M",
+      "notes": "",
+      "slug": "retail-search-relevance-tester",
+      "links": {
+        "live": "",
+        "code": "",
+        "post": ""
+      },
+      "day": null,
+      "shippedAt": null,
+      "createdAt": "2026-11-06"
+    },
+    {
+      "id": "p083",
+      "order": 83,
+      "title": "Kafka Lag Visualizer",
+      "summary": "Paste consumer-group output and see a chart.",
+      "theme": "AI and engineering tools",
+      "stack": "web",
+      "reuses": [],
+      "status": "idea",
+      "effort": "M",
+      "notes": "",
+      "slug": "kafka-lag-visualizer",
+      "links": {
+        "live": "",
+        "code": "",
+        "post": ""
+      },
+      "day": null,
+      "shippedAt": null,
+      "createdAt": "2026-11-06"
+    },
+    {
+      "id": "p084",
+      "order": 84,
+      "title": "BigQuery Cost Estimator",
+      "summary": "Paste SQL and get bytes scanned and dollars, plus tips to cut cost.",
+      "theme": "AI and engineering tools",
+      "stack": "web",
+      "reuses": [],
+      "status": "idea",
+      "effort": "M",
+      "notes": "",
+      "slug": "bigquery-cost-estimator",
+      "links": {
+        "live": "",
+        "code": "",
+        "post": ""
+      },
+      "day": null,
+      "shippedAt": null,
+      "createdAt": "2026-11-06"
+    },
+    {
+      "id": "p085",
+      "order": 85,
+      "title": "Architecture Diagram from Text",
+      "summary": "Describe a system, get a Mermaid diagram.",
+      "theme": "AI and engineering tools",
+      "stack": "web",
+      "reuses": [],
+      "status": "idea",
+      "effort": "M",
+      "notes": "",
+      "slug": "architecture-diagram-from-text",
+      "links": {
+        "live": "",
+        "code": "",
+        "post": ""
+      },
+      "day": null,
+      "shippedAt": null,
+      "createdAt": "2026-11-06"
+    },
+    {
+      "id": "p086",
+      "order": 86,
+      "title": "Incident Postmortem Writer",
+      "summary": "Timeline in, blameless postmortem out.",
+      "theme": "AI and engineering tools",
+      "stack": "web",
+      "reuses": [],
+      "status": "idea",
+      "effort": "M",
+      "notes": "",
+      "slug": "incident-postmortem-writer",
+      "links": {
+        "live": "",
+        "code": "",
+        "post": ""
+      },
+      "day": null,
+      "shippedAt": null,
+      "createdAt": "2026-11-06"
+    },
+    {
+      "id": "p087",
+      "order": 87,
+      "title": "Interview Question Bank for Principal Engineers",
+      "summary": "With rubric scoring.",
+      "theme": "AI and engineering tools",
+      "stack": "web",
+      "reuses": [],
+      "status": "idea",
+      "effort": "M",
+      "notes": "",
+      "slug": "interview-question-bank-for-principal-en",
+      "links": {
+        "live": "",
+        "code": "",
+        "post": ""
+      },
+      "day": null,
+      "shippedAt": null,
+      "createdAt": "2026-11-06"
+    },
+    {
+      "id": "p088",
+      "order": 88,
+      "title": "Eval Harness Starter",
+      "summary": "Upload a CSV of input/expected rows and get pass rates per model.",
+      "theme": "AI and engineering tools",
+      "stack": "web",
+      "reuses": [],
+      "status": "idea",
+      "effort": "M",
+      "notes": "",
+      "slug": "eval-harness-starter",
+      "links": {
+        "live": "",
+        "code": "",
+        "post": ""
+      },
+      "day": null,
+      "shippedAt": null,
+      "createdAt": "2026-11-06"
+    },
+    {
+      "id": "p089",
+      "order": 89,
+      "title": "Model Card Generator",
+      "summary": "Fill a form, export a model card.",
+      "theme": "AI and engineering tools",
+      "stack": "web",
+      "reuses": [],
+      "status": "idea",
+      "effort": "M",
+      "notes": "",
+      "slug": "model-card-generator",
+      "links": {
+        "live": "",
+        "code": "",
+        "post": ""
+      },
+      "day": null,
+      "shippedAt": null,
+      "createdAt": "2026-11-06"
+    },
+    {
+      "id": "p090",
+      "order": 90,
+      "title": "\"Will AI Replace My Job?\" Quiz",
+      "summary": "A playful role-by-role score (ties to your CAIO Circle panel).",
+      "theme": "AI and engineering tools",
+      "stack": "web",
+      "reuses": [],
+      "status": "idea",
+      "effort": "M",
+      "notes": "",
+      "slug": "will-ai-replace-my-job-quiz",
+      "links": {
+        "live": "",
+        "code": "",
+        "post": ""
+      },
+      "day": null,
+      "shippedAt": null,
+      "createdAt": "2026-11-06"
+    },
+    {
+      "id": "p091",
+      "order": 91,
+      "title": "Pi Sky Camera",
+      "summary": "A Raspberry Pi all-sky camera that posts a nightly timelapse.",
+      "theme": "Home",
+      "stack": "pi",
+      "reuses": [
+        "raspberry"
+      ],
+      "status": "idea",
+      "effort": "L",
+      "notes": "",
+      "slug": "pi-sky-camera",
+      "links": {
+        "live": "",
+        "code": "",
+        "post": ""
+      },
+      "day": null,
+      "shippedAt": null,
+      "createdAt": "2026-11-06"
+    },
+    {
+      "id": "p092",
+      "order": 92,
+      "title": "Pi Air-Quality Board",
+      "summary": "A PM2.5 sensor feeding a live web dashboard.",
+      "theme": "Home",
+      "stack": "pi",
+      "reuses": [
+        "raspberry"
+      ],
+      "status": "idea",
+      "effort": "L",
+      "notes": "",
+      "slug": "pi-air-quality-board",
+      "links": {
+        "live": "",
+        "code": "",
+        "post": ""
+      },
+      "day": null,
+      "shippedAt": null,
+      "createdAt": "2026-11-06"
+    },
+    {
+      "id": "p093",
+      "order": 93,
+      "title": "Doorbell → Telegram",
+      "summary": "A Pi camera snap sent on motion.",
+      "theme": "Home",
+      "stack": "pi",
+      "reuses": [],
+      "status": "idea",
+      "effort": "L",
+      "notes": "",
+      "slug": "doorbell-telegram",
+      "links": {
+        "live": "",
+        "code": "",
+        "post": ""
+      },
+      "day": null,
+      "shippedAt": null,
+      "createdAt": "2026-11-06"
+    },
+    {
+      "id": "p094",
+      "order": 94,
+      "title": "Plant Watering Reminder",
+      "summary": "Soil sensor + push notification.",
+      "theme": "Home",
+      "stack": "pi",
+      "reuses": [],
+      "status": "idea",
+      "effort": "L",
+      "notes": "",
+      "slug": "plant-watering-reminder",
+      "links": {
+        "live": "",
+        "code": "",
+        "post": ""
+      },
+      "day": null,
+      "shippedAt": null,
+      "createdAt": "2026-11-06"
+    },
+    {
+      "id": "p095",
+      "order": 95,
+      "title": "Home Network Monitor",
+      "summary": "A list of devices on your Wi-Fi, with alerts for new ones.",
+      "theme": "Home",
+      "stack": "pi",
+      "reuses": [],
+      "status": "idea",
+      "effort": "L",
+      "notes": "",
+      "slug": "home-network-monitor",
+      "links": {
+        "live": "",
+        "code": "",
+        "post": ""
+      },
+      "day": null,
+      "shippedAt": null,
+      "createdAt": "2026-11-06"
+    },
+    {
+      "id": "p096",
+      "order": 96,
+      "title": "Spoken Weather Clock",
+      "summary": "A Pi that tells the time + weather in Hindi every morning.",
+      "theme": "Home",
+      "stack": "pi",
+      "reuses": [],
+      "status": "idea",
+      "effort": "L",
+      "notes": "",
+      "slug": "spoken-weather-clock",
+      "links": {
+        "live": "",
+        "code": "",
+        "post": ""
+      },
+      "day": null,
+      "shippedAt": null,
+      "createdAt": "2026-11-06"
+    },
+    {
+      "id": "p097",
+      "order": 97,
+      "title": "100-Day Ship Log",
+      "summary": "A page on katyayan.net that lists every day's product, auto-built from your repos.",
+      "theme": "Meta: shipping in public",
+      "stack": "web",
+      "reuses": [
+        "katyayan.net"
+      ],
+      "status": "idea",
+      "effort": "M",
+      "notes": "",
+      "slug": "100-day-ship-log",
+      "links": {
+        "live": "",
+        "code": "",
+        "post": ""
+      },
+      "day": null,
+      "shippedAt": null,
+      "createdAt": "2026-11-06"
+    },
+    {
+      "id": "p098",
+      "order": 98,
+      "title": "Daily Ship Template",
+      "summary": "A starter repo (Next.js/SwiftUI + deploy workflow) that brings a new day's setup down to 5 minutes.",
+      "theme": "Meta: shipping in public",
+      "stack": "web",
+      "reuses": [],
+      "status": "skipped",
+      "effort": "M",
+      "notes": "Built during setup: see templates/. Swap in a new idea here.",
+      "slug": "daily-ship-template",
+      "links": {
+        "live": "",
+        "code": "",
+        "post": ""
+      },
+      "day": null,
+      "shippedAt": null,
+      "createdAt": "2026-11-06"
+    },
+    {
+      "id": "p099",
+      "order": 99,
+      "title": "Launch Post Generator",
+      "summary": "Repo README → LinkedIn post + X thread + screenshot.",
+      "theme": "Meta: shipping in public",
+      "stack": "web",
+      "reuses": [],
+      "status": "idea",
+      "effort": "M",
+      "notes": "",
+      "slug": "launch-post-generator",
+      "links": {
+        "live": "",
+        "code": "",
+        "post": ""
+      },
+      "day": null,
+      "shippedAt": null,
+      "createdAt": "2026-11-06"
+    },
+    {
+      "id": "p100",
+      "order": 100,
+      "title": "Retro: The 100-Day Report",
+      "summary": "Usage stats, top 10 products, lessons, published as a long-form post.",
+      "theme": "Meta: shipping in public",
+      "stack": "web",
+      "reuses": [],
+      "status": "idea",
+      "effort": "M",
+      "notes": "",
+      "slug": "retro-the-100-day-report",
+      "links": {
+        "live": "",
+        "code": "",
+        "post": ""
+      },
+      "day": null,
+      "shippedAt": null,
+      "createdAt": "2026-11-06"
+    }
+  ]
+}

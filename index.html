@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ship 100</title>
+  <meta name="description" content="100 products in 100 days by Abhimanyu Katyayan: the plan, the progress and every shipped product.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%231f6feb'/><text x='16' y='22' font-size='15' font-family='system-ui' font-weight='700' text-anchor='middle' fill='white'>100</text></svg>">
+  <link rel="stylesheet" href="assets/app.css">
+</head>
+<body>
+  <header class="top">
+    <div class="wrap top-inner">
+      <div class="brand">
+        <h1>Ship 100</h1>
+        <p class="sub">One product a day, for 100 days.</p>
+      </div>
+      <div class="auth">
+        <span id="whoami" class="who" hidden></span>
+        <button id="signin" class="btn ghost">Sign in to edit</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="stats" aria-label="Progress">
+      <div class="stat big">
+        <div class="ring" id="ring" style="--p:0"><span id="shippedCount">0</span><small>/100</small></div>
+        <div>
+          <div class="label">Shipped</div>
+          <div class="value" id="runState">Not started</div>
+          <div class="hint" id="runHint">Review the list, then press Start.</div>
+        </div>
+      </div>
+      <div class="stat"><div class="label">Current day</div><div class="value" id="dayNum">0</div></div>
+      <div class="stat"><div class="label">Streak</div><div class="value" id="streak">0</div></div>
+      <div class="stat"><div class="label">Approved</div><div class="value" id="approvedCount">0</div></div>
+      <div class="stat next"><div class="label">Up next</div><div class="value small" id="nextUp">—</div></div>
+      <div class="stat controls" id="runControls" hidden>
+        <button id="startBtn" class="btn primary">Start the 100 days</button>
+        <button id="pauseBtn" class="btn ghost" hidden>Pause</button>
+      </div>
+    </section>
+
+    <section class="toolbar" aria-label="Filters">
+      <input id="q" type="search" placeholder="Search ideas…" aria-label="Search">
+      <select id="fTheme" aria-label="Theme"><option value="">All themes</option></select>
+      <select id="fStatus" aria-label="Status"><option value="">All statuses</option></select>
+      <select id="fStack" aria-label="Platform"><option value="">All platforms</option></select>
+      <select id="sort" aria-label="Sort">
+        <option value="order">Sort: plan order</option>
+        <option value="title">Sort: title</option>
+        <option value="theme">Sort: theme</option>
+        <option value="status">Sort: status</option>
+        <option value="stack">Sort: platform</option>
+        <option value="effort">Sort: effort</option>
+        <option value="shipped">Sort: recently shipped</option>
+      </select>
+      <button id="dir" class="btn ghost icon" title="Reverse sort" aria-label="Reverse sort">↓</button>
+      <span class="spacer"></span>
+      <span id="count" class="count"></span>
+      <button id="exportBtn" class="btn ghost">Export JSON</button>
+      <button id="addBtn" class="btn primary" hidden>+ Add idea</button>
+    </section>
+
+    <section id="list" class="list" aria-live="polite"></section>
+
+    <section class="log">
+      <h2>Ship log</h2>
+      <ol id="log" class="timeline"></ol>
+      <p id="logEmpty" class="muted">Nothing shipped yet.</p>
+    </section>
+  </main>
+
+  <div id="savebar" class="savebar" hidden>
+    <span id="saveMsg">Unsaved changes</span>
+    <button id="discardBtn" class="btn ghost">Discard</button>
+    <button id="saveBtn" class="btn primary">Save to GitHub</button>
+  </div>
+
+  <dialog id="itemDlg" class="dlg">
+    <form id="itemForm" method="dialog">
+      <header class="dlg-head">
+        <h2 id="dlgTitle">Idea</h2>
+        <button type="button" class="btn ghost icon" data-close aria-label="Close">✕</button>
+      </header>
+      <div class="dlg-body">
+        <label>Title <input name="title" required maxlength="80"></label>
+        <label>Summary <textarea name="summary" rows="3" maxlength="400"></textarea></label>
+        <div class="grid3">
+          <label>Theme <input name="theme" list="themeList" required></label>
+          <label>Platform
+            <select name="stack"><option value="web">Web</option><option value="ios">iOS</option><option value="garmin">Garmin</option><option value="pi">Raspberry Pi</option></select>
+          </label>
+          <label>Effort
+            <select name="effort"><option value="S">S: a few hours</option><option value="M">M: a day</option><option value="L">L: a long day</option></select>
+          </label>
+        </div>
+        <div class="grid3">
+          <label>Status <select name="status"></select></label>
+          <label>Plan order <input name="order" type="number" min="1" step="1"></label>
+          <label>Reuses (comma-separated) <input name="reuses" placeholder="e.g. AstroScout"></label>
+        </div>
+        <label>Notes for the builder <textarea name="notes" rows="3" maxlength="1000" placeholder="Anything the daily build should know: must-have features, data source, what to avoid…"></textarea></label>
+        <div class="grid3">
+          <label>Live link <input name="live" type="url"></label>
+          <label>Code link <input name="code" type="url"></label>
+          <label>Post link <input name="post" type="url"></label>
+        </div>
+        <p class="muted small" id="dlgMeta"></p>
+      </div>
+      <footer class="dlg-foot">
+        <button type="button" id="deleteBtn" class="btn danger ghost">Delete</button>
+        <span class="spacer"></span>
+        <button type="button" class="btn ghost" data-close>Cancel</button>
+        <button type="submit" class="btn primary" id="dlgSave">Done</button>
+      </footer>
+    </form>
+  </dialog>
+  <datalist id="themeList"></datalist>
+
+  <dialog id="authDlg" class="dlg narrow">
+    <form id="authForm" method="dialog">
+      <header class="dlg-head">
+        <h2>Sign in to edit</h2>
+        <button type="button" class="btn ghost icon" data-close aria-label="Close">✕</button>
+      </header>
+      <div class="dlg-body">
+        <p>Anyone can read this page. Only GitHub accounts with write access to <b>August85/ship100</b> can save changes.</p>
+        <ol class="steps">
+          <li>Open <a href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener">GitHub → new fine-grained token</a>.</li>
+          <li>Repository access: <b>Only select repositories → ship100</b>.</li>
+          <li>Permissions: <b>Contents → Read and write</b>. Nothing else.</li>
+          <li>Paste it below. It is kept only in this browser.</li>
+        </ol>
+        <label>Token <input name="token" type="password" autocomplete="off" required placeholder="github_pat_…"></label>
+        <p id="authErr" class="err" hidden></p>
+      </div>
+      <footer class="dlg-foot">
+        <span class="spacer"></span>
+        <button type="button" class="btn ghost" data-close>Cancel</button>
+        <button type="submit" class="btn primary">Sign in</button>
+      </footer>
+    </form>
+  </dialog>
+
+  <div id="toast" class="toast" role="status" hidden></div>
+  <script src="assets/app.js"></script>
+</body>
+</html>

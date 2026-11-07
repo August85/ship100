@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{TITLE}}</title>
+  <meta name="description" content="{{SUMMARY}}">
+  <meta property="og:title" content="{{TITLE}} · Day {{DAY}} of Ship 100">
+  <meta property="og:description" content="{{SUMMARY}}">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="bar">
+    <a class="back" href="../../">Ship 100</a>
+    <span class="day">Day {{DAY}} / 100</span>
+  </header>
+
+  <main class="wrap">
+    <h1>{{TITLE}}</h1>
+    <p class="lede">{{SUMMARY}}</p>
+
+    <!-- The day's app goes here. -->
+    <section id="app" class="card"></section>
+  </main>
+
+  <footer class="wrap foot">
+    Built in a day by <a href="https://www.linkedin.com/in/abhimanyu-katyayan/">Abhimanyu Katyayan</a> ·
+    <a href="https://github.com/August85/ship100/tree/main/days/{{DIR}}">Source</a>
+  </footer>
+  <script type="module" src="app.js"></script>
+</body>
+</html>

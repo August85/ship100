@@ -2,11 +2,32 @@
   "version": 1,
   "items": [
     {
-      "id": "p001",
+      "id": "p007",
       "order": 1,
+      "title": "Meteor Shower Countdown",
+      "summary": "The next shower, its peak hour and the radiant direction for your sky. Location aware, events sharable etc.",
+      "theme": "Sky",
+      "stack": "ios",
+      "reuses": [],
+      "status": "approved",
+      "effort": "M",
+      "notes": "",
+      "slug": "meteor-shower-countdown",
+      "links": {
+        "live": "",
+        "code": "",
+        "post": ""
+      },
+      "day": null,
+      "shippedAt": null,
+      "createdAt": "2026-11-06"
+    },
+    {
+      "id": "p001",
+      "order": 2,
       "title": "ISS Tonight",
       "summary": "A web page that shows the next visible ISS pass for your location, with a \"remind me\" .ics file. SGP4 code comes from SatellitePaglu.",
-      "theme": "Sky, space and radio",
+      "theme": "Sky",
       "stack": "web",
       "reuses": [
         "SatellitePaglu"
@@ -26,10 +47,10 @@
     },
     {
       "id": "p002",
-      "order": 2,
+      "order": 3,
       "title": "Starlink Train Alert",
       "summary": "Enter a ZIP code and get an email the evening a fresh Starlink train is visible.",
-      "theme": "Sky, space and radio",
+      "theme": "Sky",
       "stack": "web",
       "reuses": [
         "SatellitePaglu"
@@ -49,10 +70,10 @@
     },
     {
       "id": "p003",
-      "order": 3,
+      "order": 4,
       "title": "Dark Sky Finder",
       "summary": "A light-pollution map with the nearest Bortle 1–3 sites within an hour's drive. Uses the AstroScout grid.",
-      "theme": "Sky, space and radio",
+      "theme": "Sky",
       "stack": "web",
       "reuses": [
         "AstroScout"
@@ -72,10 +93,10 @@
     },
     {
       "id": "p004",
-      "order": 4,
+      "order": 5,
       "title": "Milky Way Calendar",
       "summary": "A 12-month calendar of good Milky Way core nights for any location (moon phase + core altitude).",
-      "theme": "Sky, space and radio",
+      "theme": "Sky",
       "stack": "web",
       "reuses": [
         "AstroScout"
@@ -95,10 +116,10 @@
     },
     {
       "id": "p005",
-      "order": 5,
+      "order": 6,
       "title": "Moon Shot Planner",
       "summary": "Pick a landmark, and it tells you when the moon rises behind it (date, time, where to stand).",
-      "theme": "Sky, space and radio",
+      "theme": "Sky",
       "stack": "web",
       "reuses": [],
       "status": "idea",
@@ -116,37 +137,16 @@
     },
     {
       "id": "p006",
-      "order": 6,
+      "order": 7,
       "title": "Aurora Odds",
       "summary": "Kp forecast + cloud cover combined into a single \"go / don't go\" for tonight.",
-      "theme": "Sky, space and radio",
+      "theme": "Sky",
       "stack": "web",
       "reuses": [],
       "status": "idea",
       "effort": "M",
       "notes": "",
       "slug": "aurora-odds",
-      "links": {
-        "live": "",
-        "code": "",
-        "post": ""
-      },
-      "day": null,
-      "shippedAt": null,
-      "createdAt": "2026-11-06"
-    },
-    {
-      "id": "p007",
-      "order": 7,
-      "title": "Meteor Shower Countdown",
-      "summary": "The next shower, its peak hour and the radiant direction for your sky.",
-      "theme": "Sky, space and radio",
-      "stack": "web",
-      "reuses": [],
-      "status": "idea",
-      "effort": "M",
-      "notes": "",
-      "slug": "meteor-shower-countdown",
       "links": {
         "live": "",
         "code": "",

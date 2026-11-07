@@ -32,7 +32,7 @@
       "reuses": [
         "AstroScout"
       ],
-      "status": "idea",
+      "status": "approved",
       "effort": "M",
       "notes": "",
       "slug": "milky-way-calendar",
@@ -55,7 +55,7 @@
       "reuses": [
         "SatellitePaglu"
       ],
-      "status": "idea",
+      "status": "approved",
       "effort": "M",
       "notes": "",
       "slug": "iss-tonight",

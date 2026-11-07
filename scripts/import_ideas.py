@@ -38,7 +38,7 @@ def slug(s):
 items, theme = [], None
 for line in md.splitlines():
     if m := re.match(r"## \d+\. (.+?) \(days", line):
-        theme = m.group(1).split(",")[0].strip()
+        theme = m.group(1).strip()
         continue
     m = re.match(r"(\d+)\. \*\*(.+?)\*\*( ♻️)?(?: \(([^)]+)\))?:? ?(.*)", line)
     if not (m and theme):

@@ -26,14 +26,37 @@
     <h1>Meteor Shower Countdown</h1>
     <p class="lede">The next shower, its peak hour and the radiant direction for your sky. Location aware, events sharable etc.</p>
 
-    <!-- Screenshots go in shots/ (PNG, from the simulator / watch simulator). -->
-    <section class="shots" aria-label="Screenshots"></section>
+    <section class="shots" aria-label="Screenshots">
+      <img src="shots/1-countdown.jpg" alt="Countdown to the Northern Taurids peak, with expected rate, peak rate and moon phase" loading="lazy">
+      <img src="shots/2-where-to-look.jpg" alt="Peak-night chart, the 8 pm reminder switch, and Share and Calendar buttons above the list of showers" loading="lazy">
+      <img src="shots/4-geminids.jpg" alt="Geminids: 57 meteors an hour expected, best around 2 am facing south" loading="lazy">
+      <img src="shots/3-all-showers.jpg" alt="All twelve major showers in date order, each rated Great, Good, Fair or Poor for your location" loading="lazy">
+    </section>
 
     <h2>What it does</h2>
-    <ul></ul>
+    <ul>
+      <li><b>Counts down to the next shower peak</b>, to the second, for the 12 major annual showers.</li>
+      <li><b>Tells you where to look from where you are:</b> the best hour on the peak night, which way to face, and how high the radiant sits (in degrees and in fists at arm's length).</li>
+      <li><b>Charts the peak night</b> from 6 pm to 7 am, showing the radiant's height and when the sky is properly dark.</li>
+      <li><b>Says whether it's worth going out:</b> a realistic "you might see N per hour" that accounts for radiant height and moonlight, rated Great, Good, Fair or Poor.</li>
+      <li><b>Reminds you at 8 pm</b> on the evening of the peak, with the best time to look.</li>
+      <li><b>Share it or save the date:</b> send friends the night, best time and direction in one message, or add it to your calendar with an alert an hour before.</li>
+      <li>Everything is worked out on the phone. No account, no network, no tracking. Your location never leaves the device.</li>
+    </ul>
+
+    <h2>How it works</h2>
+    <p>Shower dates, rates and radiant positions come from the International Meteor Organization calendar. The app computes
+      sidereal time, the radiant's altitude and azimuth, the sun's altitude (dark = sun more than 12° below the horizon) and the
+      moon's phase with standard low-precision formulas, checked by unit tests against known values (Polaris altitude, solstice
+      declinations, the April 2024 eclipse new moon).</p>
 
     <h2>Try it</h2>
-    <ol class="steps"></ol>
+    <ol class="steps">
+      <li>Clone <a href="https://github.com/August85/ship100">August85/ship100</a> and open <code>days/001-meteor-shower-countdown/app</code>.</li>
+      <li>Run <code>xcodegen</code> (install with <code>brew install xcodegen</code>), then open <code>MeteorShowerCountdown.xcodeproj</code>.</li>
+      <li>Pick an iPhone simulator or your own phone and press Run. Needs iOS 17 or later.</li>
+    </ol>
+    <p class="muted">TestFlight link coming soon.</p>
   </main>
 
   <footer class="wrap foot">

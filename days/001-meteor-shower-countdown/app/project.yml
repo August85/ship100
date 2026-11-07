@@ -23,7 +23,29 @@ targets:
         PRODUCT_BUNDLE_IDENTIFIER: com.ak.ship100.meteorshowercountdown
         TARGETED_DEVICE_FAMILY: "1"
         GENERATE_INFOPLIST_FILE: YES
-        INFOPLIST_KEY_CFBundleDisplayName: "Meteor Shower Countdown"
+        INFOPLIST_KEY_CFBundleDisplayName: "Meteors"
         INFOPLIST_KEY_UILaunchScreen_Generation: YES
         INFOPLIST_KEY_UISupportedInterfaceOrientations: UIInterfaceOrientationPortrait
+        INFOPLIST_KEY_UIUserInterfaceStyle: Dark
+        INFOPLIST_KEY_NSLocationWhenInUseUsageDescription: "Your location is used to work out where the meteor radiant sits in your sky and when it's dark. It never leaves your phone."
         INFOPLIST_KEY_ITSAppUsesNonExemptEncryption: NO
+  MeteorShowerCountdownTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - Tests
+    dependencies:
+      - target: MeteorShowerCountdown
+    settings:
+      base:
+        GENERATE_INFOPLIST_FILE: YES
+        PRODUCT_BUNDLE_IDENTIFIER: com.ak.ship100.meteorshowercountdown.tests
+schemes:
+  MeteorShowerCountdown:
+    build:
+      targets:
+        MeteorShowerCountdown: all
+        MeteorShowerCountdownTests: [test]
+    test:
+      targets:
+        - MeteorShowerCountdownTests

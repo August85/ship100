@@ -4,9 +4,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Milky Way Calendar</title>
-  <meta name="description" content="A 12-month calendar of good Milky Way core nights for any location (moon phase + core altitude).">
+  <meta name="description" content="Every night for the next 12 months, rated for seeing the Milky Way core from where you are.">
   <meta property="og:title" content="Milky Way Calendar · Day 2 of Ship 100">
-  <meta property="og:description" content="A 12-month calendar of good Milky Way core nights for any location (moon phase + core altitude).">
+  <meta property="og:description" content="Every night for the next 12 months, rated for seeing the Milky Way core from where you are.">
   <link rel="icon" href="icon.png">
   <link rel="apple-touch-icon" href="icon.png">
   <link rel="stylesheet" href="style.css">
@@ -27,16 +27,40 @@
     <img class="appicon" src="icon.png" alt="" width="96" height="96" style="display:block;border-radius:22%;margin:8px 0 12px">
     <span class="platform">iPhone app</span>
     <h1>Milky Way Calendar</h1>
-    <p class="lede">A 12-month calendar of good Milky Way core nights for any location (moon phase + core altitude).</p>
+    <p class="lede">Every night for the next 12 months, rated for seeing the Milky Way core from where you are: dark sky, no Moon, core up high.</p>
 
-    <!-- Screenshots go in shots/ (PNG, from the simulator / watch simulator). -->
-    <section class="shots" aria-label="Screenshots"></section>
+    <section class="shots" aria-label="Screenshots">
+      <img src="shots/1-home.jpg" alt="Home screen: tonight has no window, next great night is April 2, 2027, and a bar chart of good nights by month peaking in May" loading="lazy">
+      <img src="shots/2-summer.jpg" alt="July and August 2027 calendars with great nights in gold around the new moon and empty nights around the full moon" loading="lazy">
+      <img src="shots/3-great-night.jpg" alt="Night of July 4, 2027: great, window 10:30 PM to 3:10 AM, core 23 degrees up facing south at midnight" loading="lazy">
+      <img src="shots/4-full-moon.jpg" alt="Night of July 18, 2027: no window because the full Moon is up whenever the core is" loading="lazy">
+    </section>
 
     <h2>What it does</h2>
-    <ul></ul>
+    <ul>
+      <li><b>A 12-month calendar</b> with every night shaded Great, Good, Fair or none, so you can plan a trip or a weekend months ahead.</li>
+      <li><b>Good nights by month</b> at a glance: tap a bar to jump to that month.</li>
+      <li><b>Next great night</b> and tonight's outlook right at the top.</li>
+      <li><b>Each night in detail:</b> the exact window, where to face and how high to look, a chart of the core and the Moon from 6 pm to 6 am, moonrise and moonset, full darkness, and core rise and set.</li>
+      <li><b>Any location:</b> your current position, a search for any town or park, or a list of famous dark-sky places (Death Valley, Hanle in Ladakh, Atacama, Aoraki, La Palma and more). Times are shown in that place's own time zone.</li>
+      <li><b>Share a night</b> with friends in one message.</li>
+      <li>Everything is worked out on the phone. No account, no tracking, no keys. Your location never leaves the device.</li>
+    </ul>
+
+    <h2>How it works</h2>
+    <p>For each night the app samples every 10 minutes from noon to noon and finds the longest stretch where the sun is more than
+      18° below the horizon, the Moon is below the horizon (or under 8% lit), and the galactic centre is at least 10° up (lower
+      at far-northern latitudes, where it never climbs that high). Great means at least 2 hours with the core near its highest for
+      your latitude; Good means at least an hour. The Sun, Moon and core positions use the same Meeus/USNO formulas as AstroScout,
+      checked by unit tests against the August 2026 eclipses and known core altitudes. Weather isn't included: check the clouds on the day.</p>
 
     <h2>Try it</h2>
-    <ol class="steps"></ol>
+    <ol class="steps">
+      <li>Clone <a href="https://github.com/August85/ship100">August85/ship100</a> and open <code>days/002-milky-way-calendar/app</code>.</li>
+      <li>Run <code>xcodegen</code> (install with <code>brew install xcodegen</code>), then open <code>MilkyWayCalendar.xcodeproj</code>.</li>
+      <li>Pick an iPhone simulator or your own phone and press Run. Needs iOS 17 or later.</li>
+    </ol>
+    <p class="muted">TestFlight link coming soon.</p>
   </main>
 
   <footer class="wrap foot">

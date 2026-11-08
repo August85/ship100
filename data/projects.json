@@ -32,7 +32,7 @@
       "reuses": [
         "AstroScout"
       ],
-      "status": "approved",
+      "status": "building",
       "effort": "M",
       "notes": "",
       "slug": "milky-way-calendar",
@@ -41,7 +41,7 @@
         "code": "",
         "post": ""
       },
-      "day": null,
+      "day": 2,
       "shippedAt": null,
       "createdAt": "2026-11-06"
     },

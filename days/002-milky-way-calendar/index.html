@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Milky Way Calendar</title>
+  <meta name="description" content="A 12-month calendar of good Milky Way core nights for any location (moon phase + core altitude).">
+  <meta property="og:title" content="Milky Way Calendar · Day 2 of Ship 100">
+  <meta property="og:description" content="A 12-month calendar of good Milky Way core nights for any location (moon phase + core altitude).">
+  <link rel="icon" href="icon.png">
+  <link rel="apple-touch-icon" href="icon.png">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .shots { display: flex; gap: 16px; overflow-x: auto; padding-bottom: 8px; }
+    .shots img { height: 520px; max-width: 90vw; object-fit: contain; border-radius: 18px; border: 1px solid var(--line); background: var(--surface-2); }
+    .steps li { margin-bottom: 6px; }
+    .platform { display: inline-block; font-size: 13px; padding: 2px 10px; border-radius: 999px; background: var(--surface-2); color: var(--muted); }
+  </style>
+</head>
+<body>
+  <header class="bar">
+    <a class="back" href="../../">Ship 100</a>
+    <span class="day">Day 2 / 100</span>
+  </header>
+
+  <main class="wrap">
+    <img class="appicon" src="icon.png" alt="" width="96" height="96" style="display:block;border-radius:22%;margin:8px 0 12px">
+    <span class="platform">iPhone app</span>
+    <h1>Milky Way Calendar</h1>
+    <p class="lede">A 12-month calendar of good Milky Way core nights for any location (moon phase + core altitude).</p>
+
+    <!-- Screenshots go in shots/ (PNG, from the simulator / watch simulator). -->
+    <section class="shots" aria-label="Screenshots"></section>
+
+    <h2>What it does</h2>
+    <ul></ul>
+
+    <h2>Try it</h2>
+    <ol class="steps"></ol>
+  </main>
+
+  <footer class="wrap foot">
+    Built in a day by <a href="https://www.linkedin.com/in/abhimanyu-katyayan/">Abhimanyu Katyayan</a> ·
+    <a href="https://github.com/August85/ship100/tree/main/days/002-milky-way-calendar">Source</a>
+  </footer>
+</body>
+</html>

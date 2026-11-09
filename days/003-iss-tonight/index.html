@@ -4,9 +4,11 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>ISS Tonight</title>
-  <meta name="description" content="A web page that shows the next visible ISS pass for your location, with a &quot;remind me&quot; .ics file. SGP4 code comes from SatellitePaglu.">
+  <meta name="description" content="When you can see the International Space Station from where you are, which way to look, and a calendar reminder for it.">
   <meta property="og:title" content="ISS Tonight · Day 3 of Ship 100">
-  <meta property="og:description" content="A web page that shows the next visible ISS pass for your location, with a &quot;remind me&quot; .ics file. SGP4 code comes from SatellitePaglu.">
+  <meta property="og:description" content="When you can see the International Space Station from where you are, which way to look, and a calendar reminder for it.">
+  <link rel="icon" href="icon.png">
+  <link rel="apple-touch-icon" href="icon.png">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -17,15 +19,54 @@
 
   <main class="wrap">
     <h1>ISS Tonight</h1>
-    <p class="lede">A web page that shows the next visible ISS pass for your location, with a &quot;remind me&quot; .ics file. SGP4 code comes from SatellitePaglu.</p>
+    <p class="lede">When you can see the International Space Station from where you are, which way to look, and a calendar reminder so you don't miss it.</p>
 
-    <!-- The day's app goes here. -->
-    <section id="app" class="card"></section>
+    <section class="card place" aria-labelledby="place-h">
+      <h2 id="place-h" class="sr-only">Your location</h2>
+      <div class="place-row">
+        <div>
+          <div class="muted small">Passes for</div>
+          <div id="place-name" class="place-name">No location yet</div>
+        </div>
+        <button id="locate" class="primary" type="button">Use my location</button>
+      </div>
+      <form id="search" class="search" role="search" autocomplete="off">
+        <label for="q" class="sr-only">Search for a city</label>
+        <input id="q" type="search" placeholder="Or search a city, e.g. Pune or Seattle" enterkeyhint="search">
+        <button type="submit">Search</button>
+      </form>
+      <ul id="results" class="results" hidden></ul>
+      <p id="place-msg" class="muted small" role="status"></p>
+    </section>
+
+    <section id="next" class="card next" aria-live="polite" hidden></section>
+
+    <section id="list-wrap" class="list-wrap" hidden>
+      <div class="list-head">
+        <h2>Next 10 days</h2>
+        <label class="toggle"><input id="show-low" type="checkbox"> Include low passes</label>
+      </div>
+      <ol id="list" class="passes"></ol>
+      <p id="list-empty" class="muted" hidden></p>
+    </section>
+
+    <details class="card how">
+      <summary>How to spot it</summary>
+      <ul>
+        <li>The ISS looks like a bright, steady star moving across the sky. No blinking lights; that's a plane.</li>
+        <li>Face the direction it appears from a minute early. "10° up" is about one fist held at arm's length above the horizon.</li>
+        <li>It often vanishes partway across the sky. That's the station sliding into Earth's shadow.</li>
+        <li>You only see it near dawn or dusk: the sky has to be dark while the station, 420 km up, is still in sunlight.</li>
+      </ul>
+    </details>
+
+    <p id="data-note" class="muted small"></p>
   </main>
 
   <footer class="wrap foot">
     Built in a day by <a href="https://www.linkedin.com/in/abhimanyu-katyayan/">Abhimanyu Katyayan</a> ·
-    <a href="https://github.com/August85/ship100/tree/main/days/003-iss-tonight">Source</a>
+    <a href="https://github.com/August85/ship100/tree/main/days/003-iss-tonight">Source</a> ·
+    Orbit data from <a href="https://celestrak.org">CelesTrak</a>, places from <a href="https://open-meteo.com">Open-Meteo</a>
   </footer>
   <script type="module" src="app.js"></script>
 </body>

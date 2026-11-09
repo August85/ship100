@@ -55,7 +55,7 @@
       "reuses": [
         "SatellitePaglu"
       ],
-      "status": "approved",
+      "status": "building",
       "effort": "M",
       "notes": "",
       "slug": "iss-tonight",
@@ -64,7 +64,7 @@
         "code": "",
         "post": ""
       },
-      "day": null,
+      "day": 3,
       "shippedAt": null,
       "createdAt": "2026-11-06"
     },

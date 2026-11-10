@@ -78,17 +78,17 @@
       "reuses": [
         "SatellitePaglu"
       ],
-      "status": "building",
+      "status": "shipped",
       "effort": "M",
       "notes": "",
       "slug": "starlink-train-alert",
       "links": {
-        "live": "",
-        "code": "",
+        "live": "https://august85.github.io/ship100/days/004-starlink-train-alert/",
+        "code": "https://github.com/August85/ship100/tree/main/days/004-starlink-train-alert",
         "post": ""
       },
       "day": 4,
-      "shippedAt": null,
+      "shippedAt": "2026-11-10T14:17:51.245Z",
       "createdAt": "2026-11-06"
     },
     {

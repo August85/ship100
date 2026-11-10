@@ -32,3 +32,97 @@ input, select, textarea { font: inherit; color: var(--text); background: var(--s
 label { display: grid; gap: 4px; font-size: 14px; color: var(--muted); }
 .muted { color: var(--muted); }
 .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
+
+/* ---------- Starlink Train Alert (pass styles shared with Day 3) ---------- */
+:root { --gold: #b7791f; --sky-1: #0b1026; --sky-2: #1e3a6a; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --gold: #ffd66b; } }
+:root[data-theme="dark"] { --gold: #ffd66b; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+.small { font-size: 14px; }
+h2 { font-size: 20px; margin: 0; letter-spacing: -0.01em; }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+
+.place { display: grid; gap: 12px; margin-bottom: 16px; }
+.place-row { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; }
+.place-name { font-weight: 650; font-size: 18px; }
+.place p:empty { display: none; }
+.place p { margin: 0; }
+.search { display: flex; gap: 8px; }
+.search input { flex: 1; min-width: 0; }
+.results { list-style: none; margin: 0; padding: 0; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
+.results button { width: 100%; text-align: left; border: 0; border-radius: 0; border-bottom: 1px solid var(--line); background: var(--surface); padding: 10px 12px; }
+.results li:last-child button { border-bottom: 0; }
+.results button:hover { background: var(--surface-2); }
+
+.next { display: grid; grid-template-columns: 1fr 240px; gap: 20px; align-items: center; margin-bottom: 24px; }
+.next .kicker { color: var(--muted); font-size: 14px; text-transform: uppercase; letter-spacing: 0.06em; margin: 0; }
+.next .when { font-size: clamp(30px, 7vw, 44px); font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; margin: 4px 0; }
+.next .countdown { color: var(--gold); font-weight: 600; font-variant-numeric: tabular-nums; margin: 0 0 14px; }
+.steps { list-style: none; margin: 0 0 16px; padding: 0; display: grid; gap: 8px; }
+.steps li { display: grid; grid-template-columns: 64px 1fr; gap: 8px; align-items: baseline; }
+.steps .t { font-variant-numeric: tabular-nums; color: var(--muted); font-size: 14px; }
+.steps b { font-weight: 650; }
+.meta { display: flex; flex-wrap: wrap; gap: 6px 16px; color: var(--muted); font-size: 14px; margin-bottom: 16px; }
+.actions { display: flex; gap: 8px; flex-wrap: wrap; }
+.btn { text-decoration: none; display: inline-block; }
+
+.dome { width: 100%; height: auto; display: block; }
+.dome .bg { fill: url(#skygrad); }
+.dome .ring { fill: none; stroke: rgba(255,255,255,.18); stroke-width: 1; }
+.dome .lbl { fill: rgba(255,255,255,.75); font: 600 12px ui-sans-serif, system-ui, sans-serif; text-anchor: middle; dominant-baseline: middle; }
+.dome .trk { fill: none; stroke: rgba(255,255,255,.28); stroke-width: 2; stroke-dasharray: 3 4; }
+.dome .vis { fill: none; stroke: #ffd66b; stroke-width: 3.5; stroke-linecap: round; }
+.dome .dot { fill: #ffd66b; }
+.dome .end { fill: #0b1026; stroke: #ffd66b; stroke-width: 2; }
+
+.list-wrap { margin-bottom: 24px; }
+.list-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 10px; }
+.toggle { display: flex; flex-direction: row; align-items: center; gap: 6px; color: var(--muted); }
+.passes { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.pass { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 12px 14px; display: grid; grid-template-columns: 1fr auto; gap: 4px 12px; align-items: center; }
+.pass .d { font-weight: 650; }
+.pass .d .rel { color: var(--gold); font-weight: 600; margin-left: 6px; font-size: 14px; }
+.pass .s { color: var(--muted); font-size: 14px; }
+.pass .r { grid-row: span 2; display: flex; align-items: center; gap: 10px; }
+.pass.low { opacity: .72; }
+.bright { display: inline-flex; gap: 2px; }
+.bright i { width: 7px; height: 7px; border-radius: 50%; background: var(--line); }
+.bright i.on { background: var(--gold); }
+
+.how { margin-bottom: 16px; }
+.how summary { cursor: pointer; font-weight: 650; }
+.how ul { margin: 10px 0 0; padding-left: 20px; }
+.how li { margin-bottom: 6px; }
+
+@media (max-width: 620px) {
+  .next { grid-template-columns: 1fr; }
+  .next .dome-wrap { max-width: 220px; margin: 0 auto; }
+  .pass { grid-template-columns: 1fr; }
+  .pass .r { grid-row: auto; justify-content: space-between; order: 3; }
+}
+
+.place-row .place-name { font-size: 16px; margin-left: 4px; }
+.search .primary { white-space: nowrap; }
+
+.status { margin-bottom: 16px; }
+.status .kicker, .next .kicker { color: var(--muted); font-size: 14px; text-transform: uppercase; letter-spacing: 0.06em; margin: 0; }
+.status .headline { font-size: clamp(22px, 5vw, 28px); font-weight: 700; letter-spacing: -0.015em; line-height: 1.2; margin: 4px 0 6px; }
+.status > p.muted { margin: 0 0 14px; }
+.launches { list-style: none; margin: 0 0 14px; padding: 0; display: grid; gap: 10px; }
+.launch { display: grid; grid-template-columns: 56px 1fr; gap: 12px; align-items: center; }
+.launch .lt { font-weight: 650; }
+.launch .lt .muted { font-weight: 400; }
+.launch .ls { font-size: 14px; color: var(--muted); }
+.launch .ls b { color: var(--text); font-weight: 600; }
+.launch.train .ls b, .launch.loose .ls b { color: var(--gold); }
+.ring { width: 56px; height: 56px; display: block; }
+.ring .orbit { fill: none; stroke: var(--line); stroke-width: 1.5; }
+.ring .earth { fill: var(--surface-2); stroke: var(--line); }
+.ring circle:not(.orbit):not(.earth) { fill: var(--muted); opacity: .55; }
+.ring circle.on { fill: var(--gold); opacity: 1; }
+.status .actions:empty { display: none; }
+
+.next.demo { border-style: dashed; border-color: var(--gold); }
+.badge { display: inline-block; margin: 0 0 8px; padding: 2px 10px; border-radius: 999px; background: var(--gold); color: #1b1b18; font-size: 13px; font-weight: 650; }
+.dome .bead { fill: #fff; opacity: .9; }
+.how p { margin: 10px 0 0; }

@@ -4,9 +4,11 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Starlink Train Alert</title>
-  <meta name="description" content="Enter a ZIP code and get an email the evening a fresh Starlink train is visible.">
+  <meta name="description" content="Is a fresh Starlink train visible from your ZIP code this week? When, which way to look, and a calendar reminder.">
   <meta property="og:title" content="Starlink Train Alert · Day 4 of Ship 100">
-  <meta property="og:description" content="Enter a ZIP code and get an email the evening a fresh Starlink train is visible.">
+  <meta property="og:description" content="Is a fresh Starlink train visible from your ZIP code this week? When, which way to look, and a calendar reminder.">
+  <link rel="icon" href="icon.png">
+  <link rel="apple-touch-icon" href="icon.png">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -17,15 +19,61 @@
 
   <main class="wrap">
     <h1>Starlink Train Alert</h1>
-    <p class="lede">Enter a ZIP code and get an email the evening a fresh Starlink train is visible.</p>
+    <p class="lede">A day or two after a Starlink launch, the new satellites cross the evening sky in a line, like a string of pearls. Enter your ZIP code to find out if there's one to see this week, and put it in your calendar.</p>
 
-    <!-- The day's app goes here. -->
-    <section id="app" class="card"></section>
+    <section class="card place" aria-labelledby="place-h">
+      <h2 id="place-h" class="sr-only">Your location</h2>
+      <form id="search" class="search" role="search" autocomplete="off">
+        <label for="q" class="sr-only">US ZIP code or city</label>
+        <input id="q" type="search" placeholder="US ZIP code (94103) or a city" enterkeyhint="search">
+        <button type="submit" class="primary">Check</button>
+      </form>
+      <div class="place-row">
+        <div>
+          <span class="muted small">Showing</span>
+          <span id="place-name" class="place-name">no location yet</span>
+        </div>
+        <button id="locate" type="button">Use my location</button>
+      </div>
+      <ul id="results" class="results" hidden></ul>
+      <p id="place-msg" class="muted small" role="status"></p>
+    </section>
+
+    <section id="status" class="card status" aria-live="polite">
+      <p class="kicker">Recent Starlink launches</p>
+      <p class="headline">Loading orbit data…</p>
+    </section>
+
+    <section id="next" class="card next" aria-live="polite" hidden></section>
+
+    <section id="list-wrap" class="list-wrap" hidden>
+      <div class="list-head"><h2 id="list-h">Next 5 days</h2></div>
+      <ol id="list" class="passes"></ol>
+    </section>
+
+    <details class="card how">
+      <summary>What is a Starlink train, and how do I see one?</summary>
+      <ul>
+        <li>SpaceX launches a few dozen Starlink satellites at a time. For the first days they fly one behind the other, low and bright, so you see a line of dots gliding across the sky over a few minutes.</li>
+        <li>Within one to three weeks they climb to their working orbits and spread around the planet. The train is gone; you'd only spot single satellites. This page checks how bunched up each recent launch still is.</li>
+        <li>You can only see them around dusk and dawn: your sky has to be dark while the satellites, a few hundred km up, are still in sunlight.</li>
+        <li>Face the direction it appears from a minute early. "20° up" is about two fists held at arm's length above the horizon.</li>
+      </ul>
+    </details>
+
+    <details class="card how">
+      <summary>Why a calendar reminder and not an email?</summary>
+      <p>Sending email needs a server and a mail account, and this is a single page with no backend and no sign-up. A calendar event with a 15-minute alarm does the same job: it pings you on your phone the evening of the pass. Times can shift by a few minutes as the satellites raise their orbits, so open this page again that afternoon to check.</p>
+    </details>
+
+    <p id="data-note" class="muted small"></p>
   </main>
 
   <footer class="wrap foot">
     Built in a day by <a href="https://www.linkedin.com/in/abhimanyu-katyayan/">Abhimanyu Katyayan</a> ·
-    <a href="https://github.com/August85/ship100/tree/main/days/004-starlink-train-alert">Source</a>
+    <a href="https://github.com/August85/ship100/tree/main/days/004-starlink-train-alert">Source</a> ·
+    Orbits from <a href="https://celestrak.org">CelesTrak</a>, ZIP codes from <a href="https://zippopotam.us">Zippopotam.us</a>,
+    places and clouds from <a href="https://open-meteo.com">Open-Meteo</a>
   </footer>
   <script type="module" src="app.js"></script>
 </body>

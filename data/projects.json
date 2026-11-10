@@ -78,7 +78,7 @@
       "reuses": [
         "SatellitePaglu"
       ],
-      "status": "approved",
+      "status": "building",
       "effort": "M",
       "notes": "",
       "slug": "starlink-train-alert",
@@ -87,7 +87,7 @@
         "code": "",
         "post": ""
       },
-      "day": null,
+      "day": 4,
       "shippedAt": null,
       "createdAt": "2026-11-06"
     },

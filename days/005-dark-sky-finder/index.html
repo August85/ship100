@@ -4,9 +4,12 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Dark Sky Finder</title>
-  <meta name="description" content="A light-pollution map with the nearest Bortle 1–3 sites within an hour's drive. Uses the AstroScout grid.">
+  <meta name="description" content="How dark is your sky, and where is the nearest Bortle 1–3 spot within an hour's drive? A light-pollution map built from NASA night-lights data.">
   <meta property="og:title" content="Dark Sky Finder · Day 5 of Ship 100">
-  <meta property="og:description" content="A light-pollution map with the nearest Bortle 1–3 sites within an hour's drive. Uses the AstroScout grid.">
+  <meta property="og:description" content="How dark is your sky, and where is the nearest Bortle 1–3 spot within an hour's drive?">
+  <link rel="icon" href="icon.png">
+  <link rel="apple-touch-icon" href="icon.png">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -16,11 +19,62 @@
   </header>
 
   <main class="wrap">
-    <h1>Dark Sky Finder</h1>
-    <p class="lede">A light-pollution map with the nearest Bortle 1–3 sites within an hour's drive. Uses the AstroScout grid.</p>
+    <div class="title">
+      <img src="icon.png" alt="" width="56" height="56">
+      <h1>Dark Sky Finder</h1>
+    </div>
+    <p class="lede">How dark is the sky where you live, and where's the nearest truly dark spot (Bortle 1–3) you can drive to in an hour? Enter a town and find out.</p>
 
-    <!-- The day's app goes here. -->
-    <section id="app" class="card"></section>
+    <section class="card place" aria-labelledby="place-h">
+      <h2 id="place-h" class="sr-only">Your location</h2>
+      <form id="search" class="search" role="search" autocomplete="off">
+        <label for="q" class="sr-only">City or US ZIP code</label>
+        <input id="q" type="search" placeholder="A city, or a US ZIP code" enterkeyhint="search">
+        <button type="submit" class="primary">Find dark skies</button>
+      </form>
+      <div class="row">
+        <button type="button" id="locate">Use my location</button>
+        <span id="place-msg" class="muted small" role="status">Or tap the map to start from anywhere.</span>
+      </div>
+      <ul id="results" class="results" hidden></ul>
+    </section>
+
+    <section class="card here" id="here" aria-live="polite">
+      <p class="muted">Pick a place to begin.</p>
+    </section>
+
+    <section class="mapcard" aria-label="Light-pollution map">
+      <div id="map"></div>
+      <div class="maptools">
+        <label class="check"><input type="checkbox" id="overlay" checked> Bortle shading</label>
+        <label class="check"><input type="checkbox" id="lights"> NASA night-lights photo</label>
+      </div>
+      <ol class="legend" aria-label="Bortle class colours, 1 darkest to 9 brightest">
+        <li><i style="--c:#0b0d1a"></i>1</li><li><i style="--c:#1c2a59"></i>2</li><li><i style="--c:#1f5d8c"></i>3</li>
+        <li><i style="--c:#2e8a4a"></i>4</li><li><i style="--c:#c9b52b"></i>5</li><li><i style="--c:#d9802a"></i>6</li>
+        <li><i style="--c:#cc4b2b"></i>7</li><li><i style="--c:#e8a0b4"></i>8</li><li><i style="--c:#f4f1ea"></i>9</li>
+      </ol>
+    </section>
+
+    <section id="sites" aria-labelledby="sites-h" hidden>
+      <h2 id="sites-h">Dark spots within an hour</h2>
+      <p id="sites-note" class="muted small"></p>
+      <ol id="site-list" class="sites"></ol>
+    </section>
+
+    <details class="card how">
+      <summary>How this works (and how far to trust it)</summary>
+      <p>This is a browser port of the light-pollution grid from <strong>AstroScout</strong>, an iOS night-sky photography app I built earlier. For the area around you it:</p>
+      <ol>
+        <li>downloads NASA's VIIRS <a href="https://www.earthdata.nasa.gov/topics/human-dimensions/nighttime-lights">Black Marble</a> night-lights image (2016) from <a href="https://nasa-gibs.github.io/gibs-api-docs/">GIBS</a>,</li>
+        <li>turns each 3&nbsp;km cell's brightness into an estimate of the light it sends up,</li>
+        <li>spreads that light over everything within 150&nbsp;km, fading with distance, because a city's glow reaches far past its edge,</li>
+        <li>converts the total into zenith sky brightness (mag/arcsec², what a Sky Quality Meter reads) and a <a href="https://en.wikipedia.org/wiki/Bortle_scale">Bortle class</a>.</li>
+      </ol>
+      <p>The model's three constants were fitted to 14 places with roughly known sky brightness, from Midtown Manhattan to Big Bend. It lands within one Bortle class of all of them, with a typical error of about 0.3 mag. Treat it as a good first guess: the satellite picture is from 2016, and the model can't see hills that block a light dome, clouds, the Moon or one floodlit gas station.</p>
+      <p>Drive times come from the free <a href="https://project-osrm.org/">OSRM</a> demo router, to the nearest road. City search by <a href="https://open-meteo.com/">Open-Meteo</a>, ZIP codes by <a href="https://www.zippopotam.us/">Zippopotam.us</a>, map © <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors. No tracking; your last place is remembered on this device only.</p>
+      <p>Want dates too? <a href="../002-milky-way-calendar/">Day 2's Milky Way Calendar</a> finds the best moonless nights.</p>
+    </details>
   </main>
 
   <footer class="wrap foot">

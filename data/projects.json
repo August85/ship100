@@ -122,7 +122,7 @@
       "theme": "Sky",
       "stack": "web",
       "reuses": [],
-      "status": "idea",
+      "status": "building",
       "effort": "M",
       "notes": "",
       "slug": "moon-shot-planner",
@@ -131,7 +131,7 @@
         "code": "",
         "post": ""
       },
-      "day": null,
+      "day": 6,
       "shippedAt": null,
       "createdAt": "2026-11-06"
     },

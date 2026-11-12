@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><title>Moon Shot Planner tests</title></head>
+<body>
+<pre id="out">running…</pre>
+<script type="module">
+// Open this page from a local server (python3 -m http.server at the repo root).
+import * as A from "https://cdn.jsdelivr.net/npm/astronomy-engine@2.1.19/esm/astronomy.js";
+import { destination, bearing, distanceM, topElevation, planShots } from "../plan.js";
+
+const out = document.getElementById("out");
+const log = [];
+const ok = (cond, msg) => { if (!cond) throw new Error(msg); };
+
+try {
+  const p = destination(37.8107, -122.4773, 120, 3000);
+  ok(Math.abs(distanceM(37.8107, -122.4773, p.lat, p.lon) - 3000) < 1, "destination distance");
+  ok(Math.abs(bearing(37.8107, -122.4773, p.lat, p.lon) - 120) < 0.05, "destination bearing");
+
+  const e = topElevation(227, 3000);
+  ok(e > 4.1 && e < 4.4, `elevation ${e}`);
+
+  const gg = { lat: 37.8107, lon: -122.4773, height: 227 };
+  const { shots } = planShots(A, gg, { dist: 3000, days: 60, start: new Date("2026-11-12T00:00:00Z") });
+  ok(shots.length >= 55 && shots.length <= 62, `rise count ${shots.length}`);
+
+  for (const s of shots) {
+    // From the standing spot, the moon really is at the tower top and directly behind it.
+    const obs = new A.Observer(s.stand.lat, s.stand.lon, 0);
+    const eq = A.Equator(A.Body.Moon, s.date, obs, true, true);
+    const hor = A.Horizon(s.date, obs, eq.ra, eq.dec, "normal");
+    ok(Math.abs(hor.altitude - e) < 0.02, `alt ${hor.altitude} vs ${e}`);
+    ok(Math.abs(((hor.azimuth - s.facing + 540) % 360) - 180) < 0.05 || Math.abs(hor.azimuth - s.facing) < 0.05, `az ${hor.azimuth} vs facing ${s.facing}`);
+    ok(Math.abs(distanceM(s.stand.lat, s.stand.lon, gg.lat, gg.lon) - 3000) < 2, "stand distance");
+  }
+  ok(shots.every((s) => s.azimuth > 40 && s.azimuth < 140), "rises are eastish");
+  for (let i = 1; i < shots.length; i++) {
+    const gap = (shots[i].date - shots[i - 1].date) / 3.6e6;
+    ok(gap > 20 && gap < 30, `gap ${gap}h`);
+  }
+  const sets = planShots(A, gg, { dist: 3000, days: 30, mode: "set" }).shots;
+  ok(sets.length > 25 && sets.every((s) => s.azimuth > 220 && s.azimuth < 320), "sets are westish");
+
+  log.push(`PASS: ${shots.length} rises, ${sets.length} sets checked`);
+  const best = [...shots].sort((a, b) => b.score - a.score)[0];
+  log.push(`best rise: ${best.date.toISOString()} score ${best.score} ${best.phase} ${best.light}`);
+} catch (err) {
+  log.push("FAIL: " + err.message);
+}
+out.textContent = log.join("\n");
+document.title = log[0].slice(0, 4);
+</script>
+</body>
+</html>

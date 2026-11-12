@@ -4,9 +4,12 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Moon Shot Planner</title>
-  <meta name="description" content="Pick a landmark, and it tells you when the moon rises behind it (date, time, where to stand).">
+  <meta name="description" content="Pick a landmark, and it tells you when the moon rises behind it: the date, the time, and exactly where to stand.">
   <meta property="og:title" content="Moon Shot Planner · Day 6 of Ship 100">
-  <meta property="og:description" content="Pick a landmark, and it tells you when the moon rises behind it (date, time, where to stand).">
+  <meta property="og:description" content="Pick a landmark, and it tells you when the moon rises behind it: the date, the time, and exactly where to stand.">
+  <link rel="icon" href="icon.png">
+  <link rel="apple-touch-icon" href="icon.png">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -16,16 +19,56 @@
   </header>
 
   <main class="wrap">
-    <h1>Moon Shot Planner</h1>
-    <p class="lede">Pick a landmark, and it tells you when the moon rises behind it (date, time, where to stand).</p>
+    <div class="title">
+      <img src="icon.png" alt="" width="56" height="56">
+      <h1>Moon Shot Planner</h1>
+    </div>
+    <p class="lede">Pick a landmark. Get the dates and times the moon rises right behind it, and the exact spot to stand.</p>
 
-    <!-- The day's app goes here. -->
-    <section id="app" class="card"></section>
+    <section class="card controls" aria-label="Plan">
+      <label class="wide">Landmark
+        <select id="landmark"></select>
+      </label>
+      <div class="row">
+        <label>Height of the top (m)
+          <input id="height" type="number" min="5" max="1000" step="1" inputmode="numeric">
+        </label>
+        <fieldset class="seg">
+          <legend>Moon</legend>
+          <label><input type="radio" name="mode" value="rise" checked> Rising</label>
+          <label><input type="radio" name="mode" value="set"> Setting</label>
+        </fieldset>
+      </div>
+      <label class="wide">How far back you stand: <strong id="distOut"></strong>
+        <input id="dist" type="range" min="0" max="100" step="1" aria-describedby="framing">
+      </label>
+      <p id="framing" class="framing"></p>
+      <p class="hint muted">Tip: tap the map to plan around any building, tower or hill of your own.</p>
+    </section>
+
+    <div id="map" class="map" role="region" aria-label="Map of the landmark and where to stand"></div>
+
+    <section id="detail" class="card detail" aria-live="polite" hidden></section>
+
+    <section class="list-head">
+      <h2>Next 60 days</h2>
+      <label class="check"><input id="brightOnly" type="checkbox" checked> Only when the moon is at least half lit</label>
+    </section>
+    <p id="status" class="muted" role="status">Loading the moon…</p>
+    <ol id="shots" class="shots"></ol>
+
+    <details class="how card">
+      <summary>How it works</summary>
+      <p>From where you stand, a landmark's top sits at a small angle above the horizon. The further back you go, the lower that angle and the bigger the moon looks next to it. For every moonrise in the next 60 days, the planner finds the minute the moon's centre climbs to that angle, reads the direction it's in, and puts you on the opposite side of the landmark at your chosen distance.</p>
+      <p>Moon and sun positions come from <a href="https://github.com/cosinekitty/astronomy">Astronomy Engine</a>, worked out in your browser, with parallax, refraction and Earth's curvature included. Times are good to about a minute.</p>
+      <p>It assumes flat, open ground at the landmark's base height. Hills, trees, buildings and water aren't in its data, so check the spot on the map before you go, and slide the distance if it lands somewhere you can't stand.</p>
+    </details>
   </main>
 
   <footer class="wrap foot">
     Built in a day by <a href="https://www.linkedin.com/in/abhimanyu-katyayan/">Abhimanyu Katyayan</a> ·
-    <a href="https://github.com/August85/ship100/tree/main/days/006-moon-shot-planner">Source</a>
+    <a href="https://github.com/August85/ship100/tree/main/days/006-moon-shot-planner">Source</a> ·
+    Map © <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors
   </footer>
   <script type="module" src="app.js"></script>
 </body>

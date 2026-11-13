@@ -7,7 +7,7 @@ One product, app or web portal a day, for 100 days, by [Abhimanyu Katyayan](http
 Each day's product lives in [`days/`](days/) and is live at `https://august85.github.io/ship100/days/NNN-name/`.
 
 ## How it works
-1. The 100 ideas are in [`data/projects.json`](data/projects.json) (first written up in [IDEAS.md](IDEAS.md)).
+1. The idea list is in [`data/projects.json`](data/projects.json) (the original 100 are in [IDEAS.md](IDEAS.md)).
 2. On the tracker page the owner can approve, skip, reorder, edit and add ideas, then press **Start**.
 3. Every morning a scheduled Claude Code task follows [RUNNER.md](RUNNER.md): it picks the next approved idea
    (or the next unreviewed one if nothing is approved), builds it from a template, tests it, writes it up,

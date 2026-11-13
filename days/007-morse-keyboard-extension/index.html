@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Morse Keyboard Extension</title>
-  <meta name="description" content="An iOS keyboard where you type in dots and dashes.">
+  <title>Morse Keys</title>
+  <meta name="description" content="An iPhone keyboard where you type in dots and dashes, in any app.">
   <meta property="og:title" content="Morse Keyboard Extension · Day 7 of Ship 100">
-  <meta property="og:description" content="An iOS keyboard where you type in dots and dashes.">
+  <meta property="og:description" content="An iPhone keyboard where you type in dots and dashes, in any app.">
   <link rel="icon" href="icon.png">
   <link rel="apple-touch-icon" href="icon.png">
   <link rel="stylesheet" href="style.css">
@@ -26,17 +26,34 @@
   <main class="wrap">
     <img class="appicon" src="icon.png" alt="" width="96" height="96" style="display:block;border-radius:22%;margin:8px 0 12px">
     <span class="platform">iPhone app</span>
-    <h1>Morse Keyboard Extension</h1>
-    <p class="lede">An iOS keyboard where you type in dots and dashes.</p>
+    <h1>Morse Keys</h1>
+    <p class="lede">An iPhone keyboard where you type in dots and dashes, in any app: Messages, Notes, Safari.</p>
 
-    <!-- Screenshots go in shots/ (PNG, from the simulator / watch simulator). -->
-    <section class="shots" aria-label="Screenshots"></section>
+    <section class="shots" aria-label="Screenshots">
+      <img src="shots/1-practice.jpg" alt="The Morse keyboard: big Dot and Dash keys, with the strip showing dot dash dot dot equals L while typing HELLO" loading="lazy">
+      <img src="shots/4-dark.jpg" alt="Dark mode: three dots keyed, the strip shows equals S and suggests H, V, 3, 4 and 5" loading="lazy">
+      <img src="shots/2-setup.jpg" alt="Set up screen: three steps to add the keyboard in Settings" loading="lazy">
+      <img src="shots/3-chart.jpg" alt="Code chart of every letter, number and punctuation mark" loading="lazy">
+    </section>
 
     <h2>What it does</h2>
-    <ul></ul>
+    <ul>
+      <li><b>Two big keys, dot and dash.</b> Keys fire on touch-down, so fast keying doesn't drop symbols.</li>
+      <li><b>Pause and the letter types itself.</b> 0.6, 0.9 or 1.3 seconds, or switch to Manual and end each letter yourself.</li>
+      <li><b>A live strip</b> shows the code so far, what it spells right now, and every letter it could still become. Tap one to finish early. It turns red when the code can't be anything.</li>
+      <li><b>Backspace takes back the last dot or dash first</b>, then whole characters.</li>
+      <li>Shift, auto-capitals at the start of a sentence, and a return key that says send, go or search when the app asks for it.</li>
+      <li><b>Practice pad and code chart</b> in the app, so you can learn before you switch keyboards.</li>
+      <li><b>No Full Access, ever.</b> iOS keeps the keyboard off the network. Nothing you type is stored or sent.</li>
+    </ul>
 
     <h2>Try it</h2>
-    <ol class="steps"></ol>
+    <ol class="steps">
+      <li>Clone <a href="https://github.com/August85/ship100">August85/ship100</a> and open <code>days/007-morse-keyboard-extension/app</code>.</li>
+      <li>Run <code>xcodegen</code> (install with <code>brew install xcodegen</code>), then open <code>MorseKeys.xcodeproj</code> and press Run. Needs iOS 17 or later.</li>
+      <li>On the phone: Settings › General › Keyboard › Keyboards › Add New Keyboard… › <b>Morse Keys</b>. Then hold the globe key in any text field and pick Morse.</li>
+    </ol>
+    <p class="muted">TestFlight link coming soon.</p>
   </main>
 
   <footer class="wrap foot">

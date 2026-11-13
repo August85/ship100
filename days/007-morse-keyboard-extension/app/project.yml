@@ -1,5 +1,5 @@
 # Generate the Xcode project with: xcodegen
-name: MorseKeyboardExtension
+name: MorseKeys
 options:
   bundleIdPrefix: com.ak.ship100
   deploymentTarget:
@@ -13,18 +13,66 @@ settings:
     DEVELOPMENT_TEAM: 2S5U54K6L4
     CODE_SIGN_STYLE: Automatic
 targets:
-  MorseKeyboardExtension:
+  MorseKeys:
     type: application
     platform: iOS
     sources:
       - App
+      - Shared
+    dependencies:
+      - target: MorseKeyboard
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.ak.ship100.morsekeyboardextension
         TARGETED_DEVICE_FAMILY: "1"
         GENERATE_INFOPLIST_FILE: YES
         ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
-        INFOPLIST_KEY_CFBundleDisplayName: "Morse Keyboard Extension"
+        INFOPLIST_KEY_CFBundleDisplayName: "Morse Keys"
         INFOPLIST_KEY_UILaunchScreen_Generation: YES
         INFOPLIST_KEY_UISupportedInterfaceOrientations: UIInterfaceOrientationPortrait
         INFOPLIST_KEY_ITSAppUsesNonExemptEncryption: NO
+  MorseKeyboard:
+    type: app-extension
+    platform: iOS
+    sources:
+      - Keyboard
+      - Shared
+    info:
+      path: Keyboard/Info.plist
+      properties:
+        CFBundleDisplayName: Morse
+        CFBundleShortVersionString: $(MARKETING_VERSION)
+        CFBundleVersion: $(CURRENT_PROJECT_VERSION)
+        NSExtension:
+          NSExtensionPointIdentifier: com.apple.keyboard-service
+          NSExtensionPrincipalClass: $(PRODUCT_MODULE_NAME).KeyboardViewController
+          NSExtensionAttributes:
+            IsASCIICapable: false
+            PrefersRightToLeft: false
+            PrimaryLanguage: en-US
+            RequestsOpenAccess: false
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.ak.ship100.morsekeyboardextension.keyboard
+        TARGETED_DEVICE_FAMILY: "1"
+        APPLICATION_EXTENSION_API_ONLY: YES
+  MorseKeysTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - Tests
+    dependencies:
+      - target: MorseKeys
+    settings:
+      base:
+        GENERATE_INFOPLIST_FILE: YES
+        PRODUCT_BUNDLE_IDENTIFIER: com.ak.ship100.morsekeyboardextension.tests
+schemes:
+  MorseKeys:
+    build:
+      targets:
+        MorseKeys: all
+        MorseKeysTests: [test]
+    test:
+      targets:
+        - MorseKeysTests

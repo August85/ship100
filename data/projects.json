@@ -145,7 +145,7 @@
       "reuses": [
         "MorseCode"
       ],
-      "status": "approved",
+      "status": "building",
       "effort": "L",
       "notes": "",
       "slug": "morse-keyboard-extension",
@@ -154,7 +154,7 @@
         "code": "",
         "post": ""
       },
-      "day": null,
+      "day": 7,
       "shippedAt": null,
       "createdAt": "2026-11-06"
     },

@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><title>Rocket Launch Feed tests</title></head>
+<body>
+<pre id="out">running…</pre>
+<script type="module">
+// Open this page from a local server (python3 -m http.server at the repo root).
+import * as A from "https://cdn.jsdelivr.net/npm/astronomy-engine@2.1.19/esm/astronomy.js";
+import { distanceKm, bearingDeg, compass, elevationDeg, sunlitDip, sunAltitude, judge, hasTime, icsFor, trimLaunch } from "../launch.js";
+import { CITIES, SPOTS } from "../spots.js";
+
+const out = document.getElementById("out");
+const log = [];
+const ok = (cond, msg) => { if (!cond) throw new Error(msg); log.push("ok  " + msg); };
+const pad = { id: "t", name: "Test launch", pad: "SLC-4E", location: "Vandenberg", lat: 34.632, lon: -120.611, precision: "MIN" };
+const city = (id) => CITIES.find((c) => c.id === id);
+const at = (iso) => ({ ...pad, net: iso });
+
+try {
+  const la = city("los-angeles");
+  const d = distanceKm(la.lat, la.lon, pad.lat, pad.lon);
+  ok(d > 220 && d < 235, `LA to SLC-4E is ${d.toFixed(0)} km`);
+  ok(compass(bearingDeg(la.lat, la.lon, pad.lat, pad.lon)) === "WNW", "LA looks WNW");
+  ok(Math.abs(elevationDeg(150, Math.sqrt(2 * 6371 * 150))) < 0.01, "150 km point sits on the horizon at sqrt(2Rh)");
+  ok(Math.abs(sunlitDip(150) - 12.4) < 0.1, `sun can be ${sunlitDip(150).toFixed(1)}° down and still light 150 km`);
+
+  // Sun sanity: local noon is high, local midnight is low.
+  ok(sunAltitude(A, la.lat, la.lon, new Date("2026-06-21T20:00:00Z")) > 70, "LA summer noon sun is high");
+  ok(sunAltitude(A, la.lat, la.lon, new Date("2026-06-21T08:00:00Z")) < -20, "LA summer midnight sun is low");
+
+  // Scan an evening in 5-minute steps: each verdict must match the sun angles it reports.
+  let sawTwilight = false, sawNight = false, sawDay = false;
+  for (let t = Date.parse("2026-11-18T00:00:00Z"); t < Date.parse("2026-11-18T04:00:00Z"); t += 5 * 60000) {
+    const j = judge(A, at(new Date(t).toISOString()), la);
+    if (j.kind === "day") { sawDay = true; if (!(j.sunObs >= -4)) throw new Error("day verdict with dark sky"); }
+    if (j.kind === "twilight") { sawTwilight = true; if (!(j.sunObs < -4 && j.sunPad > -11.4)) throw new Error("twilight verdict outside its sun range"); if (j.rating !== "great") throw new Error("LA twilight should rate great"); }
+    if (j.kind === "night") { sawNight = true; if (!(j.sunPad <= -11.4)) throw new Error("night verdict with sunlit plume"); }
+  }
+  ok(sawDay && sawTwilight && sawNight, "an LA evening goes day → twilight plume → night");
+
+  const tw = judge(A, at("2026-11-18T01:20:00Z"), la);
+  ok(tw.kind === "twilight" && tw.rating === "great", `LA, 5:20 pm PST: ${tw.headline} (${tw.rating})`);
+  const phx = judge(A, at("2026-11-18T01:20:00Z"), city("phoenix"));
+  ok(phx.kind === "twilight" && phx.rating !== "poor", `Phoenix, same time: ${phx.rating} (plume ${phx.plumeEl.toFixed(1)}° up)`);
+
+  const noon = "2026-11-18T20:00:00Z";
+  ok(judge(A, at(noon), city("lompoc")).rating === "good", "Lompoc at noon: good");
+  ok(judge(A, at(noon), city("slo")).rating === "fair", "San Luis Obispo at noon: contrail only");
+  ok(judge(A, at(noon), city("san-francisco")).rating === "poor", "San Francisco at noon: poor");
+  ok(judge(A, at("2026-11-18T10:00:00Z"), city("san-francisco")).kind === "night", "San Francisco at 2 am: night");
+
+  ok(!hasTime({ precision: "M" }) && hasTime({ precision: "MIN" }), "only minute/hour times are judged");
+  ok(judge(A, { ...pad, net: noon, precision: "Q4" }, la).rating === "unknown", "TBD launch rates unknown");
+
+  const ics = icsFor(at("2026-11-18T03:14:00Z"), "Look WNW, 227 km");
+  ok(ics.includes("DTSTART:20261118T031400Z") && ics.includes("DTEND:20261118T034400Z"), "calendar times");
+  ok(ics.split("\r\n").length > 10 && ics.includes("Look WNW\\, 227 km"), "calendar text is escaped");
+
+  const t = trimLaunch({ id: "x", name: "N", net: "2026-01-01T00:00:00Z", net_precision: { abbrev: "HR" }, status: { abbrev: "Go", name: "Go" }, rocket: { configuration: { full_name: "F9" } }, pad: { name: "P", latitude: "34.6", longitude: "-120.6", location: { name: "V" } } });
+  ok(t.lat === 34.6 && t.precision === "HR" && t.mission === "", "trimLaunch tolerates a sparse record");
+
+  const snap = await fetch("../snapshot.json").then((r) => r.json());
+  ok(snap.launches.length > 0 && snap.launches.every((l) => Number.isFinite(l.lat) && l.net), `snapshot has ${snap.launches.length} launches`);
+  ok(SPOTS.every((s) => s.lat > 32 && s.lat < 38.5 && s.lon < -116 && s.lon > -123), "spots are in California");
+
+  out.textContent = log.join("\n") + `\n\nPASS (${log.length} checks)`;
+} catch (e) {
+  out.textContent = log.join("\n") + "\n\nFAIL: " + e.message;
+}
+</script>
+</body>
+</html>

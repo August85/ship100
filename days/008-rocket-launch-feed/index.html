@@ -7,6 +7,7 @@
   <meta name="description" content="Upcoming launches you can see from California, with viewing spots.">
   <meta property="og:title" content="Rocket Launch Feed · Day 8 of Ship 100">
   <meta property="og:description" content="Upcoming launches you can see from California, with viewing spots.">
+  <link rel="icon" href="icon.png">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -16,16 +17,52 @@
   </header>
 
   <main class="wrap">
-    <h1>Rocket Launch Feed</h1>
-    <p class="lede">Upcoming launches you can see from California, with viewing spots.</p>
+    <div class="title">
+      <img src="icon.png" alt="" width="56" height="56">
+      <div>
+        <h1>Rocket Launch Feed</h1>
+        <p class="lede">Upcoming launches from Vandenberg you can see from California, how they'll look from your town, and where to watch.</p>
+      </div>
+    </div>
 
-    <!-- The day's app goes here. -->
-    <section id="app" class="card"></section>
+    <section class="controls card">
+      <label>Watching from
+        <select id="city"></select>
+      </label>
+      <button id="locate" type="button">Use my location</button>
+      <label class="check"><input type="checkbox" id="visibleOnly"> Only ones I can see</label>
+    </section>
+    <p id="source" class="muted small" role="status">Loading launches…</p>
+
+    <section id="next" class="card hero" aria-live="polite" hidden></section>
+
+    <h2>Coming up</h2>
+    <ol id="list" class="launches"></ol>
+    <details id="tbdWrap" class="card tbd" hidden>
+      <summary>Date not set yet (<span id="tbdCount">0</span>)</summary>
+      <ul id="tbd"></ul>
+    </details>
+
+    <h2 id="spots-h">Where to watch</h2>
+    <p class="muted">Sorted by distance from you. Close-up spots are near the pad; twilight spots have a wide western or southern sky.</p>
+    <ol id="spots" class="spots"></ol>
+
+    <details class="card explain">
+      <summary>How the visibility rating works</summary>
+      <p>For each launch with a set time, the page works out where the sun is for you and for the pad at liftoff.</p>
+      <ul>
+        <li><b>Twilight plume (great):</b> it's dark where you are, but the sun still lights the exhaust 150 km up. This is the glowing "jellyfish" seen across Southern California and Arizona. It rates great if that height clears your horizon by 5°.</li>
+        <li><b>Night:</b> you see the engine flame as a fast orange star. Rated by how high a point 60 km above the pad sits above your horizon, allowing for Earth's curve.</li>
+        <li><b>Day:</b> only worth it within about 60 km (flame and trail), maybe up to 160 km (contrail).</li>
+      </ul>
+      <p>It ignores clouds, fog (common at Vandenberg) and hills. Rockets from Vandenberg usually head south over the Pacific, so from Los Angeles and San Diego the plume moves from right to left as you face it, and can end up closer to you than the pad.</p>
+    </details>
   </main>
 
   <footer class="wrap foot">
     Built in a day by <a href="https://www.linkedin.com/in/abhimanyu-katyayan/">Abhimanyu Katyayan</a> ·
-    <a href="https://github.com/August85/ship100/tree/main/days/008-rocket-launch-feed">Source</a>
+    <a href="https://github.com/August85/ship100/tree/main/days/008-rocket-launch-feed">Source</a> ·
+    Launch data: <a href="https://thespacedevs.com/llapi">Launch Library 2</a> by The Space Devs
   </footer>
   <script type="module" src="app.js"></script>
 </body>

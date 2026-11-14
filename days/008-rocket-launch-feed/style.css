@@ -32,3 +32,71 @@ input, select, textarea { font: inherit; color: var(--text); background: var(--s
 label { display: grid; gap: 4px; font-size: 14px; color: var(--muted); }
 .muted { color: var(--muted); }
 .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
+
+/* ---------- Rocket Launch Feed ---------- */
+.small { font-size: 13px; }
+h2 { font-size: 20px; margin: 32px 0 12px; letter-spacing: -0.01em; }
+.title { display: flex; gap: 14px; align-items: center; margin-top: 24px; }
+.title img { border-radius: 14px; flex: none; }
+.title h1 { margin: 0 0 4px; }
+.title .lede { margin: 0; font-size: 16px; }
+.controls { display: flex; flex-wrap: wrap; gap: 12px 16px; align-items: end; margin-top: 20px; }
+.controls label { min-width: 180px; }
+.controls select { min-width: 180px; }
+label.check { display: flex; align-items: center; gap: 8px; color: var(--text); min-width: 0; padding-bottom: 8px; }
+#source { margin: 10px 2px 16px; }
+#source.warn { color: var(--danger); }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+.hero { position: relative; overflow: hidden; background: linear-gradient(160deg, #0d1b3d 0%, #1e2f6b 55%, #7a3b7a 100%); color: #f3f2ff; border: 0; }
+.hero.k-day { background: linear-gradient(160deg, #1b4f8a 0%, #3c7dc4 70%, #8ab8e6 100%); }
+.hero.k-night { background: linear-gradient(160deg, #05070f 0%, #121a35 100%); }
+.hero.k-tbd { background: linear-gradient(160deg, #2a2a33 0%, #3d3d4a 100%); }
+.hero .muted { color: #c9c8e6; }
+.hero a.btn { color: #fff; background: transparent; border-color: rgba(255,255,255,.4); text-decoration: none; }
+.hero button.primary { background: #ff8a3d; border-color: #ff8a3d; color: #1a0d00; }
+.eyebrow { text-transform: uppercase; letter-spacing: .08em; font-size: 12px; margin: 0; display: flex; gap: 8px; align-items: center; }
+.hero-name { font-size: clamp(24px, 5vw, 32px); margin: 6px 0 2px; }
+.when { margin: 12px 0 0; font-weight: 600; }
+.count { font: 600 clamp(28px, 7vw, 44px)/1.1 ui-monospace, "SF Mono", Menlo, monospace; margin: 4px 0 16px; font-variant-numeric: tabular-nums; }
+.verdict { display: flex; gap: 12px; align-items: flex-start; background: rgba(0,0,0,.22); border-radius: 10px; padding: 12px; }
+.look { margin: 12px 0 16px; }
+.actions { display: flex; gap: 10px; flex-wrap: wrap; }
+
+.pill { flex: none; display: inline-block; font-size: 12px; font-weight: 700; padding: 2px 9px; border-radius: 999px; text-transform: uppercase; letter-spacing: .04em; }
+.r-great { background: #ffb84d; color: #3a1d00; }
+.r-good { background: #3fb950; color: #04260c; }
+.r-fair { background: #d9d16a; color: #2a2700; }
+.r-poor { background: var(--surface-2); color: var(--muted); border: 1px solid var(--line); }
+.r-unknown { background: var(--surface-2); color: var(--muted); border: 1px solid var(--line); }
+.status { font-size: 11px; font-weight: 700; padding: 1px 7px; border-radius: 6px; border: 1px solid currentColor; color: var(--muted); letter-spacing: .03em; text-transform: none; }
+.status.s-go { color: var(--ok); }
+.hero .status { color: #9ff0ad; }
+
+.launches, .spots { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
+.launch { padding: 14px 16px; }
+.launch .row { display: grid; grid-template-columns: 110px 1fr; gap: 14px; }
+.launch .date { display: grid; font-size: 14px; }
+.launch .date span { color: var(--muted); font-size: 13px; }
+.launch .what { display: grid; gap: 4px; }
+.verdict-line { display: flex; gap: 8px; align-items: center; font-size: 14px; }
+.launch details { margin-top: 8px; }
+.launch summary, .tbd summary, .explain summary { cursor: pointer; color: var(--accent); font-size: 14px; }
+.launch details p { margin: 8px 0; }
+.tbd { margin-top: 12px; }
+.tbd ul { margin: 10px 0 0; padding-left: 18px; display: grid; gap: 6px; font-size: 14px; }
+.spot { padding: 14px 16px; display: grid; gap: 4px; }
+.spot p { margin: 4px 0; }
+.spot-top { display: flex; justify-content: space-between; gap: 10px; align-items: baseline; }
+.tag { font-size: 12px; font-weight: 600; padding: 1px 8px; border-radius: 999px; flex: none; }
+.t-close { background: #ffe1cc; color: #6b2a00; }
+.t-twilight { background: #e3dcff; color: #2e1c78; }
+.explain { margin-top: 24px; }
+.explain li { margin: 6px 0; }
+
+@media (max-width: 520px) {
+  .launch .row { grid-template-columns: 1fr; gap: 6px; }
+  .launch .date { display: flex; gap: 8px; align-items: baseline; }
+  .title { align-items: flex-start; }
+  .title img { width: 44px; height: 44px; margin-top: 4px; }
+}

@@ -166,7 +166,7 @@
       "theme": "Sky, space and radio",
       "stack": "web",
       "reuses": [],
-      "status": "approved",
+      "status": "building",
       "effort": "M",
       "notes": "",
       "slug": "rocket-launch-feed",
@@ -175,7 +175,7 @@
         "code": "",
         "post": ""
       },
-      "day": null,
+      "day": 8,
       "shippedAt": null,
       "createdAt": "2026-11-06"
     },

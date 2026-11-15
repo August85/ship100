@@ -189,7 +189,7 @@
       "reuses": [
         "TinyStarClub.com"
       ],
-      "status": "approved",
+      "status": "building",
       "effort": "M",
       "notes": "",
       "slug": "star-chart-for-kids",
@@ -198,7 +198,7 @@
         "code": "",
         "post": ""
       },
-      "day": null,
+      "day": 9,
       "shippedAt": null,
       "createdAt": "2026-11-06"
     },

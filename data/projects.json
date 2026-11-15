@@ -189,17 +189,17 @@
       "reuses": [
         "TinyStarClub.com"
       ],
-      "status": "building",
+      "status": "shipped",
       "effort": "M",
       "notes": "",
       "slug": "star-chart-for-kids",
       "links": {
-        "live": "",
-        "code": "",
+        "live": "https://august85.github.io/ship100/days/009-star-chart-for-kids/",
+        "code": "https://github.com/August85/ship100/tree/main/days/009-star-chart-for-kids",
         "post": ""
       },
       "day": 9,
-      "shippedAt": null,
+      "shippedAt": "2026-11-15T14:13:05.615Z",
       "createdAt": "2026-11-06"
     },
     {

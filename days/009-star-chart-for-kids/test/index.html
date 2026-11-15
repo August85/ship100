@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><title>Star Chart tests</title></head>
+<body>
+<pre id="out">running…</pre>
+<script type="module">
+// Open from a local server (python3 -m http.server at the repo root).
+import { defaultState, sanitize, weekDays, weekLabel, mondayOf, isoDate, parseDate, countStars, maxStars,
+  clampGoal, toggleStar, nextWeek, key } from "../chart.js";
+
+const out = document.getElementById("out");
+const log = [];
+const ok = (cond, msg) => { if (!cond) throw new Error(msg); log.push("ok  " + msg); };
+
+try {
+  // Dates
+  ok(isoDate(mondayOf(new Date(2026, 10, 15))) === "2026-11-09", "Sunday 15 Nov 2026 belongs to the week of Mon 9 Nov");
+  ok(isoDate(mondayOf(new Date(2026, 10, 9))) === "2026-11-09", "a Monday is its own week start");
+  ok(parseDate("2026-02-30") === null && parseDate("nope") === null, "bad dates are rejected");
+  const wk = weekDays("2026-11-09");
+  ok(wk.length === 7 && wk[0].short === "Mon" && wk[6].iso === "2026-11-15", "week runs Mon 9 to Sun 15");
+  ok(weekDays("2026-11-12")[0].short === "Thu", "a week can start on any day");
+  ok(weekLabel("2026-11-30") === "Nov 30 – Dec 6", `month-crossing label: ${weekLabel("2026-11-30")}`);
+  ok(weekDays("2026-03-02")[6].iso === "2026-03-08", "US daylight-saving week still has 7 distinct days");
+
+  // Stars
+  let s = defaultState(new Date(2026, 10, 15));
+  ok(s.weekStart === "2026-11-09" && s.chores.length === 4 && s.goal === 20, "default chart: 4 chores, goal 20");
+  const a = s.chores[0].id;
+  s = toggleStar(s, a, 0); s = toggleStar(s, a, 1);
+  ok(countStars(s) === 2, "two taps give two stars");
+  s = toggleStar(s, a, 1);
+  ok(countStars(s) === 1, "tapping again removes a star");
+  s = { ...s, stars: { ...s.stars, "gone:3": true } };
+  ok(countStars(s) === 1, "stars for a removed chore don't count");
+
+  // Goal
+  ok(maxStars(s) === 28, "4 chores × 7 days = 28");
+  ok(clampGoal(100, s) === 28 && clampGoal(0, s) === 1 && clampGoal("abc", s) === 20, "goal clamps to 1..28");
+  ok(clampGoal(5, { chores: [] }) === 1, "empty chart has goal 1");
+
+  // Next week
+  const n = nextWeek(s);
+  ok(n.weekStart === "2026-11-16" && countStars(n) === 0 && n.chores === s.chores, "next week moves date, keeps chores, clears stars");
+
+  // Sanitize
+  ok(sanitize(null).chores.length === 4, "null storage gives a default chart");
+  const bad = sanitize({ name: 42, weekStart: "x", theme: "neon", chores: [{ id: "a", emoji: "", label: "Hi" }, { nope: 1 }],
+    reward: "x", goal: 999, stars: { "a:2": true, "a:9": true, "a:1": "yes", "<img>:1": true } });
+  ok(bad.name === "" && bad.theme === "sunshine" && /^\d{4}-\d{2}-\d{2}$/.test(bad.weekStart), "bad fields fall back");
+  ok(bad.chores.length === 1 && bad.chores[0].emoji === "⭐", "bad chores dropped, blank emoji becomes a star");
+  ok(Object.keys(bad.stars).join() === "a:2", "only well-formed stars survive");
+  ok(bad.goal === 7, "goal clamps to what one chore can reach");
+  const many = sanitize({ chores: Array.from({ length: 20 }, (_, i) => ({ id: "c" + i, emoji: "x", label: "y" })) });
+  ok(many.chores.length === 8, "at most 8 chores");
+  const rt = sanitize(JSON.parse(JSON.stringify(s)));
+  ok(JSON.stringify(rt.chores) === JSON.stringify(s.chores) && countStars(rt) === 1, "save → load round trip keeps chores and stars");
+  ok(rt.stars[key(a, 0)] === true, "the right star survives");
+
+  out.textContent = `PASS ${log.length} checks\n\n` + log.join("\n");
+  document.title = "PASS";
+} catch (e) {
+  out.textContent = `FAIL: ${e.message}\n\n` + log.join("\n");
+  document.title = "FAIL";
+}
+</script>
+</body>
+</html>

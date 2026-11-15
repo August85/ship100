@@ -7,6 +7,7 @@
   <meta name="description" content="A chore + reward star chart parents can print.">
   <meta property="og:title" content="Star Chart for Kids · Day 9 of Ship 100">
   <meta property="og:description" content="A chore + reward star chart parents can print.">
+  <link rel="icon" href="icon.png">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -16,14 +17,98 @@
   </header>
 
   <main class="wrap">
-    <h1>Star Chart for Kids</h1>
-    <p class="lede">A chore + reward star chart parents can print.</p>
+    <div class="title no-print">
+      <img src="icon.png" alt="" width="56" height="56">
+      <div>
+        <h1>Star Chart for Kids</h1>
+        <p class="lede">Pick a few picture chores and a reward. Tap a star each time it's done, or print it for the fridge.</p>
+      </div>
+    </div>
 
-    <!-- The day's app goes here. -->
-    <section id="app" class="card"></section>
+    <div class="toolbar no-print">
+      <button type="button" class="primary" id="print">🖨️ Print chart</button>
+      <button type="button" id="print-blank">Print blank (for stickers)</button>
+      <button type="button" id="next-week">Next week →</button>
+    </div>
+
+    <!-- The printable sheet. app.js fills it in. -->
+    <section id="sheet" class="sheet theme-sunshine" aria-labelledby="sheet-title">
+      <div class="sheet-head">
+        <h2 id="sheet-title"></h2>
+        <p id="sheet-week" class="sheet-week"></p>
+      </div>
+      <div id="chart" class="chart" role="grid" aria-labelledby="sheet-title"></div>
+      <div class="reward">
+        <div id="track" class="track" aria-hidden="true"></div>
+        <p id="reward-line" class="reward-line"></p>
+      </div>
+    </section>
+
+    <div id="party" class="party no-print" role="status" aria-live="polite"></div>
+
+    <section class="card setup no-print" aria-labelledby="setup-title">
+      <h2 id="setup-title">Set up the chart</h2>
+
+      <div class="row2">
+        <label>Child's name
+          <input id="name" type="text" maxlength="30" placeholder="e.g. Maya" autocomplete="off">
+        </label>
+        <label>Week starting
+          <input id="week" type="date">
+        </label>
+      </div>
+
+      <fieldset class="themes">
+        <legend>Colours</legend>
+        <div id="themes" class="swatches"></div>
+      </fieldset>
+
+      <h3>Chores <span id="chore-count" class="muted small"></span></h3>
+      <p class="muted small">Pictures matter more than words for little ones. Type any emoji in the small box.</p>
+      <ul id="chores" class="chores"></ul>
+      <div class="add-row">
+        <span class="muted small">Add:</span>
+        <div id="chore-presets" class="chips"></div>
+      </div>
+
+      <h3>Reward</h3>
+      <div id="reward-presets" class="chips"></div>
+      <div class="reward-edit">
+        <label class="emoji-label">Icon
+          <input id="reward-emoji" class="emoji-in" type="text" maxlength="16">
+        </label>
+        <label class="grow">Reward
+          <input id="reward-label" type="text" maxlength="40">
+        </label>
+        <label>Stars needed
+          <span class="stepper">
+            <button type="button" id="goal-down" aria-label="Fewer stars">−</button>
+            <input id="goal" type="number" min="1" inputmode="numeric" aria-label="Stars needed">
+            <button type="button" id="goal-up" aria-label="More stars">+</button>
+          </span>
+        </label>
+      </div>
+
+      <details class="danger-zone">
+        <summary>Start over</summary>
+        <p class="muted small">Clears the name, chores, reward and every star on this device.</p>
+        <button type="button" id="reset" class="danger">Reset everything</button>
+      </details>
+    </section>
+
+    <section class="card notes no-print">
+      <h2>Tips for 3 to 6 year olds</h2>
+      <ul>
+        <li><strong>Three to five chores</strong> is plenty. Start with ones they can nearly do already.</li>
+        <li><strong>Let them tap the star</strong> (or press on the sticker). Doing it themselves is half the fun.</li>
+        <li><strong>Make the goal reachable</strong> by the end of the week, then raise it slowly.</li>
+        <li><strong>Praise the effort</strong>, not only the star: "You brushed all by yourself!"</li>
+      </ul>
+      <p class="muted small">Everything stays in this browser. No account, no tracking.</p>
+    </section>
   </main>
 
-  <footer class="wrap foot">
+  <footer class="wrap foot no-print">
     Built in a day by <a href="https://www.linkedin.com/in/abhimanyu-katyayan/">Abhimanyu Katyayan</a> ·
     <a href="https://github.com/August85/ship100/tree/main/days/009-star-chart-for-kids">Source</a>
   </footer>

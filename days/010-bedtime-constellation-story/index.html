@@ -7,6 +7,7 @@
   <meta name="description" content="Tonight's visible constellation with a short myth to read aloud.">
   <meta property="og:title" content="Bedtime Constellation Story · Day 10 of Ship 100">
   <meta property="og:description" content="Tonight's visible constellation with a short myth to read aloud.">
+  <link rel="icon" href="icon.png">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -16,11 +17,58 @@
   </header>
 
   <main class="wrap">
-    <h1>Bedtime Constellation Story</h1>
-    <p class="lede">Tonight's visible constellation with a short myth to read aloud.</p>
+    <div class="hero">
+      <img src="icon.png" alt="" width="56" height="56">
+      <div>
+        <h1>Bedtime Constellation Story</h1>
+        <p class="lede">Tonight's visible constellation with a short myth to read aloud.</p>
+      </div>
+    </div>
 
-    <!-- The day's app goes here. -->
-    <section id="app" class="card"></section>
+    <form class="settings card" onsubmit="return false">
+      <label>Where are you?
+        <select id="place"></select>
+      </label>
+      <label>Bedtime
+        <select id="time"></select>
+      </label>
+      <div class="loc">
+        <button type="button" id="locate">📍 Use my location</button>
+        <p id="loc-note" class="muted small" aria-live="polite"></p>
+      </div>
+    </form>
+
+    <article class="tonight card" aria-labelledby="title">
+      <p class="when muted small" id="when"></p>
+      <div class="sky" id="sky"></div>
+      <p class="look" id="look"></p>
+      <p class="warn" id="light" hidden></p>
+
+      <h2 id="title" tabindex="-1"></h2>
+      <p class="muted" id="nick"></p>
+      <p class="find"><strong>How to find it:</strong> <span id="find"></span></p>
+
+      <div class="actions">
+        <button type="button" class="primary" id="read" aria-pressed="false">▶ Read it to me</button>
+        <button type="button" id="bigger" aria-pressed="false">Aa Bigger words</button>
+        <button type="button" id="another">✨ Another star story</button>
+      </div>
+
+      <div class="story" id="story" aria-live="off"></div>
+
+      <dl class="extra">
+        <dt>Did you know?</dt><dd id="fact"></dd>
+        <dt>Where the story comes from</dt><dd id="from"></dd>
+      </dl>
+    </article>
+
+    <section id="also-wrap" class="also" aria-labelledby="also-h">
+      <h2 id="also-h">Also up tonight</h2>
+      <div id="also" class="chips"></div>
+    </section>
+
+    <p class="muted small">Star positions are computed in your browser from a bundled star list. Nothing is sent anywhere.
+      Stories are short retellings for small children; the grown-up versions are often longer and less gentle.</p>
   </main>
 
   <footer class="wrap foot">

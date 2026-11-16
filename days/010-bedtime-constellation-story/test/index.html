@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><title>Bedtime Constellation Story tests</title></head>
+<body>
+<pre id="out">running…</pre>
+<script type="module">
+// Open from a local server (python3 -m http.server at the repo root), or run `node test/run.mjs`.
+import { runChecks } from "./checks.js";
+const out = document.getElementById("out");
+try { const log = runChecks(); out.textContent = log.join("\n") + `\n\n${log.length} checks pass`; }
+catch (e) { out.textContent = e.message; out.style.color = "crimson"; }
+</script>
+</body>
+</html>

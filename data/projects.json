@@ -210,17 +210,17 @@
       "theme": "Kids and learning",
       "stack": "web",
       "reuses": [],
-      "status": "building",
+      "status": "shipped",
       "effort": "M",
       "notes": "",
       "slug": "bedtime-constellation-story",
       "links": {
-        "live": "",
-        "code": "",
+        "live": "https://august85.github.io/ship100/days/010-bedtime-constellation-story/",
+        "code": "https://github.com/August85/ship100/tree/main/days/010-bedtime-constellation-story",
         "post": ""
       },
       "day": 10,
-      "shippedAt": null,
+      "shippedAt": "2026-11-16T14:14:50.117Z",
       "createdAt": "2026-11-06"
     },
     {

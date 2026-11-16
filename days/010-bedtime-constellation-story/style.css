@@ -32,3 +32,71 @@ input, select, textarea { font: inherit; color: var(--text); background: var(--s
 label { display: grid; gap: 4px; font-size: 14px; color: var(--muted); }
 .muted { color: var(--muted); }
 .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
+
+/* ---------- Day 10: Bedtime Constellation Story ---------- */
+:root { --night: #0b1230; --night-2: #1b2a63; --gold: #ffd479; --accent: #4b4fd6; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --accent: #9aa4ff; --bg: #0d0f1c; --surface: #151829; --surface-2: #1d2136; --line: #2a2f4a; } }
+:root[data-theme="dark"] { --accent: #9aa4ff; --bg: #0d0f1c; --surface: #151829; --surface-2: #1d2136; --line: #2a2f4a; }
+
+.hero { display: flex; gap: 14px; align-items: center; margin: 28px 0 20px; }
+.hero img { border-radius: 14px; flex: none; }
+.hero h1 { margin: 0; }
+.hero .lede { margin: 2px 0 0; font-size: 16px; }
+.small { font-size: 13px; }
+
+.settings { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; align-items: end; margin-bottom: 16px; padding: 14px 16px; }
+.settings select { width: 100%; }
+.settings .loc { grid-column: 1 / -1; display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+.settings .loc p { margin: 0; }
+
+.tonight { padding: 0; overflow: hidden; }
+.tonight > *:not(.sky) { margin-left: 20px; margin-right: 20px; }
+.when { margin-top: 14px; margin-bottom: 10px; }
+.sky { background: radial-gradient(ellipse at 50% 120%, var(--night-2), var(--night) 70%); margin: 0; }
+.sky svg { display: block; width: 100%; height: auto; max-height: 340px; }
+.sky .bgstar { fill: #fff; opacity: .45; animation: twinkle 4s ease-in-out infinite; }
+.sky .lines line { stroke: var(--gold); stroke-width: 1.6; stroke-linecap: round; opacity: .75;
+  stroke-dasharray: 1; stroke-dashoffset: 1; animation: draw 1.6s .2s ease-out forwards; }
+.sky .star { fill: #fff; filter: drop-shadow(0 0 3px rgba(255, 230, 170, .9)); }
+.sky .label { fill: #cfd6ff; font-size: 11px; letter-spacing: .03em; }
+@keyframes draw { to { stroke-dashoffset: 0; } }
+@keyframes twinkle { 50% { opacity: .15; } }
+@media (prefers-reduced-motion: reduce) {
+  .sky .bgstar { animation: none; }
+  .sky .lines line { animation: none; stroke-dashoffset: 0; }
+}
+
+.look { font-weight: 650; font-size: 17px; margin-top: 12px; }
+.warn { background: var(--surface-2); border-left: 3px solid var(--gold); padding: 8px 12px; border-radius: 6px; font-size: 14px; }
+.tonight h2 { font-size: clamp(26px, 6vw, 34px); letter-spacing: -0.015em; margin-top: 18px; margin-bottom: 0; outline: none; }
+#nick { margin-top: 2px; }
+.find { font-size: 15px; }
+
+.actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; margin-bottom: 8px; }
+button[aria-pressed="true"]:not(.primary) { background: var(--surface-2); border-color: var(--accent); }
+button:focus-visible, select:focus-visible, .chip:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+
+.story { font-family: ui-serif, "Iowan Old Style", Georgia, "Times New Roman", serif; font-size: 20px; line-height: 1.7;
+  border-top: 1px solid var(--line); padding-top: 8px; margin-top: 12px; }
+.story p { margin: 14px 0; }
+.story p:first-child::first-letter { font-size: 2.2em; float: left; line-height: 1; margin: 4px 8px 0 0; color: var(--accent); }
+body.big .story { font-size: 26px; line-height: 1.6; }
+
+.extra { border-top: 1px solid var(--line); padding: 12px 0 20px; margin-bottom: 0; font-size: 15px; }
+.extra dt { font-weight: 650; margin-top: 8px; }
+.extra dd { margin: 2px 0 0; color: var(--muted); }
+
+.also h2 { font-size: 18px; margin: 28px 0 10px; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip { border-radius: 999px; padding: 6px 14px; }
+
+@media (max-width: 520px) {
+  .settings { grid-template-columns: 1fr; }
+  .story { font-size: 19px; }
+  body.big .story { font-size: 23px; }
+  .tonight > *:not(.sky) { margin-left: 16px; margin-right: 16px; }
+}
+@media print {
+  .bar, .settings, .actions, .also, .foot { display: none; }
+  .sky { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}

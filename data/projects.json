@@ -210,7 +210,7 @@
       "theme": "Kids and learning",
       "stack": "web",
       "reuses": [],
-      "status": "approved",
+      "status": "building",
       "effort": "M",
       "notes": "",
       "slug": "bedtime-constellation-story",
@@ -219,7 +219,7 @@
         "code": "",
         "post": ""
       },
-      "day": null,
+      "day": 10,
       "shippedAt": null,
       "createdAt": "2026-11-06"
     },

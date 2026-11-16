@@ -10,7 +10,7 @@ There are 16 constellations, northern and southern sky, and the stories are writ
 
 Same idea as the earlier sky days (Meteor Shower Countdown, ISS Tonight): work out what's actually up over your house, then make it simple. This time the audience is just much smaller.
 
-No account, no tracking, works offline once loaded.
+No account, no tracking.
 
 Follow along: https://august85.github.io/ship100/
 Today's app: https://august85.github.io/ship100/days/010-bedtime-constellation-story/

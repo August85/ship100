@@ -8,7 +8,7 @@ So I built a page that does the remembering. Pick your city and bedtime. It work
 
 There are 16 constellations, northern and southern sky, and the stories are written for 3 to 6 year olds: five short paragraphs that end in goodnight. Some are Greek, but where another culture had a gentler tale I used that one: the Cowherd and the Weaver Girl across the Milky Way, Maui's magic fishhook, the Teapot that pours out stars.
 
-It reuses the dark-sky star maths from the first days of this challenge (Meteor Shower Countdown, ISS Tonight), now pointed at a much smaller audience.
+Same idea as the earlier sky days (Meteor Shower Countdown, ISS Tonight): work out what's actually up over your house, then make it simple. This time the audience is just much smaller.
 
 No account, no tracking, works offline once loaded.
 

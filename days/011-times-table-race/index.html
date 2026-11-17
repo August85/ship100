@@ -7,6 +7,7 @@
   <meta name="description" content="A 60-second arcade game for multiplication practice.">
   <meta property="og:title" content="Times Table Race · Day 11 of Ship 100">
   <meta property="og:description" content="A 60-second arcade game for multiplication practice.">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -19,8 +20,54 @@
     <h1>Times Table Race</h1>
     <p class="lede">A 60-second arcade game for multiplication practice.</p>
 
-    <!-- The day's app goes here. -->
-    <section id="app" class="card"></section>
+    <section id="setup" class="card">
+      <h2>Which tables?</h2>
+      <div id="tables" class="chips" role="group" aria-label="Times tables to practise"></div>
+      <div class="quick">
+        <button type="button" data-preset="2,5,10">Starter (2, 5, 10)</button>
+        <button type="button" data-preset="2,3,4,5,10">Easy</button>
+        <button type="button" data-preset="3,4,6,7,8,9">Tricky</button>
+        <button type="button" data-preset="2,3,4,5,6,7,8,9,10,11,12">All</button>
+      </div>
+      <p id="best-line" class="muted"></p>
+      <div class="go-row">
+        <button id="start" type="button" class="primary big">Start race ▶</button>
+        <label class="toggle"><input id="sound" type="checkbox"> Sound</label>
+      </div>
+      <p class="muted small">Type the answer or tap the keys. It goes in by itself once you've typed enough digits. Missed ones come back a few questions later.</p>
+    </section>
+
+    <section id="game" class="card" hidden>
+      <div class="hud">
+        <div><span class="hud-label">Time</span><span id="time" class="hud-num">60</span></div>
+        <div><span class="hud-label">Score</span><span id="score" class="hud-num">0</span></div>
+        <div><span class="hud-label">Combo</span><span id="combo" class="hud-num">×1</span></div>
+      </div>
+      <div class="timebar"><div id="timefill"></div></div>
+      <div class="track" aria-hidden="true">
+        <div class="lane"><span class="car ghost" id="ghost">🏎️</span></div>
+        <div class="lane"><span class="car you" id="car">🏎️</span></div>
+        <div class="finish"></div>
+      </div>
+      <p id="pace" class="pace muted" aria-live="polite"></p>
+      <div id="question" class="question" aria-live="assertive"></div>
+      <div id="answer" class="answer" aria-label="Your answer"></div>
+      <div id="keypad" class="keypad"></div>
+      <button id="quit" type="button" class="link">End race</button>
+    </section>
+
+    <section id="results" class="card" hidden>
+      <h2 id="result-title">Race over!</h2>
+      <div class="stats" id="stats"></div>
+      <div id="missed-wrap">
+        <h3>Practise these</h3>
+        <ul id="missed" class="missed"></ul>
+      </div>
+      <div class="go-row">
+        <button id="again" type="button" class="primary big">Race again ▶</button>
+        <button id="change" type="button">Change tables</button>
+      </div>
+    </section>
   </main>
 
   <footer class="wrap foot">

@@ -231,7 +231,7 @@
       "theme": "Kids and learning",
       "stack": "web",
       "reuses": [],
-      "status": "approved",
+      "status": "building",
       "effort": "M",
       "notes": "",
       "slug": "times-table-race",
@@ -240,7 +240,7 @@
         "code": "",
         "post": ""
       },
-      "day": null,
+      "day": 11,
       "shippedAt": null,
       "createdAt": "2026-11-06"
     },

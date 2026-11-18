@@ -4,9 +4,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Spelling Bee Coach</title>
-  <meta name="description" content="Say a word, the kid spells it by voice, and it gets scored.">
+  <meta name="description" content="Hear a word, spell it out loud (or tap the letters), and get stars.">
   <meta property="og:title" content="Spelling Bee Coach · Day 12 of Ship 100">
-  <meta property="og:description" content="Say a word, the kid spells it by voice, and it gets scored.">
+  <meta property="og:description" content="Hear a word, spell it out loud (or tap the letters), and get stars.">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -17,15 +18,84 @@
 
   <main class="wrap">
     <h1>Spelling Bee Coach</h1>
-    <p class="lede">Say a word, the kid spells it by voice, and it gets scored.</p>
+    <p class="lede">Hear a word, spell it out loud (or tap the letters), and get stars.</p>
 
-    <!-- The day's app goes here. -->
-    <section id="app" class="card"></section>
+    <!-- 1. Pick a list -->
+    <section id="setup" class="card">
+      <h2>Pick your words</h2>
+      <div id="levels" class="levels" role="group" aria-label="Word lists"></div>
+
+      <details id="customBox" class="custom">
+        <summary>Use my own list (e.g. this week's school words)</summary>
+        <label for="customText">Type or paste words, separated by spaces, commas or new lines.</label>
+        <textarea id="customText" rows="3" placeholder="because, friend, said, could"></textarea>
+        <div class="row">
+          <button type="button" id="customGo" class="primary">Start with my list</button>
+          <span id="customInfo" class="muted small"></span>
+        </div>
+      </details>
+
+      <div class="settings">
+        <label class="check"><input type="checkbox" id="optBoxes" checked> Show how many letters</label>
+        <label class="check"><input type="checkbox" id="optVoice" checked> Spell out loud with the microphone</label>
+      </div>
+      <p id="support" class="muted small"></p>
+    </section>
+
+    <!-- 2. Spell -->
+    <section id="play" class="card" hidden>
+      <div class="playtop">
+        <span id="progress" class="muted">Word 1 of 10</span>
+        <div id="comb" class="comb" aria-hidden="true"></div>
+      </div>
+
+      <div class="hear">
+        <button type="button" id="sayWord" class="big say">🔊 Hear the word</button>
+        <div class="hear-more">
+          <button type="button" id="saySentence">Use it in a sentence</button>
+          <button type="button" id="saySlow">Say it slowly</button>
+          <button type="button" id="hint">Hint (−1 ⭐)</button>
+        </div>
+        <p id="peekRow" class="muted small" hidden>This browser can't talk. Grown-up, read the word out: <button type="button" id="peek">Show word</button> <strong id="peekWord" hidden></strong></p>
+      </div>
+
+      <div id="tiles" class="tiles" aria-live="polite" aria-label="Your spelling"></div>
+      <p id="feedback" class="feedback" role="status" aria-live="polite"></p>
+
+      <div id="micRow" class="mic-row">
+        <button type="button" id="mic" class="big mic">🎤 Spell it out loud</button>
+        <p id="heard" class="muted small" aria-live="polite"></p>
+      </div>
+
+      <div id="keys" class="keys" role="group" aria-label="Letter keyboard"></div>
+
+      <div class="actions">
+        <button type="button" id="checkBtn" class="primary big">Check</button>
+        <button type="button" id="nextBtn" class="primary big" hidden>Next word →</button>
+      </div>
+      <p class="muted small help">Keyboard: type letters · Backspace to fix · Enter to check · Space to hear the word · Esc to stop.</p>
+      <button type="button" id="quit" class="link">Stop and see results</button>
+    </section>
+
+    <!-- 3. Results -->
+    <section id="results" class="card" hidden>
+      <h2 id="resTitle">Well done!</h2>
+      <p id="resStars" class="res-stars"></p>
+      <div id="resStats" class="stats"></div>
+      <h3>Your words</h3>
+      <ul id="resList" class="reslist"></ul>
+      <div class="row">
+        <button type="button" id="again" class="primary">Play again</button>
+        <button type="button" id="practise" hidden>Practise the missed words</button>
+        <button type="button" id="home">Pick other words</button>
+      </div>
+    </section>
   </main>
 
   <footer class="wrap foot">
     Built in a day by <a href="https://www.linkedin.com/in/abhimanyu-katyayan/">Abhimanyu Katyayan</a> ·
-    <a href="https://github.com/August85/ship100/tree/main/days/012-spelling-bee-coach">Source</a>
+    <a href="https://github.com/August85/ship100/tree/main/days/012-spelling-bee-coach">Source</a> ·
+    No account, no tracking. The microphone goes to your browser's own speech service (in Chrome that's Google, in Safari it's Apple).
   </footer>
   <script type="module" src="app.js"></script>
 </body>

@@ -252,17 +252,17 @@
       "theme": "Kids and learning",
       "stack": "web",
       "reuses": [],
-      "status": "building",
+      "status": "shipped",
       "effort": "M",
       "notes": "",
       "slug": "spelling-bee-coach",
       "links": {
-        "live": "",
-        "code": "",
+        "live": "https://august85.github.io/ship100/days/012-spelling-bee-coach/",
+        "code": "https://github.com/August85/ship100/tree/main/days/012-spelling-bee-coach",
         "post": ""
       },
       "day": 12,
-      "shippedAt": null,
+      "shippedAt": "2026-11-18T14:15:12.275Z",
       "createdAt": "2026-11-06"
     },
     {

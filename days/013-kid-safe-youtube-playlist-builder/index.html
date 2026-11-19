@@ -4,9 +4,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Kid-safe YouTube Playlist Builder</title>
-  <meta name="description" content="The walk-playlist engine pointed at curated kids' topics.">
+  <meta name="description" content="Pick topics and a screen-time limit; get a playlist from a short list of trusted kids' channels that stops when time is up.">
   <meta property="og:title" content="Kid-safe YouTube Playlist Builder · Day 13 of Ship 100">
-  <meta property="og:description" content="The walk-playlist engine pointed at curated kids' topics.">
+  <meta property="og:description" content="Pick topics and a screen-time limit; get a playlist from trusted kids' channels that stops when time is up.">
+  <link rel="icon" href="icon.png">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -15,17 +16,79 @@
     <span class="day">Day 13 / 100</span>
   </header>
 
-  <main class="wrap">
+  <main class="wrap" id="builder">
     <h1>Kid-safe YouTube Playlist Builder</h1>
-    <p class="lede">The walk-playlist engine pointed at curated kids' topics.</p>
+    <p class="lede">Pick what they like and how long they can watch. You get a playlist from a short list of trusted kids' channels, and it stops when time is up: no autoplay rabbit hole.</p>
 
-    <!-- The day's app goes here. -->
-    <section id="app" class="card"></section>
+    <section class="card" aria-labelledby="h-topics">
+      <h2 id="h-topics"><span class="step">1</span> What do they want to watch?</h2>
+      <div class="topics" id="topics" role="group" aria-label="Topics"></div>
+
+      <h2 id="h-len"><span class="step">2</span> How long?</h2>
+      <div class="lengths" id="lengths" role="radiogroup" aria-labelledby="h-len"></div>
+
+      <details class="channels">
+        <summary>Channels (<span id="ch-count"></span>)</summary>
+        <p class="muted small">Only these channels are ever used. Untick any you'd rather skip.</p>
+        <div id="channels" class="ch-grid"></div>
+      </details>
+
+      <div class="actions">
+        <button class="primary big" id="build">Make the playlist</button>
+        <span class="muted small" id="pool-note" aria-live="polite"></span>
+      </div>
+    </section>
+
+    <section class="card" id="result" hidden aria-labelledby="pl-name">
+      <div class="pl-head">
+        <div>
+          <h2 id="pl-name"></h2>
+          <p class="muted small" id="pl-meta"></p>
+        </div>
+        <button class="primary big" id="play">▶ Play</button>
+      </div>
+      <ol class="list" id="list"></ol>
+      <div class="actions wrap-row">
+        <button id="again">🔀 Shuffle again</button>
+        <button id="save">☆ Save</button>
+        <button id="share">🔗 Copy link</button>
+        <a class="btn" id="yt" target="_blank" rel="noopener">Open on YouTube</a>
+      </div>
+      <p class="muted small" id="share-note" aria-live="polite"></p>
+      <p class="muted small">“Open on YouTube” makes a temporary playlist on youtube.com, where suggestions and autoplay are YouTube's. Playing here is the kid-safe way.</p>
+    </section>
+
+    <section class="card" id="saved-card" hidden aria-labelledby="h-saved">
+      <h2 id="h-saved">Saved playlists</h2>
+      <ul class="saved" id="saved"></ul>
+    </section>
+
+    <p class="muted small" id="about"></p>
   </main>
+
+  <div class="player" id="player" hidden role="dialog" aria-modal="true" aria-label="Playlist player">
+    <div class="p-top">
+      <span id="p-count"></span>
+      <span id="p-left" class="p-left"></span>
+    </div>
+    <div class="p-stage"><div id="yt-frame"></div>
+      <div class="done" id="done" hidden>
+        <div class="done-emoji" aria-hidden="true">🌟</div>
+        <h2>All done!</h2>
+        <p>That was the whole playlist. Time for something else.</p>
+      </div>
+    </div>
+    <div class="p-now" id="p-now"></div>
+    <div class="p-bottom">
+      <button id="p-next" class="big">Next ⏭</button>
+      <button id="p-exit" class="hold"><span class="fill" aria-hidden="true"></span><span class="lbl">Grown-ups: hold to exit</span></button>
+    </div>
+  </div>
 
   <footer class="wrap foot">
     Built in a day by <a href="https://www.linkedin.com/in/abhimanyu-katyayan/">Abhimanyu Katyayan</a> ·
-    <a href="https://github.com/August85/ship100/tree/main/days/013-kid-safe-youtube-playlist-builder">Source</a>
+    <a href="https://github.com/August85/ship100/tree/main/days/013-kid-safe-youtube-playlist-builder">Source</a> ·
+    Not affiliated with YouTube or any channel listed.
   </footer>
   <script type="module" src="app.js"></script>
 </body>

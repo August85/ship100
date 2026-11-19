@@ -275,17 +275,17 @@
       "reuses": [
         "YoutubeAutoPlaylist"
       ],
-      "status": "building",
+      "status": "shipped",
       "effort": "M",
       "notes": "",
       "slug": "kid-safe-youtube-playlist-builder",
       "links": {
-        "live": "",
-        "code": "",
+        "live": "https://august85.github.io/ship100/days/013-kid-safe-youtube-playlist-builder/",
+        "code": "https://github.com/August85/ship100/tree/main/days/013-kid-safe-youtube-playlist-builder",
         "post": ""
       },
       "day": 13,
-      "shippedAt": null,
+      "shippedAt": "2026-11-19T14:16:26.959Z",
       "createdAt": "2026-11-06"
     },
     {

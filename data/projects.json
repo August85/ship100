@@ -275,7 +275,7 @@
       "reuses": [
         "YoutubeAutoPlaylist"
       ],
-      "status": "approved",
+      "status": "building",
       "effort": "M",
       "notes": "",
       "slug": "kid-safe-youtube-playlist-builder",
@@ -284,7 +284,7 @@
         "code": "",
         "post": ""
       },
-      "day": null,
+      "day": 13,
       "shippedAt": null,
       "createdAt": "2026-11-06"
     },

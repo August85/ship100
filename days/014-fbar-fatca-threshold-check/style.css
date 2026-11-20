@@ -32,3 +32,59 @@ input, select, textarea { font: inherit; color: var(--text); background: var(--s
 label { display: grid; gap: 4px; font-size: 14px; color: var(--muted); }
 .muted { color: var(--muted); }
 .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
+
+/* ---- Day 14: FBAR / FATCA ---- */
+:root { --accent: #0f7a6c; --warn: #b26a00; --yes-bg: #fdf1ee; --no-bg: #eef7f0; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) { --accent: #3cc3ae; --warn: #f0a63a; --yes-bg: #2a1915; --no-bg: #142319; }
+}
+:root[data-theme="dark"] { --accent: #3cc3ae; --warn: #f0a63a; --yes-bg: #2a1915; --no-bg: #142319; }
+h2 { font-size: 18px; margin: 0 0 12px; display: flex; align-items: center; gap: 8px; }
+.step { display: inline-grid; place-items: center; width: 24px; height: 24px; border-radius: 50%; background: var(--accent); color: var(--accent-ink); font-size: 13px; font-weight: 700; flex: none; }
+.card + .card, .results, .notes { margin-top: 16px; }
+.small { font-size: 14px; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.notice { background: var(--surface-2); border-left: 3px solid var(--warn); padding: 10px 14px; border-radius: 8px; font-size: 14px; margin: 0 0 16px; }
+.rate-src { margin: 8px 0 12px; }
+label.check { display: flex; align-items: flex-start; gap: 8px; color: var(--text); font-size: 14px; cursor: pointer; }
+label.check input { margin-top: 3px; accent-color: var(--accent); }
+.grid select, .grid input { width: 100%; }
+.row-head { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; }
+.row-head h2 { margin: 0; }
+.actions { display: flex; gap: 8px; }
+.accounts { display: grid; gap: 10px; margin: 12px 0; }
+.acct { border: 1px solid var(--line); border-radius: 10px; padding: 12px; background: var(--surface-2); display: grid; gap: 10px; }
+.acct.off { opacity: .55; }
+.acct-top { display: grid; grid-template-columns: 1fr minmax(0, 200px) auto; gap: 8px; }
+.acct-top input, .acct-top select { width: 100%; min-width: 0; }
+.remove { padding: 6px 10px; color: var(--muted); }
+.acct-nums { display: grid; grid-template-columns: 1fr 1fr auto; gap: 8px; align-items: end; }
+.acct-nums input { width: 100%; font-variant-numeric: tabular-nums; }
+.acct-nums input:disabled { opacity: .5; }
+.usd { font-size: 13px; padding-bottom: 10px; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.acct-flags { display: flex; flex-wrap: wrap; gap: 6px 16px; }
+.grey { margin: 0; }
+.verdicts { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px; }
+.verdict { margin: 0; }
+.verdict.yes { background: var(--yes-bg); border-color: color-mix(in srgb, var(--danger) 40%, var(--line)); }
+.verdict.no { background: var(--no-bg); border-color: color-mix(in srgb, var(--ok) 40%, var(--line)); }
+.form-name { margin: 0; font-size: 13px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); font-weight: 650; }
+.answer { font-size: 26px; font-weight: 750; letter-spacing: -.01em; margin: 2px 0 14px; }
+.verdict.yes .answer { color: var(--danger); }
+.verdict.no .answer { color: var(--ok); }
+.meter-label { display: flex; justify-content: space-between; gap: 8px; font-size: 13px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.meter-label strong { color: var(--text); }
+.meter { height: 10px; border-radius: 99px; background: var(--line); overflow: hidden; margin: 4px 0 12px; }
+.meter span { display: block; height: 100%; background: var(--ok); border-radius: inherit; transition: width .2s; }
+.meter.near span { background: var(--warn); }
+.meter.over span { background: var(--danger); }
+.notes ul { margin: 0; padding-left: 20px; display: grid; gap: 8px; font-size: 14px; }
+.notes h2 { margin-bottom: 10px; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+@media (max-width: 560px) {
+  .acct-top { grid-template-columns: 1fr auto; }
+  .acct-top .type { grid-column: 1 / -1; grid-row: 2; }
+  .acct-nums { grid-template-columns: 1fr 1fr; }
+  .usd { grid-column: 1 / -1; padding: 0; }
+}
+@media (prefers-reduced-motion: reduce) { .meter span { transition: none; } }

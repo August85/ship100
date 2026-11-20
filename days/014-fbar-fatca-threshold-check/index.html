@@ -4,9 +4,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>FBAR / FATCA Threshold Check</title>
-  <meta name="description" content="Enter Indian account balances and see if you cross the reporting limits.">
+  <meta name="description" content="Enter Indian account balances and see if you cross the FBAR and FATCA (Form 8938) reporting limits.">
   <meta property="og:title" content="FBAR / FATCA Threshold Check · Day 14 of Ship 100">
-  <meta property="og:description" content="Enter Indian account balances and see if you cross the reporting limits.">
+  <meta property="og:description" content="Enter Indian account balances and see if you cross the FBAR and FATCA (Form 8938) reporting limits.">
+  <link rel="icon" href="icon.png">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -17,11 +18,93 @@
 
   <main class="wrap">
     <h1>FBAR / FATCA Threshold Check</h1>
-    <p class="lede">Enter Indian account balances and see if you cross the reporting limits.</p>
+    <p class="lede">Enter your Indian account balances in rupees. See if you have to file an FBAR, a Form 8938, both or neither, using the US Treasury's official year-end exchange rate.</p>
 
-    <!-- The day's app goes here. -->
-    <section id="app" class="card"></section>
+    <p class="notice" role="note"><strong>Not financial or tax advice.</strong> This is a quick check, not a filing. Your balances stay in this browser; nothing is sent anywhere.</p>
+
+    <section class="card" aria-labelledby="h-you">
+      <h2 id="h-you"><span class="step">1</span> About you</h2>
+      <div class="grid">
+        <label>Tax year
+          <select id="year"></select>
+        </label>
+        <label>Filing status
+          <select id="status">
+            <option value="single">Single / head of household</option>
+            <option value="mfj">Married filing jointly</option>
+            <option value="mfs">Married filing separately</option>
+          </select>
+        </label>
+        <label>Rupees per US dollar
+          <input id="rate" inputmode="decimal" autocomplete="off">
+        </label>
+      </div>
+      <p class="rate-src muted small" id="rateSrc"></p>
+      <label class="check">
+        <input type="checkbox" id="abroad">
+        <span>I lived outside the US for the tax year (bona fide residence or 330 days abroad)</span>
+      </label>
+    </section>
+
+    <section class="card" aria-labelledby="h-acc">
+      <div class="row-head">
+        <h2 id="h-acc"><span class="step">2</span> Your Indian accounts</h2>
+        <div class="actions">
+          <button type="button" id="demo">Load demo</button>
+          <button type="button" id="clear">Clear</button>
+        </div>
+      </div>
+      <p class="muted small">For each account: the <strong>highest</strong> balance it reached during the year, and the balance on <strong>31 December</strong>. A rough highest figure from your statements is fine; round up if unsure.</p>
+      <div id="accounts" class="accounts"></div>
+      <button type="button" class="primary" id="add">+ Add account</button>
+    </section>
+
+    <section aria-labelledby="h-res" class="results">
+      <h2 id="h-res" class="sr-only">Result</h2>
+      <div class="verdicts" aria-live="polite">
+        <article class="card verdict" id="fbarCard"></article>
+        <article class="card verdict" id="f8938Card"></article>
+      </div>
+    </section>
+
+    <section class="card notes" aria-labelledby="h-notes">
+      <h2 id="h-notes">How it's worked out</h2>
+      <ul>
+        <li><strong>FBAR (FinCEN Form 114)</strong> is due if the highest balances of all your foreign accounts, added together, went over <strong>$10,000</strong> at any point in the year. It counts accounts you only have signing authority on, too. It's filed online with FinCEN (BSA E-Filing), not with your tax return. Due 15 April, with an automatic extension to 15 October.</li>
+        <li><strong>Form 8938 (FATCA)</strong> goes with your Form 1040. The limits depend on filing status and where you live: $50k at year end or $75k at any time for single filers in the US; $100k / $150k if married filing jointly; $200k / $300k and $400k / $600k if you live abroad. You only file it if you have to file a tax return. Accounts you can sign on but don't own are left out.</li>
+        <li><strong>"At any time"</strong> for Form 8938 is worked out here as the sum of each account's highest balance, the cautious reading most preparers use.</li>
+        <li><strong>Exchange rate:</strong> both forms use the Treasury Reporting Rates of Exchange for 31 December of the tax year, loaded live from <a href="https://fiscaldata.treasury.gov/datasets/treasury-reporting-rates-exchange/treasury-reporting-rates-of-exchange">fiscaldata.treasury.gov</a>. For a year that hasn't ended, the latest quarterly rate is used and marked as provisional.</li>
+        <li><strong>Grey areas:</strong> PPF, EPF, NPS and insurance policies with a cash value are included by default, since most preparers count them. Untick "Count" on a row to see the result without it.</li>
+        <li><strong>Joint accounts:</strong> for the FBAR, each owner counts the whole balance. For Form 8938, married couples filing jointly count a shared account once. Other cases have their own rules; check the <a href="https://www.irs.gov/instructions/i8938">Form 8938 instructions</a>.</li>
+        <li>Missing a filing can carry steep penalties. If you're close to a line, or you've missed past years, talk to a cross-border tax preparer.</li>
+      </ul>
+    </section>
   </main>
+
+  <template id="rowTpl">
+    <div class="acct">
+      <div class="acct-top">
+        <input class="name" aria-label="Account name" placeholder="e.g. SBI NRO savings" maxlength="60">
+        <select class="type" aria-label="Account type"></select>
+        <button type="button" class="remove" aria-label="Remove account">✕</button>
+      </div>
+      <div class="acct-nums">
+        <label>Highest in year (₹)
+          <input class="max" inputmode="numeric" autocomplete="off" placeholder="0">
+        </label>
+        <label>On 31 Dec (₹)
+          <input class="end" inputmode="numeric" autocomplete="off" placeholder="0">
+        </label>
+        <div class="usd muted"></div>
+      </div>
+      <div class="acct-flags">
+        <label class="check"><input type="checkbox" class="count" checked> <span>Count</span></label>
+        <label class="check"><input type="checkbox" class="sig"> <span>Signing authority only</span></label>
+        <label class="check"><input type="checkbox" class="closed"> <span>Closed during year</span></label>
+      </div>
+      <p class="grey muted small" hidden></p>
+    </div>
+  </template>
 
   <footer class="wrap foot">
     Built in a day by <a href="https://www.linkedin.com/in/abhimanyu-katyayan/">Abhimanyu Katyayan</a> ·

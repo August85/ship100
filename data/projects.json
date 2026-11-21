@@ -317,7 +317,7 @@
       "theme": "Money, US–India",
       "stack": "web",
       "reuses": [],
-      "status": "approved",
+      "status": "building",
       "effort": "M",
       "notes": "",
       "slug": "return-to-india-readiness-score",
@@ -326,7 +326,7 @@
         "code": "",
         "post": ""
       },
-      "day": null,
+      "day": 15,
       "shippedAt": null,
       "createdAt": "2026-11-06"
     },

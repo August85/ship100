@@ -4,9 +4,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Return-to-India Readiness Score</title>
-  <meta name="description" content="A 20-question checklist that scores you.">
+  <meta name="description" content="20 questions on money, work, home, family and papers. Get a score out of 100 and a short list of what to sort out before you move back to India.">
   <meta property="og:title" content="Return-to-India Readiness Score · Day 15 of Ship 100">
-  <meta property="og:description" content="A 20-question checklist that scores you.">
+  <meta property="og:description" content="20 questions on money, work, home, family and papers. Get a score out of 100 and a short list of what to sort out before you move back to India.">
+  <link rel="icon" href="icon.png">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -17,10 +18,34 @@
 
   <main class="wrap">
     <h1>Return-to-India Readiness Score</h1>
-    <p class="lede">A 20-question checklist that scores you.</p>
+    <p class="lede">Thinking of moving back? Answer 20 quick questions about money, work, home, family and papers. You get a score out of 100 and a short list of what to sort out next.</p>
 
-    <!-- The day's app goes here. -->
-    <section id="app" class="card"></section>
+    <p class="notice" role="note"><strong>Not financial or tax advice.</strong> A checklist to think with, not a plan. Your answers stay in this browser; nothing is sent anywhere.</p>
+
+    <section class="scorebar" aria-live="polite" aria-atomic="true">
+      <div class="dial" id="dial" style="--p:0"><span id="pct">0</span></div>
+      <div class="scoretext">
+        <strong id="band">Early days</strong>
+        <span id="progress" class="muted">0 of 20 answered</span>
+      </div>
+      <a class="jump" href="#result">See result</a>
+    </section>
+
+    <form id="quiz" class="quiz" autocomplete="off"></form>
+
+    <section id="result" class="card result" aria-labelledby="h-result">
+      <h2 id="h-result">Your result</h2>
+      <p id="note" class="muted"></p>
+      <div id="cats" class="cats"></div>
+      <h3>Next up</h3>
+      <ol id="gaps" class="gaps"></ol>
+      <div class="actions">
+        <button type="button" class="primary" id="copy">Copy summary</button>
+        <button type="button" id="demo">Load example</button>
+        <button type="button" id="reset">Start over</button>
+        <span id="status" class="muted" role="status"></span>
+      </div>
+    </section>
   </main>
 
   <footer class="wrap foot">

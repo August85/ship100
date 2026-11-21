@@ -317,17 +317,17 @@
       "theme": "Money, US–India",
       "stack": "web",
       "reuses": [],
-      "status": "building",
+      "status": "shipped",
       "effort": "M",
       "notes": "",
       "slug": "return-to-india-readiness-score",
       "links": {
-        "live": "",
-        "code": "",
+        "live": "https://august85.github.io/ship100/days/015-return-to-india-readiness-score/",
+        "code": "https://github.com/August85/ship100/tree/main/days/015-return-to-india-readiness-score",
         "post": ""
       },
       "day": 15,
-      "shippedAt": null,
+      "shippedAt": "2026-11-21T14:11:01.480Z",
       "createdAt": "2026-11-06"
     },
     {

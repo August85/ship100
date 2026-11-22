@@ -7,6 +7,7 @@
   <meta name="description" content="Upload a card statement CSV and see every recurring charge.">
   <meta property="og:title" content="Subscription Killer · Day 16 of Ship 100">
   <meta property="og:description" content="Upload a card statement CSV and see every recurring charge.">
+  <link rel="icon" href="icon.png">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -19,8 +20,65 @@
     <h1>Subscription Killer</h1>
     <p class="lede">Upload a card statement CSV and see every recurring charge.</p>
 
-    <!-- The day's app goes here. -->
-    <section id="app" class="card"></section>
+    <section id="drop" class="card drop" tabindex="-1">
+      <p class="drop-title"><strong>Drop a statement CSV here</strong> or pick one</p>
+      <div class="row">
+        <label class="btn primary file">Choose CSV<input id="file" type="file" accept=".csv,.txt,.tsv,text/csv"></label>
+        <button id="sample" type="button">Try a demo statement</button>
+      </div>
+      <p class="muted small">Works with exports from Chase, Amex, Capital One, Citi, Discover, Bank of America, HDFC, ICICI and most other banks.
+        Download 6–13 months of transactions as CSV for the best results. <strong>The file never leaves your browser.</strong></p>
+    </section>
+
+    <section id="mapper" class="card" hidden>
+      <h2>Which columns are which?</h2>
+      <p class="muted small">I couldn't tell from the header row. Pick the columns and I'll try again.</p>
+      <div class="grid">
+        <label>Date <select id="m-date"></select></label>
+        <label>Description <select id="m-desc"></select></label>
+        <label>Amount <select id="m-amount"></select></label>
+      </div>
+      <p><button id="m-go" class="primary" type="button">Find subscriptions</button></p>
+    </section>
+
+    <section id="results" hidden>
+      <div class="stats" aria-live="polite">
+        <div class="stat"><span class="k">Recurring charges</span><span id="s-count" class="v">0</span></div>
+        <div class="stat"><span class="k">Per month</span><span id="s-month" class="v">$0</span></div>
+        <div class="stat big"><span class="k">Per year</span><span id="s-year" class="v">$0</span></div>
+      </div>
+      <p id="range" class="muted small"></p>
+
+      <div class="toolbar">
+        <label class="inline">Currency
+          <select id="cur">
+            <option value="USD">$ USD</option><option value="INR">₹ INR</option><option value="EUR">€ EUR</option>
+            <option value="GBP">£ GBP</option><option value="CAD">C$ CAD</option><option value="AUD">A$ AUD</option>
+          </select>
+        </label>
+        <span class="spacer"></span>
+        <button id="copy" type="button">Copy list</button>
+        <button id="dl" type="button">Download CSV</button>
+        <button id="reset" type="button">New file</button>
+      </div>
+
+      <div id="kill" class="kill" hidden>
+        <span>Cancel the <span id="k-n">0</span> you marked and keep</span>
+        <strong id="k-save">$0</strong><span>a year.</span>
+      </div>
+
+      <h2>Still charging you</h2>
+      <ul id="active" class="subs"></ul>
+      <p id="none" class="muted" hidden>No recurring charges found. Try a longer date range: three or more months of history helps.</p>
+
+      <div id="stopped-wrap" class="stopped" hidden>
+        <h2>Looks stopped</h2>
+        <p class="muted small">These used to repeat but the last expected charge never came. Worth a quick check that they're really cancelled.</p>
+        <ul id="stopped" class="subs"></ul>
+      </div>
+    </section>
+
+    <p class="muted small note">Everything runs on this page. Nothing is uploaded, stored or tracked. Detection is a best guess from dates and amounts; check your statement before you cancel. Not financial advice.</p>
   </main>
 
   <footer class="wrap foot">

@@ -338,17 +338,17 @@
       "theme": "Money, US–India",
       "stack": "web",
       "reuses": [],
-      "status": "building",
+      "status": "shipped",
       "effort": "M",
       "notes": "",
       "slug": "subscription-killer",
       "links": {
-        "live": "",
-        "code": "",
+        "live": "https://august85.github.io/ship100/days/016-subscription-killer/",
+        "code": "https://github.com/August85/ship100/tree/main/days/016-subscription-killer",
         "post": ""
       },
       "day": 16,
-      "shippedAt": null,
+      "shippedAt": "2026-11-22T14:13:42.454Z",
       "createdAt": "2026-11-06"
     },
     {

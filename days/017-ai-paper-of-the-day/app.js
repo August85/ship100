@@ -46,19 +46,18 @@ async function fetchDay(date) {
 }
 
 /** Load the requested day, walking back over empty days (weekends, holidays). */
-async function load(date, { walk = true } = {}) {
+async function load(date, { step = -1 } = {}) {
   setStatus(`Loading papers for ${fmtDate(date)}…`);
   state.demo = false;
   try {
     let d = date;
-    for (let i = 0; i < 7; i++) {
+    for (let i = 0; i < 7 && d <= today; i++) {
       const list = await fetchDay(d);
       if (list.length) { show(d, list); return; }
-      if (!walk) break;
-      d = shiftDate(d, -1);
+      d = shiftDate(d, step);
     }
     state.date = date; state.list = []; render();
-    setStatus(`No papers were posted on ${fmtDate(date)}. Try an earlier day.`);
+    setStatus(`No papers posted on or ${step > 0 ? "after" : "before"} ${fmtDate(date)} yet.`);
   } catch (err) {
     const sample = await (await fetch("sample.json")).json();
     state.demo = true;
@@ -182,7 +181,7 @@ async function summarizeWithClaude() {
 $("#prev").onclick = () => load(shiftDate(state.date, -1));
 $("#next").onclick = () => {
   const d = shiftDate(state.date, 1);
-  if (d <= today) load(d, { walk: false });
+  if (d <= today) load(d, { step: 1 });
 };
 $("#ai-go").onclick = summarizeWithClaude;
 const savedKey = store.get("p17:key");

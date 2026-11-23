@@ -359,7 +359,7 @@
       "theme": "Reading and productivity",
       "stack": "web",
       "reuses": [],
-      "status": "approved",
+      "status": "building",
       "effort": "M",
       "notes": "",
       "slug": "ai-paper-of-the-day",
@@ -368,7 +368,7 @@
         "code": "",
         "post": ""
       },
-      "day": null,
+      "day": 17,
       "shippedAt": null,
       "createdAt": "2026-11-06"
     },

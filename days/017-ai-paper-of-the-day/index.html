@@ -7,6 +7,7 @@
   <meta name="description" content="One arXiv paper a day, summarized in 5 bullets.">
   <meta property="og:title" content="AI Paper of the Day · Day 17 of Ship 100">
   <meta property="og:description" content="One arXiv paper a day, summarized in 5 bullets.">
+  <link rel="icon" href="icon.png">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -16,11 +17,35 @@
   </header>
 
   <main class="wrap">
+    <img class="appicon" src="icon.png" alt="" width="64" height="64">
     <h1>AI Paper of the Day</h1>
-    <p class="lede">One arXiv paper a day, summarized in 5 bullets.</p>
+    <p class="lede">The most upvoted AI paper on arXiv each day, in 5 bullets you can read over coffee.</p>
 
-    <!-- The day's app goes here. -->
-    <section id="app" class="card"></section>
+    <nav class="daynav" aria-label="Choose a day">
+      <button id="prev" type="button" aria-label="Previous day">← Earlier</button>
+      <span id="date" class="date" aria-live="polite"></span>
+      <button id="next" type="button" aria-label="Next day">Later →</button>
+    </nav>
+    <p id="status" class="status" role="status" hidden></p>
+
+    <article id="paper" class="card paper" hidden></article>
+
+    <section id="others" class="others" hidden>
+      <h3>Also popular that day</h3>
+      <ol id="others-list"></ol>
+    </section>
+
+    <details class="card byok">
+      <summary>Want better bullets? Use your own Claude key</summary>
+      <p class="muted">The default bullets are sentences picked from the abstract. With an Anthropic API key, Claude rewrites them in plain words.
+        The key goes straight from your browser to Anthropic and is never sent anywhere else. Each summary costs well under one cent.</p>
+      <label>Anthropic API key <input id="key" type="password" autocomplete="off" spellcheck="false" placeholder="sk-ant-…"></label>
+      <label class="check"><input id="remember" type="checkbox"> Remember the key in this browser</label>
+      <div class="row"><button id="ai-go" class="primary" type="button">Summarize this paper with Claude</button> <span id="ai-msg" class="muted" aria-live="polite"></span></div>
+    </details>
+
+    <p class="muted small">Papers and upvotes come from <a href="https://huggingface.co/papers">Hugging Face Daily Papers</a>, where people pick and vote on new arXiv papers.
+      The page opens on yesterday's list, so the votes have had a full day to count.</p>
   </main>
 
   <footer class="wrap foot">

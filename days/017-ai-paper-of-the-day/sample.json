@@ -1,0 +1,441 @@
+{
+ "date": "2026-11-20",
+ "papers": [
+  {
+   "paper": {
+    "id": "2611.26444",
+    "title": "Mind2Act World: A Diagnostic Benchmark for Embodied Mind, Physical Action, and Mind-Action Composition in Robotic Manipulation",
+    "summary": "Embodied intelligence aims to let robots perform complex physical tasks with human-like adaptability and reliability, which requires three complementary capabilities: history-based cognitive reasoning, precise and timely physical execution, and the composition of reasoning and execution through environmental feedback. Yet existing benchmarks either evaluate reasoning and execution within the same tasks or assess them separately without their composition, so they reveal little about whether a failure comes from reasoning, execution, or their composition. We introduce Mind2Act World, a diagnostic benchmark of 30 simulated manipulation tasks from five real-world application domains. Each task has three difficulty levels and two scene settings (Clean and Random), yielding 180 configurations. The tasks form three views: Mind tests decisions based on past observations, Act tests precise and timely execution, and Mind2Act combines both in closed-loop tasks where action outcomes guide later decisions. Comparing the three views shows whether a system lacks a capability or fails to compose capabilities it already has. A diagnosis harness further attributes the failed episodes of three representative systems to Mind, Act, or their composition and summarizes each system in a profile card. Our evaluation of multimodal agents, vision-language-action models (VLAs), and world-action models (WAMs) shows that competence in a single view does not carry over to Mind2Act tasks. Even the strongest agent succeeds in 52.7% of Mind and 39.0% of Act episodes but in only 12.0% of Mind2Act episodes. The strongest agent retains task state but struggles with sustained contact, whereas end-to-end policies execute practiced motions but retain little task state. These findings point to composing reasoning and execution through environmental feedback as the main open problem.",
+    "upvotes": 56,
+    "publishedAt": "2026-11-19T00:00:00.000Z",
+    "githubRepo": "https://github.com/Mind2Act/Mind2Act_World",
+    "projectPage": "https://mind2act-world.com/",
+    "ai_summary": "A diagnostic benchmark of 180 simulated manipulation configurations evaluates whether embodied systems can combine history-based reasoning, precise execution, and closed-loop environmental feedback, revealing that single-view competence does not transfer to composed tasks.",
+    "ai_keywords": [
+     "embodied intelligence",
+     "multimodal agents",
+     "vision-language-action models (VLAs)",
+     "world-action models (WAMs)",
+     "end-to-end policies",
+     "closed-loop tasks",
+     "diagnosis harness",
+     "task state",
+     "simulated manipulation tasks"
+    ],
+    "authors": [
+     {
+      "name": "Yuzhi Huang"
+     },
+     {
+      "name": "Jie Wu"
+     },
+     {
+      "name": "Fanding Huang"
+     },
+     {
+      "name": "Junchao Lin"
+     },
+     {
+      "name": "Weichen Zhang"
+     },
+     {
+      "name": "Ziyi Xiong"
+     },
+     {
+      "name": "Yang Li"
+     },
+     {
+      "name": "Zhengwei Xie"
+     },
+     {
+      "name": "Zhimin Wang"
+     },
+     {
+      "name": "Zhen Liu"
+     },
+     {
+      "name": "Jiazhen Huang"
+     },
+     {
+      "name": "Yuzheng Zhang"
+     },
+     {
+      "name": "Yuche Liu"
+     },
+     {
+      "name": "Hongyi Yang"
+     },
+     {
+      "name": "Chen Tang"
+     },
+     {
+      "name": "Shixiang Tang"
+     },
+     {
+      "name": "Hakan Aktas"
+     },
+     {
+      "name": "Adam Wu"
+     },
+     {
+      "name": "Duo Wu"
+     },
+     {
+      "name": "Kangye Ji"
+     },
+     {
+      "name": "Shuzhao Xie"
+     },
+     {
+      "name": "Huanan Liu"
+     },
+     {
+      "name": "Weijue Bu"
+     },
+     {
+      "name": "Chenxin Li"
+     },
+     {
+      "name": "Xinyuan Wang"
+     },
+     {
+      "name": "Tianyi Bai"
+     },
+     {
+      "name": "Yinan Mao"
+     },
+     {
+      "name": "Jiawei Wang"
+     },
+     {
+      "name": "Minglei Li"
+     },
+     {
+      "name": "Heng Yu"
+     },
+     {
+      "name": "Ehsan Adeli"
+     },
+     {
+      "name": "Minchen Li"
+     },
+     {
+      "name": "Yong-Lu Li"
+     },
+     {
+      "name": "Cengiz \u00d6ztireli"
+     },
+     {
+      "name": "Huazhe Xu"
+     },
+     {
+      "name": "Chao Yu"
+     },
+     {
+      "name": "Jing Zhang"
+     },
+     {
+      "name": "Shanghang Zhang"
+     },
+     {
+      "name": "Weitao Zhou"
+     },
+     {
+      "name": "Wenwu Zhu"
+     },
+     {
+      "name": "Cheng Chi"
+     },
+     {
+      "name": "Jingyan Jiang"
+     },
+     {
+      "name": "Zhi Wang"
+     }
+    ]
+   },
+   "numComments": 4
+  },
+  {
+   "paper": {
+    "id": "2611.21373",
+    "title": "WeVisForensics: Self-Evolving Agent for Omni AI-Generated Video Detection",
+    "summary": "Recent advances in video generation call for reliable detection grounded in explicit forensic evidence. However, current methods primarily depend on single-pass chain-of-thought reasoning that overlooks brief or localized artifacts, or on predefined multi-agent workflows that offer limited flexibility in selecting relevant inspections. Even with adaptive investigation, optimizing the investigation policy alone does not directly improve the forensic capabilities of fixed experts. We introduce WeVisForensics, an agentic framework in which a main investigator agent coordinates a self-evolving library of forensic inspector sub-agents spanning visual and audio cues. The investigator learns which artifact type to examine, over which window, and when to conclude, and these interactions provide shared feedback for both levels of agents. Our dual-timescale policy optimization strategy, DTPO, closes this loop through fast reinforcement learning of the investigator and slower refinement of the inspectors, guided by annotated artifact intervals, to report subtle artifacts they once dismissed. Furthermore, we curate ForenCue-30K, combining role-specific forensic annotations and interaction trajectories to supervise individual inspections and their coordination, with an accompanying reinforcement-learning pool. Experiments show that WeVisForensics averages 95.2% detection accuracy across in-domain, out-of-domain and agentic benchmarks, 9.0% above the strongest prior detector, while grounding its verdicts in localized evidence.",
+    "upvotes": 54,
+    "publishedAt": "2026-11-16T00:00:00.000Z",
+    "githubRepo": "https://github.com/Tencent/WeVisForensics",
+    "projectPage": "https://tencent.github.io/WeVisForensics",
+    "ai_summary": "WeVisForensics coordinates self-evolving visual and audio forensic inspector agents under a dual-timescale reinforcement learning policy to detect generated-video artifacts with localized evidence and high accuracy.",
+    "ai_keywords": [
+     "video generation",
+     "chain-of-thought reasoning",
+     "multi-agent workflows",
+     "agentic framework",
+     "main investigator agent",
+     "self-evolving library",
+     "forensic inspector sub-agents",
+     "visual and audio cues",
+     "dual-timescale policy optimization",
+     "DTPO",
+     "reinforcement learning",
+     "annotated artifact intervals",
+     "ForenCue-30K",
+     "reinforcement-learning pool"
+    ],
+    "authors": [
+     {
+      "name": "Yipeng Du"
+     },
+     {
+      "name": "Yuxi Li"
+     },
+     {
+      "name": "Ying Zhang"
+     },
+     {
+      "name": "Chong Sun"
+     },
+     {
+      "name": "Chen Li"
+     },
+     {
+      "name": "Jing Lyu"
+     },
+     {
+      "name": "Ying Tai"
+     }
+    ]
+   },
+   "numComments": 3
+  },
+  {
+   "paper": {
+    "id": "2611.26409",
+    "title": "WeMM-Video: Pushing the Frontiers of Open-Source Omni-Modal Video Understanding",
+    "summary": "Video understanding, particularly with accompanying audio, remains a central challenge in multimodal intelligence. In this report, we introduce WeMM-Video, a family of Chinese-English bilingual omni-modal foundation models spanning 2B, 4B, 9B, and 35B-A3B variants. Centering on joint audio-visual perception and reasoning, WeMM-Video unifies text, image, audio, and video processing within a hybrid-thinking paradigm, seamlessly supporting both a non-thinking instruct mode for fast, direct responses and a thinking mode for explicit step-by-step reasoning. The models are trained on a large-scale multimodal corpus of approximately 1.2 trillion tokens through progressive pre-training and a multi-stage post-training pipeline incorporating multi-teacher OPD, anti-repetition MrDPO, and specialist RL. Evaluated across more than 120 benchmarks, WeMM-Video demonstrates superior performance in omni-modal video understanding and reasoning, while maintaining highly competitive capabilities across general audio, silent video, image, and text tasks. Specifically, in omni-modal video evaluations, our flagship WeMM-Video-35B-A3B establishes a new open-source state of the art, substantially outperforming proprietary models such as Qwen3.5-Omni-Flash and Seed2.0-Mini-0428 while narrowing the gap with the strong Gemini-3.0-Flash, and our compact WeMM-Video-9B surpasses the larger open-source Qwen3-Omni-30B-A3B-Instruct. We publicly release the WeMM-Video family along with our evaluation and reproduction pipeline to foster further research and development in the open-source community.",
+    "upvotes": 49,
+    "publishedAt": "2026-11-19T00:00:00.000Z",
+    "githubRepo": "https://github.com/Tencent/WeMM-Video",
+    "projectPage": null,
+    "ai_summary": "WeMM-Video is a family of Chinese-English bilingual omni-modal foundation models that unify text, image, audio, and video processing for joint audio-visual perception and reasoning, using hybrid thinking modes and large-scale training to achieve strong open-source video understanding results.",
+    "ai_keywords": [
+     "omni-modal foundation models",
+     "joint audio-visual perception",
+     "joint audio-visual reasoning",
+     "hybrid-thinking paradigm",
+     "non-thinking instruct mode",
+     "thinking mode",
+     "explicit step-by-step reasoning",
+     "progressive pre-training",
+     "multi-stage post-training pipeline",
+     "multi-teacher OPD",
+     "anti-repetition MrDPO",
+     "specialist RL",
+     "omni-modal video understanding",
+     "omni-modal video reasoning"
+    ],
+    "authors": [
+     {
+      "name": "Changli Tang"
+     },
+     {
+      "name": "Jie Yang"
+     },
+     {
+      "name": "Tianyi Wang"
+     },
+     {
+      "name": "Lei Li"
+     },
+     {
+      "name": "Daoze Zhang"
+     },
+     {
+      "name": "Zijie Xin"
+     },
+     {
+      "name": "Zhan Liu"
+     },
+     {
+      "name": "Li Li"
+     },
+     {
+      "name": "Jinchang Xu"
+     },
+     {
+      "name": "Fengyun Rao"
+     },
+     {
+      "name": "Chao Zhang"
+     },
+     {
+      "name": "Jing Lyu"
+     }
+    ]
+   },
+   "numComments": 3
+  },
+  {
+   "paper": {
+    "id": "2611.26629",
+    "title": "Posterior Matching Distillation",
+    "summary": "Diffusion distillation accelerates image and video generation by compressing a pretrained teacher's iterative sampling process into a few network evaluations. Distribution-based methods achieve this by matching the student's output distribution to the teacher's. This matching is often driven by reverse-KL objectives, whose mode-seeking bias favors dominant teacher modes at the expense of diversity across samples. We introduce Posterior Matching Distillation (PMD), a new member of the distribution-based distillation family that combines mode-covering posterior sampling with any-step generation. At zero population loss, PMD recovers the teacher's full posterior of clean images at each trained noise level. Its stochastic student supports any-step sampling budgets within the trained timestep grid without further training. To learn these posteriors, PMD matches exponentially reweighted averages of student samples conditioned on a fixed noisy state to corresponding teacher posterior means. Under Gaussian corruption, exponentially tilted posterior mean is a single teacher evaluation at a shifted input. We prove that, matching tilted means over an open neighborhood uniquely identifies the full posterior. PMD thus supervises the entire conditional distribution through a family of mean constraints, without any auxiliary student-score network. Experiments on SDXL and FLUX.2 [klein] 4B demonstrate that PMD achieves the best FID among 4-step methods on both models, while maintaining competitive or leading performance across prompt-alignment and perceptual-quality metrics.",
+    "upvotes": 42,
+    "publishedAt": "2026-11-19T00:00:00.000Z",
+    "githubRepo": "https://github.com/yesiltepe-hidir/PMD",
+    "projectPage": "https://pmd-distillation.github.io/",
+    "ai_summary": "Posterior Matching Distillation trains a stochastic student to match a teacher diffusion model\u2019s full posterior via tilted mean constraints, enabling high-quality few-step image generation without auxiliary score networks.",
+    "ai_keywords": [
+     "diffusion distillation",
+     "distribution-based distillation",
+     "teacher-student distillation",
+     "pretrained teacher",
+     "iterative sampling process",
+     "network evaluations",
+     "student output distribution",
+     "reverse-KL objectives",
+     "mode-seeking bias",
+     "teacher modes",
+     "mode-covering posterior sampling",
+     "Posterior Matching Distillation (PMD)",
+     "any-step generation",
+     "population loss",
+     "posterior of clean images",
+     "trained noise level",
+     "stochastic student",
+     "sampling budgets",
+     "trained timestep grid",
+     "exponentially reweighted averages",
+     "student samples",
+     "fixed noisy state",
+     "teacher posterior means",
+     "Gaussian corruption",
+     "exponentially tilted posterior mean",
+     "shifted input",
+     "tilted means",
+     "conditional distribution",
+     "mean constraints",
+     "auxiliary student-score network",
+     "SDXL",
+     "FLUX.2 [klein] 4B",
+     "FID",
+     "4-step methods",
+     "prompt-alignment",
+     "perceptual-quality metrics"
+    ],
+    "authors": [
+     {
+      "name": "Hidir Yesiltepe"
+     },
+     {
+      "name": "Julius Berner"
+     },
+     {
+      "name": "Arash Vahdat"
+     },
+     {
+      "name": "Pinar Yanardag"
+     }
+    ]
+   },
+   "numComments": 4
+  },
+  {
+   "paper": {
+    "id": "2611.26595",
+    "title": "Coda-DaVinci: Reimagining Video Generation with Code2Video",
+    "summary": "Code2Video uses agent-authored 3D proxies to guide video generation, enabling explicit control over structure and dynamics. However, how to construct proxies and prompts for optimal downstream quality remains underexplored, as do the capabilities and limitations of this paradigm. Through controlled experiments and blinded human evaluation, we study proxy granularity, physics simulation, and prompting. The results reveal task-dependent trade-offs: coarse proxies favor natural motion, while medium-grained proxies favor consistency. Physics simulation and proxy-aligned prompting further improve average quality. Guided by these findings, we introduce Coda-DaVinci, a task-adaptive agentic framework for Code2Video generation that selects between proxy-guided and direct generation, adapts modeling granularity to each entity, and coordinates simulation with proxy-grounded prompting. Its multi-agent harness preserves scene assets and guides repairs through visual inspection and independent review. Experiments demonstrate leading instruction following on VTR and scene consistency on R2M, improved physical plausibility over direct generation, and higher visual realism than the compared Code2Video baselines. Long-video evaluations further show gains in event structure and consistency across successive interactions, while revealing limitations in transition stability and adherence to scene settings.",
+    "upvotes": 39,
+    "publishedAt": "2026-11-19T00:00:00.000Z",
+    "githubRepo": "https://github.com/FrankYang-17/Coda",
+    "projectPage": "https://coda-davinci.github.io/",
+    "ai_summary": "A task-adaptive agentic framework utilizes 3D proxies, physics simulation, and multi-agent coordination to enhance the structural control, physical plausibility, and visual realism of generated videos.",
+    "ai_keywords": [
+     "3D proxies",
+     "Proxy granularity",
+     "Physics simulation",
+     "Proxy-aligned prompting",
+     "Coda-DaVinci",
+     "Task-adaptive agentic framework",
+     "Multi-agent harness",
+     "Instruction following",
+     "Scene consistency",
+     "Physical plausibility",
+     "Visual realism"
+    ],
+    "authors": [
+     {
+      "name": "Yiyan Ji"
+     },
+     {
+      "name": "Qixun Wang"
+     },
+     {
+      "name": "Yang Shi"
+     },
+     {
+      "name": "Zhuoran Zhang"
+     },
+     {
+      "name": "Yifan Xu"
+     },
+     {
+      "name": "Tengfei Liu"
+     },
+     {
+      "name": "Yuqi Tang"
+     },
+     {
+      "name": "Xiaohan Zhang"
+     },
+     {
+      "name": "Shujie Li"
+     },
+     {
+      "name": "Jiafu Tang"
+     },
+     {
+      "name": "Xuanyu Zhu"
+     },
+     {
+      "name": "Xinyu Liu"
+     },
+     {
+      "name": "Yan He"
+     },
+     {
+      "name": "Yushuo Guan"
+     },
+     {
+      "name": "Zihao Wang"
+     },
+     {
+      "name": "Xianghua Ying"
+     },
+     {
+      "name": "Shixuan Liu"
+     },
+     {
+      "name": "Haotian Wang"
+     },
+     {
+      "name": "Wenjing Yang"
+     },
+     {
+      "name": "Zhaoxiang Zhang"
+     },
+     {
+      "name": "Yuanxing Zhang"
+     },
+     {
+      "name": "Pengfei Wan"
+     },
+     {
+      "name": "Jiaheng Liu"
+     }
+    ]
+   },
+   "numComments": 4
+  }
+ ]
+}

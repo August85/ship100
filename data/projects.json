@@ -382,7 +382,7 @@
       "reuses": [
         "levelup"
       ],
-      "status": "approved",
+      "status": "building",
       "effort": "M",
       "notes": "",
       "slug": "system-design-flashcards",
@@ -391,7 +391,7 @@
         "code": "",
         "post": ""
       },
-      "day": null,
+      "day": 18,
       "shippedAt": null,
       "createdAt": "2026-11-06"
     },

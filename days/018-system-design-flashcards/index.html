@@ -8,6 +8,7 @@
   <meta property="og:title" content="System Design Flashcards · Day 18 of Ship 100">
   <meta property="og:description" content="Spaced repetition built from your 22 DE volumes.">
   <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="icon.png">
 </head>
 <body>
   <header class="bar">
@@ -17,15 +18,80 @@
 
   <main class="wrap">
     <h1>System Design Flashcards</h1>
-    <p class="lede">Spaced repetition built from your 22 DE volumes.</p>
+    <p class="lede">Spaced repetition for system design: 293 cards from the Distinguished Engineer library. A few minutes a day, and the hard ones come back sooner.</p>
 
-    <!-- The day's app goes here. -->
-    <section id="app" class="card"></section>
+    <section id="home">
+      <div class="stats" id="stats" aria-live="polite"></div>
+      <div class="card start">
+        <div>
+          <div id="startTitle" class="start-title">Loading cards…</div>
+          <div id="startSub" class="muted small"></div>
+        </div>
+        <button id="startBtn" class="primary big" disabled>Study</button>
+      </div>
+      <div class="card forecast-card">
+        <div class="row-head"><h2>Next 7 days</h2><span class="muted small">reviews due</span></div>
+        <div id="forecast" class="forecast" role="img"></div>
+      </div>
+
+      <div class="row-head decks-head">
+        <h2>Decks</h2>
+        <span class="muted small" id="deckCount"></span>
+      </div>
+      <div id="decks"></div>
+
+      <details class="card settings">
+        <summary>Settings and progress</summary>
+        <div class="settings-body">
+          <label>New cards per day
+            <select id="newPerDay"><option>5</option><option>10</option><option selected>20</option><option>30</option><option>50</option></select>
+          </label>
+          <div class="btns">
+            <button id="exportBtn">Export progress</button>
+            <label class="btn file">Import progress<input id="importInput" type="file" accept="application/json" hidden></label>
+            <button id="resetBtn" class="danger">Reset progress</button>
+          </div>
+          <p class="muted small">Progress lives only in this browser (localStorage). Export it to move it to another device.</p>
+        </div>
+      </details>
+    </section>
+
+    <section id="study" hidden>
+      <div class="study-top">
+        <button id="quitBtn" class="ghost">← Decks</button>
+        <div class="progress" aria-hidden="true"><div id="progressBar"></div></div>
+        <span id="progressText" class="muted small tnum"></span>
+      </div>
+      <article class="card flash" id="flash">
+        <div class="flash-meta"><span id="cardDeck"></span><span id="cardTag" class="tag"></span></div>
+        <h2 id="cardQ" class="q"></h2>
+        <div id="cardA" class="a" hidden></div>
+      </article>
+      <div class="actions">
+        <button id="showBtn" class="primary big wide">Show answer <kbd>Space</kbd></button>
+        <div id="grades" class="grades" hidden>
+          <button data-grade="1" class="g again"><b>Again</b><span></span><kbd>1</kbd></button>
+          <button data-grade="2" class="g hard"><b>Hard</b><span></span><kbd>2</kbd></button>
+          <button data-grade="3" class="g good"><b>Good</b><span></span><kbd>3</kbd></button>
+          <button data-grade="4" class="g easy"><b>Easy</b><span></span><kbd>4</kbd></button>
+        </div>
+      </div>
+    </section>
+
+    <section id="done" hidden class="card done">
+      <h2>Done for now</h2>
+      <p id="doneText"></p>
+      <div class="btns">
+        <button id="moreBtn" class="primary">Learn 10 more new cards</button>
+        <button id="homeBtn">Back to decks</button>
+      </div>
+    </section>
   </main>
 
   <footer class="wrap foot">
     Built in a day by <a href="https://www.linkedin.com/in/abhimanyu-katyayan/">Abhimanyu Katyayan</a> ·
-    <a href="https://github.com/August85/ship100/tree/main/days/018-system-design-flashcards">Source</a>
+    <a href="https://github.com/August85/ship100/tree/main/days/018-system-design-flashcards">Source</a> ·
+    Cards from <a href="https://github.com/August85/levelup">LevelUP</a>
   </footer>
   <script type="module" src="app.js"></script>
 </body>

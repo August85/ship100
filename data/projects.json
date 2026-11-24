@@ -382,17 +382,17 @@
       "reuses": [
         "levelup"
       ],
-      "status": "building",
+      "status": "shipped",
       "effort": "M",
       "notes": "",
       "slug": "system-design-flashcards",
       "links": {
-        "live": "",
-        "code": "",
+        "live": "https://august85.github.io/ship100/days/018-system-design-flashcards/",
+        "code": "https://github.com/August85/ship100/tree/main/days/018-system-design-flashcards",
         "post": ""
       },
       "day": 18,
-      "shippedAt": null,
+      "shippedAt": "2026-11-24T14:11:45.292Z",
       "createdAt": "2026-11-06"
     },
     {

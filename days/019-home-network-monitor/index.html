@@ -12,6 +12,12 @@
   <link rel="stylesheet" href="style.css">
   <style>
     .shots { display: flex; gap: 16px; overflow-x: auto; padding-bottom: 8px; }
+    pre.term { background: #0d1117; color: #c9d1d9; padding: 14px; border-radius: 12px; overflow-x: auto; font-size: 13px; line-height: 1.5; }
+    pre.term .warn { color: #f0b429; }
+    code { font-family: ui-monospace, Menlo, monospace; font-size: 0.92em; }
+    .shots { align-items: flex-start; }
+    .shots img.wide { height: auto; width: 640px; }
+    .btn { display: inline-block; white-space: nowrap; text-decoration: none; margin: 0 6px 8px 0; }
     .shots img { height: 520px; max-width: 90vw; object-fit: contain; border-radius: 18px; border: 1px solid var(--line); background: var(--surface-2); }
     .steps li { margin-bottom: 6px; }
     .platform { display: inline-block; font-size: 13px; padding: 2px 10px; border-radius: 999px; background: var(--surface-2); color: var(--muted); }
@@ -29,14 +35,38 @@
     <h1>Home Network Monitor</h1>
     <p class="lede">A list of devices on your Wi-Fi, with alerts for new ones.</p>
 
-    <!-- Screenshots go in shots/ (PNG, from the simulator / watch simulator). -->
-    <section class="shots" aria-label="Screenshots"></section>
+    <p><a class="btn" href="demo.html">Open the sample dashboard</a> <a class="btn" href="https://github.com/August85/ship100/tree/main/days/019-home-network-monitor/app">Get the code</a></p>
+
+    <section class="shots" aria-label="Screenshots">
+      <img class="wide" src="shots/dashboard-desktop.png" alt="Dashboard listing ten devices: router, Raspberry Pi, a named laptop, a phone with a private address shown as offline, smart-home gadgets, and an Espressif device marked New.">
+      <img src="shots/dashboard-phone.png" alt="The same dashboard on a phone-sized screen.">
+    </section>
 
     <h2>What it does</h2>
-    <ul></ul>
+    <ul>
+      <li>Every 5 minutes it pings your network and reads the ARP table, so it sees every device that answers, not just the chatty ones.</li>
+      <li>The first scan becomes your baseline. After that, a MAC address it has never seen raises an alert: a log line and, if you want, a push to your phone through the free <a href="https://ntfy.sh">ntfy</a> app or any webhook.</li>
+      <li>Guesses what each device is from its MAC prefix (Hue, Sonos, Raspberry Pi, Espressif smart plug…) and spots phones using a private, per-network address.</li>
+      <li>Give devices names (<code>--name aa:bb:… "Kitchen speaker"</code>) and it keeps them. Shows when each one was last seen.</li>
+      <li>Writes a small dashboard and a JSON file, and can serve them on your LAN. Python standard library only: no root, no cloud.</li>
+    </ul>
+
+    <h2>What a new device looks like</h2>
+<pre class="term">$ python3 main.py --mock --once   # run it three times
+INFO first scan: learned 9 devices as your baseline (no alerts)
+INFO went offline: Private address (phone/laptop) 192.168.1.21
+<span class="warn">WARNING NEW DEVICE: Espressif (ESP smart plug/gadget) at 192.168.1.77 (d8:f1:5b:0c:4e:91)</span>
+INFO 10 online, 10 known</pre>
 
     <h2>Try it</h2>
-    <ol class="steps"></ol>
+    <ol class="steps">
+      <li>Copy the <code>app/</code> folder to your Pi (any Pi with Python 3; a Mac or Linux laptop works too).</li>
+      <li>Try the pretend network: <code>python3 main.py --mock --once</code>, three times.</li>
+      <li>Watch your real one: <code>python3 main.py --serve 8088</code>, then open <code>http://&lt;pi-name&gt;:8088</code>.</li>
+      <li>For phone alerts, install ntfy, subscribe to a hard-to-guess topic, and add <code>--alert-url https://ntfy.sh/&lt;topic&gt;</code>.</li>
+      <li>To run at boot: copy <code>service.service</code> to <code>/etc/systemd/system/home-network-monitor.service</code>, then <code>sudo systemctl enable --now home-network-monitor</code>.</li>
+    </ol>
+    <p class="muted">Only watch networks you own or run. The dashboard has no login, so keep it on your home network.</p>
   </main>
 
   <footer class="wrap foot">

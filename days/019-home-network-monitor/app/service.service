@@ -4,7 +4,9 @@ After=network-online.target
 Wants=network-online.target
 
 [Service]
-ExecStart=/usr/bin/python3 /home/pi/ship100/019-home-network-monitor/main.py
+# Optional: push alerts to your phone with the free ntfy app (pick a hard-to-guess topic name).
+# Environment=HNM_ALERT_URL=https://ntfy.sh/your-secret-topic
+ExecStart=/usr/bin/python3 /home/pi/home-network-monitor/main.py --serve 8088
 Restart=on-failure
 User=pi
 

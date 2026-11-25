@@ -403,17 +403,17 @@
       "theme": "Home, Pi and automation",
       "stack": "pi",
       "reuses": [],
-      "status": "building",
+      "status": "shipped",
       "effort": "L",
       "notes": "",
       "slug": "home-network-monitor",
       "links": {
-        "live": "",
-        "code": "",
+        "live": "https://august85.github.io/ship100/days/019-home-network-monitor/",
+        "code": "https://github.com/August85/ship100/tree/main/days/019-home-network-monitor",
         "post": ""
       },
       "day": 19,
-      "shippedAt": null,
+      "shippedAt": "2026-11-25T14:11:48.379Z",
       "createdAt": "2026-11-06"
     },
     {

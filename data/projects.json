@@ -403,7 +403,7 @@
       "theme": "Home, Pi and automation",
       "stack": "pi",
       "reuses": [],
-      "status": "approved",
+      "status": "building",
       "effort": "L",
       "notes": "",
       "slug": "home-network-monitor",
@@ -412,7 +412,7 @@
         "code": "",
         "post": ""
       },
-      "day": null,
+      "day": 19,
       "shippedAt": null,
       "createdAt": "2026-11-06"
     },

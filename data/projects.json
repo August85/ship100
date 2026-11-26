@@ -424,7 +424,7 @@
       "theme": "Kids 3–6",
       "stack": "web",
       "reuses": [],
-      "status": "idea",
+      "status": "building",
       "effort": "M",
       "notes": "",
       "slug": "story-dice",
@@ -433,7 +433,7 @@
         "code": "",
         "post": ""
       },
-      "day": null,
+      "day": 20,
       "shippedAt": null,
       "createdAt": "2026-11-12"
     },

@@ -7,6 +7,7 @@
   <meta name="description" content="Roll three picture dice (a hero, a place, a problem) and get a story starter to tell together, read aloud by the phone.">
   <meta property="og:title" content="Story Dice · Day 20 of Ship 100">
   <meta property="og:description" content="Roll three picture dice (a hero, a place, a problem) and get a story starter to tell together, read aloud by the phone.">
+  <link rel="icon" href="icon.png">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -19,8 +20,36 @@
     <h1>Story Dice</h1>
     <p class="lede">Roll three picture dice (a hero, a place, a problem) and get a story starter to tell together, read aloud by the phone.</p>
 
-    <!-- The day's app goes here. -->
-    <section id="app" class="card"></section>
+    <section id="app" class="card" aria-label="Story dice">
+      <div class="dice" role="group" aria-label="Dice. Tap a die to keep it for the next roll.">
+        <button class="die" data-i="0" aria-pressed="false"><span class="kind">Hero</span><span class="face" aria-hidden="true">🎲</span><span class="name">?</span><span class="lock" aria-hidden="true">📌 kept</span></button>
+        <button class="die" data-i="1" aria-pressed="false"><span class="kind">Place</span><span class="face" aria-hidden="true">🎲</span><span class="name">?</span><span class="lock" aria-hidden="true">📌 kept</span></button>
+        <button class="die" data-i="2" aria-pressed="false"><span class="kind">Problem</span><span class="face" aria-hidden="true">🎲</span><span class="name">?</span><span class="lock" aria-hidden="true">📌 kept</span></button>
+      </div>
+      <p class="hint muted" id="hint">Tap a die to keep it. Roll changes the rest.</p>
+      <div class="actions">
+        <button class="primary big" id="roll">🎲 Roll the dice</button>
+        <button class="big" id="read" disabled>🔊 Read it to me</button>
+      </div>
+
+      <article class="story" id="story" hidden aria-live="polite">
+        <h2 id="title"></h2>
+        <p class="starter"><span id="opening"></span> <span id="twist"></span></p>
+        <h3>What happens next?</h3>
+        <ol id="questions"></ol>
+        <p class="ending" id="ending"></p>
+      </article>
+
+      <details class="opts">
+        <summary>Grown-up settings</summary>
+        <label class="row"><input type="checkbox" id="auto" checked> Read the story aloud after each roll</label>
+        <label>Reading speed
+          <input type="range" id="rate" min="0.6" max="1.2" step="0.1" value="0.9">
+        </label>
+        <p class="muted small" id="voiceNote"></p>
+        <p class="muted small">How to play: roll, read the starter together, then take turns adding the next part. There are no wrong answers. 12 × 12 × 12 = 1,728 different starters.</p>
+      </details>
+    </section>
   </main>
 
   <footer class="wrap foot">

@@ -34,9 +34,9 @@ label { display: grid; gap: 4px; font-size: 14px; color: var(--muted); }
 .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
 
 /* ---------- Story Dice ---------- */
-:root { --hero: #ff8a3d; --place: #2fa86b; --problem: #8a5cf6; --accent: #e0407a; }
-@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --accent: #ff6fa0; } }
-:root[data-theme="dark"] { --accent: #ff6fa0; }
+:root { --hero: #ff8a3d; --place: #2fa86b; --problem: #8a5cf6; --accent: #c92a64; --accent-ink: #fff; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --accent: #ff6fa0; --accent-ink: #1b0a12; } }
+:root[data-theme="dark"] { --accent: #ff6fa0; --accent-ink: #1b0a12; }
 .dice { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
 .die { --c: var(--hero); position: relative; display: grid; justify-items: center; gap: 2px; padding: 12px 6px 14px;
   border: 3px solid var(--c); border-radius: 20px; background: color-mix(in srgb, var(--c) 10%, var(--surface));
@@ -61,7 +61,7 @@ label { display: grid; gap: 4px; font-size: 14px; color: var(--muted); }
 .actions { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
 button.big { font-size: 18px; padding: 14px 10px; border-radius: 14px; font-weight: 650; }
 button:disabled { opacity: .5; cursor: default; }
-button.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+button.primary { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
 .story { margin-top: 20px; padding: 18px; border-radius: 16px; background: var(--surface-2); }
 .story h2 { margin: 0 0 8px; font-size: 22px; }
 .starter { font-size: 20px; line-height: 1.6; margin: 0 0 12px; }

@@ -2,7 +2,7 @@
 
 Day 20 of 100: Story Dice.
 
-My kids love making up stories, but "tell me a story" on the spot is hard, for them and for me. So I made a set of picture dice.
+Little kids love making up stories, but "tell me a story" on the spot is hard, for them and for the grown-up. So I made a set of picture dice.
 
 Tap Roll and three big dice tumble: a hero (a dragon, a robot, a bunny), a place (the Moon, a candy town, the bottom of the ocean) and a problem (a lost hat, a strange egg, a treasure map). The phone reads out a story starter, then asks "What happens next?" with a couple of questions to take turns on.
 

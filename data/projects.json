@@ -445,7 +445,7 @@
       "theme": "For people in tech",
       "stack": "web",
       "reuses": [],
-      "status": "idea",
+      "status": "building",
       "effort": "M",
       "notes": "",
       "slug": "standup-writer",
@@ -454,7 +454,7 @@
         "code": "",
         "post": ""
       },
-      "day": null,
+      "day": 21,
       "shippedAt": null,
       "createdAt": "2026-11-12"
     },

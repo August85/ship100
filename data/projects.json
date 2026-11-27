@@ -445,17 +445,17 @@
       "theme": "For people in tech",
       "stack": "web",
       "reuses": [],
-      "status": "building",
+      "status": "shipped",
       "effort": "M",
       "notes": "",
       "slug": "standup-writer",
       "links": {
-        "live": "",
-        "code": "",
+        "live": "https://august85.github.io/ship100/days/021-standup-writer/",
+        "code": "https://github.com/August85/ship100/tree/main/days/021-standup-writer",
         "post": ""
       },
       "day": 21,
-      "shippedAt": null,
+      "shippedAt": "2026-11-27T14:13:25.017Z",
       "createdAt": "2026-11-12"
     },
     {

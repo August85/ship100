@@ -4,9 +4,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Standup Writer</title>
-  <meta name="description" content="Paste your `git log` or rough notes and get a tidy yesterday / today / blockers update, grouped by repo, ready for Slack.">
+  <meta name="description" content="Paste your git log or rough notes and get a tidy yesterday / today / blockers update, grouped by repo, ready for Slack.">
   <meta property="og:title" content="Standup Writer · Day 21 of Ship 100">
-  <meta property="og:description" content="Paste your `git log` or rough notes and get a tidy yesterday / today / blockers update, grouped by repo, ready for Slack.">
+  <meta property="og:description" content="Paste your git log or rough notes and get a tidy yesterday / today / blockers update, grouped by repo, ready for Slack.">
+  <link rel="icon" href="icon.png">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -17,10 +18,64 @@
 
   <main class="wrap">
     <h1>Standup Writer</h1>
-    <p class="lede">Paste your `git log` or rough notes and get a tidy yesterday / today / blockers update, grouped by repo, ready for Slack.</p>
+    <p class="lede">Paste your git log or rough notes and get a tidy yesterday / today / blockers update, grouped by repo, ready for Slack.</p>
 
-    <!-- The day's app goes here. -->
-    <section id="app" class="card"></section>
+    <section id="app" class="layout">
+      <div class="inputs card">
+        <label for="main">What you did <span class="hint">git log output, notes, or both</span></label>
+        <textarea id="main" rows="12" spellcheck="false" placeholder="api|a1b2c3d|feat: add rate limiting&#10;web|d4e5f60|fix: dark mode flicker&#10;&#10;or plain notes:&#10;- reviewed Sam's PR"></textarea>
+        <div class="row">
+          <button type="button" id="example">Load example</button>
+          <button type="button" id="clear">Clear</button>
+        </div>
+        <label for="today">Today</label>
+        <textarea id="today" rows="3" placeholder="- finish the export endpoint"></textarea>
+        <label for="blockers">Blockers <span class="hint">leave empty for "None"</span></label>
+        <textarea id="blockers" rows="2" placeholder="waiting on design review"></textarea>
+
+        <details class="help">
+          <summary>Get yesterday's commits from every repo</summary>
+          <p>Run this in the folder that holds your repos. It prints <code>repo|hash|subject</code> lines, which keeps the repo names:</p>
+          <div class="cmd"><pre id="cmd-all"></pre><button type="button" data-copy="cmd-all">Copy</button></div>
+          <p>Just one repo:</p>
+          <div class="cmd"><pre id="cmd-one"></pre><button type="button" data-copy="cmd-one">Copy</button></div>
+          <p class="muted">On a Monday the commands look back to Friday. Paste the output above; nothing leaves your browser.</p>
+        </details>
+      </div>
+
+      <div class="output card">
+        <div class="tabs" role="radiogroup" aria-label="Format">
+          <label><input type="radio" name="format" value="slack" checked> Slack</label>
+          <label><input type="radio" name="format" value="markdown"> Markdown</label>
+          <label><input type="radio" name="format" value="plain"> Plain</label>
+        </div>
+        <pre id="out" class="out" aria-live="polite" tabindex="0"></pre>
+        <div class="row">
+          <button type="button" id="copy" class="primary">Copy update</button>
+          <span id="status" class="muted" role="status"></span>
+        </div>
+        <fieldset class="opts">
+          <legend>Options</legend>
+          <label class="chk"><input type="checkbox" id="group" checked> Group by repo</label>
+          <label class="chk"><input type="checkbox" id="compact"> One line per repo</label>
+          <label class="chk"><input type="checkbox" id="pastTense" checked> Past tense ("fix" → "Fixed")</label>
+          <label class="chk"><input type="checkbox" id="hashes"> Show commit hashes</label>
+          <label class="sel">First heading
+            <select id="label">
+              <option value="auto">Auto (Friday on Mondays)</option>
+              <option value="yesterday">Yesterday</option>
+              <option value="friday">Friday</option>
+              <option value="since">Since last standup</option>
+            </select>
+          </label>
+        </fieldset>
+        <p id="stats" class="muted small"></p>
+        <details id="dropped-box" class="help" hidden>
+          <summary id="dropped-sum">Left out</summary>
+          <ul id="dropped" class="small"></ul>
+        </details>
+      </div>
+    </section>
   </main>
 
   <footer class="wrap foot">

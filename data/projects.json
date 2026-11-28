@@ -466,7 +466,7 @@
       "theme": "Kids 3–6",
       "stack": "ios",
       "reuses": [],
-      "status": "idea",
+      "status": "building",
       "effort": "M",
       "notes": "",
       "slug": "letter-tracing",
@@ -475,7 +475,7 @@
         "code": "",
         "post": ""
       },
-      "day": null,
+      "day": 22,
       "shippedAt": null,
       "createdAt": "2026-11-12"
     },

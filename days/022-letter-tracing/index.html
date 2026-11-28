@@ -29,14 +29,38 @@
     <h1>Letter Tracing</h1>
     <p class="lede">Trace A–Z and 0–9 with a finger. Stars when you stay on the path, and each letter is spoken aloud. Big targets for small hands.</p>
 
-    <!-- Screenshots go in shots/ (PNG, from the simulator / watch simulator). -->
-    <section class="shots" aria-label="Screenshots"></section>
+    <section class="shots" aria-label="Screenshots">
+      <img src="shots/1-home.jpg" alt="Home screen: a grid of colourful letter tiles A to R, each with up to three gold stars, and 48 stars in total" loading="lazy">
+      <img src="shots/2-tracing.jpg" alt="Tracing B: the straight line and top bump are filled in orange, the bottom bump is still grey with an arrow showing where to go. Header says B is for ball" loading="lazy">
+      <img src="shots/3-done.jpg" alt="Finished S: three gold stars, a sun, and the words S is for sun! Perfect! with Again and Next buttons" loading="lazy">
+      <img src="shots/4-numbers-dark.jpg" alt="Dark mode, tracing the number 5: the down stroke and start of the curve are filled in teal, with five dots under the word Five" loading="lazy">
+    </section>
 
     <h2>What it does</h2>
-    <ul></ul>
+    <ul>
+      <li><b>All 26 capital letters and the digits 0–9</b>, each split into the strokes a child is taught, in the usual order and direction.</li>
+      <li><b>A green start dot and a little arrow</b> show where to begin and which way to go. A dotted centre line runs down the middle of a wide grey road, so small fingers have plenty of room.</li>
+      <li><b>Ink only follows the path.</b> Wander off and nothing fills in. Skip ahead across an O and it won't count, so the letter has to be traced the whole way round.</li>
+      <li><b>Spoken aloud:</b> the letter is said when it opens, and again with a word when it's done ("B! B is for ball."). Tap the word at the top to hear it any time. Numbers say their name and show that many dots.</li>
+      <li><b>One to three stars</b> for how well the finger stayed on the path. Everyone who finishes gets at least one. Your best score for each letter shows on the home grid.</li>
+      <li><b>"Show me"</b> plays the strokes slowly so a child can watch before trying.</li>
+      <li>No account, no ads, no tracking, no internet needed. Stars are kept on the phone.</li>
+    </ul>
+
+    <h2>How it works</h2>
+    <p>Each letter is drawn from lines and ellipse arcs in a unit square, then cut into evenly spaced points every 1.5% of the box.
+      As the finger moves, the app looks a short way ahead along the current stroke (about 18% of the box) and moves the ink up to
+      the furthest point within reach. That short look-ahead is what stops a child from finishing an O by tapping the end next to the start.
+      Every finger sample is also marked on or off the path; the share that stayed on decides the stars (85%+ for three, 60%+ for two).
+      The voice is Apple's built-in speech, so nothing is downloaded. Tests trace every glyph exactly, wobbly, and off-path, and a UI test drags a real finger down the I.</p>
 
     <h2>Try it</h2>
-    <ol class="steps"></ol>
+    <ol class="steps">
+      <li>Clone <a href="https://github.com/August85/ship100">August85/ship100</a> and open <code>days/022-letter-tracing/app</code>.</li>
+      <li>Run <code>xcodegen</code> (install with <code>brew install xcodegen</code>), then open <code>LetterTracing.xcodeproj</code>.</li>
+      <li>Pick an iPhone simulator or your own phone and press Run. Needs iOS 17 or later. Turn the volume up.</li>
+    </ol>
+    <p class="muted">TestFlight link coming soon.</p>
   </main>
 
   <footer class="wrap foot">

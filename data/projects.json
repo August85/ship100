@@ -466,17 +466,17 @@
       "theme": "Kids 3–6",
       "stack": "ios",
       "reuses": [],
-      "status": "building",
+      "status": "shipped",
       "effort": "M",
       "notes": "",
       "slug": "letter-tracing",
       "links": {
-        "live": "",
-        "code": "",
+        "live": "https://august85.github.io/ship100/days/022-letter-tracing/",
+        "code": "https://github.com/August85/ship100/tree/main/days/022-letter-tracing",
         "post": ""
       },
       "day": 22,
-      "shippedAt": null,
+      "shippedAt": "2026-11-28T14:15:47.463Z",
       "createdAt": "2026-11-12"
     },
     {
